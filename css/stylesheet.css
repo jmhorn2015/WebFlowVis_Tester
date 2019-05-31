@@ -1,0 +1,44 @@
+body {
+	margin: 0; 
+	background-color:white;
+	color:white;
+	text-align:right;
+}
+canvas { width: 100%; height: 100% }
+#inset {
+	width: 100px;
+	height: 100px;
+	background-color: #fff; 
+	border: 1px solid black;
+	margin: 20px;
+	padding: 0px;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	z-index: 100;
+}
+#three {
+	color:white;
+	width: 200px;
+	height: 200px;
+	background-color: white; 
+	border: 1px solid black;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	z-index: 50;
+}
+#UI {
+	width: 300px;
+	height: 600px;
+	background-color: #888; 
+	border: 1px solid black;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 50;
+}

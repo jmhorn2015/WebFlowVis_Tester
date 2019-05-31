@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: DavimWebFlowVis.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: DavimWebFlowVis.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @fileOverview This library file includes all classes and methods to visualize lines, surfaces and volume
+ * @author &lt;a href="mailto:duongnguyenbinh@gmail.com">UH DaViM&lt;/a>
+ * @version 1.0
+ */
+
+
+
+/*---------------------------DavimObject class --------------------------------------- */
+/**
+ * Abstract base class for most objects. 
+ * @class DavimObject
+ * @classdesc This base class for most objects in the visualization framework. DavimObject defines the name, type, clickable behavior. Most objects created within the framework should be a subclass of DavimObject or one of its children
+ *
+ */
+class DavimObject {
+
+  /**
+   * 
+   * @constructor
+   * @param {string} name - Name of the object.
+   * @param {string} type - Type of the object
+   * @param {boolean} isClickable - Is clickable object
+   */
+  constructor(name, type, isClickable) {
+    this.name = name;
+    this.type = type;
+    this.isClickable = isClickable;
+  }
+
+  /**
+   * Return the list of properties of the object
+   * @returns {Array}
+   */
+  getProperties() {
+    console.log(`getProperties of the object named ${this.name} is called!`);
+    return [];
+  }
+}
+
+/*---------------------------DavimSurface class --------------------------------------- */
+/**
+ * Surface object
+ * @augments DavimObject
+ * @class DavimSurface
+ * @classdesc This class provides the functionalities to store surface mesh and visualize it. Its base class is {@link DavimObject}. The material on the surface can be either color or texture. 
+ *
+ */
+class DavimSurface extends DavimObject {
+
+  /**
+   * Update a mesh for the surface
+   * @param {THREE.Mesh} meshObject - triangular polygon mesh  
+   */
+  updateMesh(meshObject) {
+    this.meshObject = meshObject;
+  }
+
+  /**
+   * Construct a local dat.GUI menu
+   * @returns {dat.GUI} surface local menu
+   */
+  getGUIMenu(){
+    this.surfaceLocalMenu = new dat.GUI({ autoPlace: false });
+    this.surfaceLocalMenu.domElement.id = 'gui';
+
+    var cam = this.surfaceLocalMenu.addFolder('Camera');
+    cam.add(this.options.camera, 'speed', 0, 0.0010).listen();
+    cam.open();
+
+    return this.surfaceLocalMenu;
+  }
+
+
+   /**
+   * Remove a local dat.GUI menu
+   * 
+   */
+  removeMenu(){
+    $('#gui').remove();
+  }
+
+
+  /**
+   * List of the properties
+   */
+  options = {
+    velx: 0,
+    vely: 0,
+    camera: {
+      speed: 0.0001
+    },
+    stop: function () {
+      this.velx = 0;
+      this.vely = 0;
+    },
+    reset: function () {
+      this.velx = 0.1;
+      this.vely = 0.1;
+
+    }
+  };
+
+}
+
+
+
+
+
+/*----------------------------------------MAIN------------------------------------------------ */
+$(document).ready(function () {
+
+  if (!Detector.webgl) {
+    Detector.addGetWebGLMessage();
+  }
+
+
+  //var stats = new Stats();
+  //stats.showPanel( 0 );
+  //$('#surface_view').append( stats.dom );
+
+
+
+
+  /* Initialize */
+
+  /**
+   * Store the Threejs DOM
+   * @var container
+   */
+  var container = document.getElementById("surface_view");
+  var surfaceObject = new DavimSurface();
+  var currentMeshObjects = [];
+
+  /**
+   * Store the Threejs scene &lt;tt> THREE.Scene &lt;/tt>
+   * @var scene
+   */
+  var scene = new THREE.Scene();
+
+  /* Camera */
+  var VIEW_WIDTH = $(".col-sm-8").width();
+  var VIEW_HEIGHT = 550;
+
+  /**
+   * Store the Threejs camera 
+   * @type THREE.PerspectiveCamera
+   * @var camera
+   */
+  var camera = new THREE.PerspectiveCamera(75, VIEW_WIDTH / VIEW_HEIGHT, 0.001, 10000);
+  camera.position.set(1, 1, 1);
+
+  //camera.up = new THREE.Vector3(0, 0, 1);
+  //camera.lookAt(new THREE.Vector3(0,0, 0));
+
+  /**
+   * Store the Threejs renderer 
+   * @type THREE.WebGLRenderer
+   * @var renderer
+   */
+  var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(VIEW_WIDTH, VIEW_HEIGHT);
+  renderer.setClearColor(new THREE.Color("rgb(218, 222, 229)"));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+  renderer.gammaInput = true;
+  renderer.gammaOutput = true;
+  renderer.domElement.id = 'threejs-renderer';
+
+  container.appendChild(renderer.domElement);
+
+  /* Controls */
+  var controls = new THREE.TrackballControls(camera);
+
+  controls.rotateSpeed = 4;
+  controls.zoomSpeed = 1.2;
+  controls.panSpeed = 0.8;
+  controls.target.set(0.5, 0.5, 0.5);
+
+
+  controls.noZoom = false;
+  controls.noPan = false;
+
+  controls.staticMoving = true;
+  controls.dynamicDampingFactor = 0.3;
+  controls.addEventListener('change', render);
+
+
+  renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
+  window.addEventListener('resize', onWindowResize, false);
+  var raycaster = new THREE.Raycaster();
+  var mouse = new THREE.Vector2(), INTERSECTED;
+  var canvasBounds = renderer.context.canvas.getBoundingClientRect();
+
+
+  var gui;
+  function onDocumentMouseDown(event) {
+
+    event.preventDefault();
+
+    mouse.x = ((event.clientX - canvasBounds.left) / (canvasBounds.right - canvasBounds.left)) * 2 - 1;
+    mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    var intersects = raycaster.intersectObjects(currentMeshObjects, true);
+
+    console.log(intersects);
+    if (intersects.length > 0) {
+      if (INTERSECTED != intersects[0].object) {
+        if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+        INTERSECTED = intersects[0].object;
+        INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+        INTERSECTED.material.emissive.setHex(0xff0000);
+      }
+      intersects[0].object.callback();
+
+     
+      $('#surface_view').append(surfaceObject.getGUIMenu().domElement);
+  
+    }
+    else {
+      if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+      INTERSECTED = null;
+
+      surfaceObject.removeMenu();
+     
+
+    }
+
+  }
+
+  /* Add some data*/
+
+
+  /* Load obj */
+  // instantiate a loader
+  var objLoader = new THREE.OBJLoader();
+
+
+  objLoader.load(
+    'assets/surface2_1.obj',
+    function (object) {
+      object.traverse(function (child) {
+        if (child instanceof THREE.Mesh) {
+          var phongMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000, specular: 0xd75353, reflectivity: 100, shininess: 40, opacity: 1, transparent: true, shading: THREE.SmoothShading, side: THREE.DoubleSide });
+
+
+
+          console.log(child.geometry);
+          child.material = phongMaterial;
+          child.castShadow = true;
+          
+          child.callback = function () {
+            console.log("This is a callback");
+
+          }
+          child.name = "surface1";
+
+          surfaceObject.updateMesh(child);
+          
+          currentMeshObjects.push(surfaceObject.meshObject);
+          scene.add(surfaceObject.meshObject);
+        }
+      });
+
+
+    },
+    //called when loading is in progresses
+    function (xhr) {
+      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+    },
+    // called when loading has errors
+    function (error) {
+      console.log('An error happened');
+    }
+  );
+
+  /* Create ground plane */
+  var planeGeometry = new THREE.PlaneBufferGeometry(4, 4, 8, 8);
+  var planeMaterial = new THREE.MeshLambertMaterial({ color: 0xb69a77, side: THREE.DoubleSide });
+  var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+  plane.receiveShadow = true;
+
+  plane.position.x = 0;
+  plane.position.y = 0;
+  plane.position.z = 0;
+  scene.add(plane);
+
+
+
+  // Lighting 
+	/*var ambientLight = new THREE.AmbientLight( 0xf0e3e3 );
+	scene.add( ambientLight ); */
+
+
+  var lights = [];
+  lights[0] = new THREE.PointLight(0xffffff, 1, 0);
+  lights[1] = new THREE.PointLight(0xffffff, 1, 0);
+  lights[2] = new THREE.PointLight(0xffffff, 1, 0);
+
+  lights[0].position.set(0, 200, 0);
+  lights[0].castShadow = true;
+
+  lights[1].position.set(100, 200, 100);
+  lights[1].castShadow = true;
+
+  lights[2].position.set(- 100, - 200, - 100);
+  lights[2].castShadow = true;
+
+  scene.add(lights[0]);
+  scene.add(lights[1]);
+  scene.add(lights[2]);
+
+  /* Lighting Setup 2*/
+  /*
+   var spotLight = new THREE.SpotLight( 0xFFFFFF, 2);
+   spotLight.position.set( 10, 20, 10 );
+   spotLight.target.position.set( 0.5, 0.5, 0.5 );
+   spotLight.castShadow = true;
+   scene.add( spotLight.target );
+   scene.add( spotLight );
+   //Set up shadow properties for the spotLight
+   spotLight.shadow.mapSize.width = 32;  // default
+   spotLight.shadow.mapSize.height = 32; // default
+   spotLight.shadow.camera.near = 0.05;    // default
+   spotLight.shadow.camera.far = 150;     // default
+   //var spotLightHelper = new THREE.SpotLightHelper( spotLight );
+  //scene.add( spotLightHelper );
+  */
+
+  var ambientLight = new THREE.AmbientLight(0x404040);
+  scene.add(ambientLight);
+
+  /* Animate */
+  var animate = function () {
+    //stats.begin();
+    requestAnimationFrame(animate);
+    controls.update();
+
+    renderer.render(scene, camera);
+    //stats.end();
+  };
+
+
+  /**
+   * This is the rendering function
+   * @function render
+   * 
+   */
+  function render() {
+    renderer.render(scene, camera);
+  }
+
+  /**
+   * Change the Threejs renderer's size when the browser window is resized
+   * @function onWindowResize
+   * 
+   */
+  function onWindowResize() {
+    canvasBounds = renderer.context.canvas.getBoundingClientRect();
+    camera.aspect = (canvasBounds.right - canvasBounds.left) / (canvasBounds.bottom - canvasBounds.top);
+
+    camera.updateProjectionMatrix();
+    renderer.setSize((canvasBounds.right - canvasBounds.left), (canvasBounds.bottom - canvasBounds.top));
+
+
+  }
+
+
+  /* Animate */
+  animate();
+
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="util.html">util</a></li></ul><h3>Classes</h3><ul><li><a href="DavimObject.html">DavimObject</a></li><li><a href="DavimSurface.html">DavimSurface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#camera">camera</a></li><li><a href="global.html#container">container</a></li><li><a href="global.html#onWindowResize">onWindowResize</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#renderer">renderer</a></li><li><a href="global.html#scene">scene</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.1</a> on Thu May 09 2019 04:34:46 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
