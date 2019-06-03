@@ -13,11 +13,13 @@ document.getElementById( 'surface_view' ).appendChild( container );
 stats = new Stats();
 container.appendChild( stats.dom );
 //Scene Setup
+var w = $(".col-sm-8").width();
+var h = 550;
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, (window.innerWidth*.8)/window.innerHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 75, w/h, 0.1, 1000 );
 var renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio( window.devicePixelRatio);
-//renderer.setSize( window.innerWidth*.8, window.innerHeight );
+renderer.setSize( w, h );
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.shadowMapSoft = true;
