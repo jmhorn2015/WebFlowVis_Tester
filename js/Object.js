@@ -41,6 +41,29 @@ class SRObject{
 		console.log("recieve")
 		this.object.receiveShadow = onoff;
 	}
+	 /**
+	* Construct a local dat.GUI menu. Made by Duong Ngyuyen.
+	* @returns {dat.GUI} surface local menu
+	*/
+	getGUIMenu() {
+		this.surfaceLocalMenu = new dat.GUI({ autoPlace: false });
+		this.surfaceLocalMenu.domElement.id = 'gui';
+
+		var cam = this.surfaceLocalMenu.addFolder('Camera');
+		cam.add(this.options.camera, 'speed', 0, 0.0010).listen();
+		cam.open();
+	
+		return this.surfaceLocalMenu;
+	}
+	
+	/**
+	* Remove a local dat.GUI menu. Made by Duong Ngyugen.
+	* 
+	*/
+	removeMenu() {
+		$('#gui').remove();
+	}
+  
 	get Position(){
 		return this.object.position;
 	}

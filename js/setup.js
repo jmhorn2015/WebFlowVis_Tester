@@ -78,6 +78,47 @@ AddObject("data/surface2_2.obj", surf4);
 var shadowPlane = new SRMesh(scene);
 shadowPlane.updateMesh(shadowPlane.object);
 
+//Raycaster
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2(), INTERSECTED;
+var canvasBounds = renderer.context.canvas.getBoundingClientRect();
+var gui;
+  function onDocumentMouseDown(event) {
+
+    event.preventDefault();
+
+    mouse.x = ((event.clientX - canvasBounds.left) / (canvasBounds.right - canvasBounds.left)) * 2 - 1;
+    mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    var intersects = raycaster.intersectObjects(objects, true);
+
+    console.log(intersects);
+    if (intersects.length > 0) {
+      if (INTERSECTED != intersects[0].object) {
+        if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+        INTERSECTED = intersects[0].object;
+        INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+        INTERSECTED.material.emissive.setHex(0xff0000);
+      }
+      intersects[0].object.callback();
+
+
+      $('#surface_view').append(surfaceObject.getGUIMenu().domElement);
+
+    }
+    else {
+      if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+      INTERSECTED = null;
+
+      surfaceObject.removeMenu();
+
+
+    }
+
+  }
+
 //drag controls
 /*var dragControls = new THREE.DragControls( objects, camera, renderer.domElement );
 dragControls.addEventListener( 'dragstart', function (event) {
