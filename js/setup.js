@@ -26,7 +26,7 @@ renderer.gammaOutput = true;
 scene.background = new THREE.Color('white');
 container.appendChild( renderer.domElement );
 
-var controls = new THREE.TrackballControls( camera, document.getElementById("three"));
+var controls = new THREE.TrackballControls( camera, document.getElementById("surface_view"));
 controls.enableKeys = false;
 camera.position.set( 0, 0, 2);
 controls.update();
