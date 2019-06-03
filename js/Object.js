@@ -1,0 +1,317 @@
+/** 
+* @class SRObject
+* @classdesc This is the type in which all scene objects fall under other than the scene and the camera. This is a base class, so you will not need to construct an object as an SRObject. Instead, utilize the constructors with the children classes. 
+*/
+class SRObject{
+	object;
+	constructor(scene){
+		this.object = new THREE.Object3D();
+	}
+	/**
+	* Sets the position of the object within the scene.
+	* @param {double} x - posistion along x axis
+	* @param {double} y - posistion along y axis
+	* @param {double} z - posistion along z axis
+	*/
+	position(x,y,z){
+		this.object.position.set(x, y, z);
+	}
+	/**
+	* Sets the rotatiom of the object within the scene.
+	* @param {double} x - rotation around x axis
+	* @param {double} y - rotation around y axis
+	* @param {double} z - rotation around z axis
+	*/
+	rotate(x,y,z){
+		this.object.rotation.set(x,y,z);
+	}
+	/**
+	* Sets the ability for an object to cast shadows. Default is false.
+	* @param {bool} onoff - On = true, Off = false
+	*/
+	castShadow(onoff){
+		this.object.castShadow = onoff;
+		console.log("cast");
+	}
+	/**
+	* Sets the ability for an object to recieve shadows. Default is false.
+	* @param {bool} onoff - On = true, Off = false
+	*/
+	recvShadow(onoff){
+		console.log("recieve")
+		this.object.receiveShadow = onoff;
+	}
+	get Position(){
+		return this.object.position;
+	}
+	get Rotation(){
+		return this.object.rotation;
+	}
+	loadSettings(){
+	}
+}
+/**
+* These objects add light to your scene. Right now, it supports an Ambient Light and a Point Light.
+* @extends SRObject
+*/
+class SRLight extends SRObject{
+	/**
+	* Adds an ambient light to your scene.
+	* @constructor
+	* @params {THREE.Scene} scene - The scene in which you would like the object in.
+	*/
+	constructor(scene){
+		super(scene);
+		this.object = new THREE.AmbientLight(0x777777);
+		this.object.position.set(0, 0, 0);
+		scene.add( this.object );
+	}
+	/**
+	* Sets how bright the light is. On a scale of 0-1.
+	* @params {double} x - value of intensity.
+	*/
+	intensity(x){
+		this.object.intensity = x;
+	}
+	/**
+	* Sets the type of the light to the "x" type. Only works for "Point" Light
+	* @params {string} x - name of light type.
+	*/
+	type(x){
+		var temp = this.object;
+		if(x = "Point"){
+			this.object = new THREE.PointLight(0xffffff);
+			this.object.castShadow = true;
+			this.object.shadow.mapSize.width = 1024;
+			this.object.shadow.mapSize.height = 1024; 
+		}
+		else{
+			this.object = new THREE.AmbientLight(0x777777);
+		}
+		this.object.position.set(temp.position);
+		scene.add( this.object );
+		this.object.opacity = temp.opacity;
+		
+	}
+	/**
+	* Changes the hue color of the light. On a scale of 0-1.
+	* @params {double} hue - value of hue.
+	*/
+	color(hue){
+		this.object.color.setHSL(hue/100, 1, .5);
+	}
+	getIntensity(){
+		return this.object.intensity;
+	}
+	getType(){
+		if (this.object.isAmbientLight){
+			return "Ambient";
+		}
+		else{
+			return "Point";
+		}
+	}
+	getColor(){
+		return this.object.color.getHex();
+	}
+}
+/**
+* SRMesh objects hold all of your 3D shapes and is the parent class for all of the visible objects in the scene.
+* @extends SRObject
+*/
+class SRMesh extends SRObject{
+	geo;
+	mat;
+	/**
+	* Adds an "x" object to your scene. Currently supports "Sphere" and "Box".
+	* @constructor
+	* @params {THREE.Scene} scene - Scene you would like to add an object to.
+	* @params {string} x - type of object. If blank, Constructor makes a Plane.
+	*/
+	constructor(scene, shape){
+		super(scene);
+		this.geo = new THREE.PlaneGeometry(9,9,32);
+		this.mat = new THREE.MeshPhongMaterial( { color: 0x888888, dithering: true } );
+		if(shape == "Sphere"){
+			this.geo = new THREE.SphereGeometry(5,32,32);
+		}
+		else if(shape == "Box"){
+			this.geo = new THREE.BoxGeometry(5,5,5);
+		}
+		this.mat.transparent = true;
+		this.mat.opacity = 1;
+		this.object = new THREE.Mesh( this.geo, this.mat);
+		this.object.position.set(0, 0, -1);
+		//this.object.castShadow = true;
+		//this.object.receiveShadow = true;
+	}
+	add(newobject){
+		
+	}
+	/**
+	* Changes the hue color of the mesh. On a scale of 0-1.
+	* @params {double} hue - value of hue.
+	*/
+	color(hue){
+		this.mat.color.setHSL(hue, 1, .5);
+	}
+	/**
+	* Changes the material of the Mesh object.
+	* @params {double} x - 0 = Phong, 1 = Basic, 2 = Lambert.
+	*/
+	material(x){
+		var oldMat = this.mat;
+        switch(x){
+			case 0:
+				this.mat = new THREE.MeshPhongMaterial( { color: 0x808080, dithering: true } );
+				break;
+			case 1:
+				this.mat = new THREE.MeshBasicMaterial( { color: 0x808080, dithering: true } );
+				break;
+			case 2:
+				this.mat = new THREE.MeshLambertMaterial( { color: 0x808080, dithering: true } );
+				break;
+		}
+		this.mat.side = THREE.BackSide;
+        this.mat.color = new THREE.Color(oldMat.color);
+		this.mat.transparent = true;
+		this.mat.opacity = oldMat.opacity;
+		this.mat.map = oldMat.map;
+		this.object.material = this.mat;
+	}
+	/**
+	* Allows a texture to be loaded onto the mesh.
+	* @params {bool} onoff - On = true, Off = false
+	*/
+	texture(onoff){
+		var loader = new THREE.TextureLoader();
+		loader.load(
+			"data/graniteTXT.jpg",
+			function ( texture ) {
+				texture.repeat.set(.01,.01); 
+				texture.wrapS = THREE.RepeatWrapping;
+				texture.wrapT = THREE.RepeatWrapping;
+				this.object.traverse( function ( child ) {
+				if(child.material.map == null)
+					child.material.map = texture;
+				else
+					child.material.map = null;
+				child.material.needsUpdate = true;
+				});
+			},
+			undefined,
+			function ( err ) {
+				console.error( 'An error happened.' );
+			}
+		);
+		
+	}
+	/**
+	* Allows the mesh to reflect the scene background onto its surface. The scene is required in the call to load a skybox for best effect.
+	* @params {bool} onoff - On = true, Off = false
+	* @params {THREE.Scene} scene - Scene you would like to add an object to.
+	*/
+	reflective(onoff, scene){
+		this.object.traverse( function ( child ) {
+			if(onoff){
+				var path = "data/skybox/";
+				var urls = [
+					path + "px.jpg", path + "nx.jpg",
+					path + "py.jpg", path + "ny.jpg",
+					path + "pz.jpg", path + "nz.jpg"
+				];
+				var textureCube = new THREE.CubeTextureLoader().load( urls );
+				textureCube.format = THREE.RGBFormat;
+				scene.background = textureCube;
+				child.material.envMap = textureCube;
+				child.material.needsUpdate = true;
+			}
+			else{
+				scene.background = null;
+				child.material.envMap = null;
+				child.material.needsUpdate = true;
+				scene.background = new THREE.Color('white');
+			}
+		});
+	}
+	/**
+	* Changes the transparency of the object. On a scale of 0-1.
+	* @params {double} x - value of transparency.
+	*/
+	transparency(x){
+		this.mat.opacity = num/100;
+	}
+	/**
+	* Updates the geometry of the object. Used with the sub classes to load in the data properly.
+	* @params {THREE.Mesh} mesh - new mesh information to adapt to object.
+	*/
+	updateMesh(mesh){
+		this.geo = mesh.geometry;
+		this.mat = mesh.material;
+		this.mat.transparent = true;
+		this.mat.opacity = 0.5;
+		this.object = new THREE.Mesh( this.geo, this.mat);
+		this.object.receiveShadow = mesh.receiveShadow;
+		this.object.name = mesh.name;
+		scene.add(this.object);
+		objects.push(this.object);
+	};
+	getColor(){
+		
+	}
+	getMaterial(){
+		
+	}
+	getTexture(){
+		
+	}
+	getRefletive(){
+		
+	}
+	getTransparency(){
+		
+	}
+	getWireframe(){
+		
+	}
+}
+/**
+* These objects were going to be a wireframe representation to help visually span the area that all of the objects on the scene would take up. I was not able to implement this object yet.
+* @extends SRObject
+*/
+class SRBoundingBox extends SRObject{
+	constructor(scene){
+		super(scene);
+	}
+	Resize(){
+		
+	}
+}
+/**
+* SRSurface is used to load in .obj files into your scene.
+* @extends SRMesh
+*/
+class SRSurface extends SRMesh{
+	/**
+	* Adds an SRSurface to your scene. To populate it, call AddObject(String filename, SRSurface object)
+	* @constructor
+	* @params {THREE.Scene} scene - Scene you would like to add an object to.
+	*/
+	constructor(scene){
+		super(scene);
+	}
+}
+/**
+* SRSeedingCurve is used to load in 3D line coordinates into a tube and insert it into your scene.
+* @extends SRMesh
+*/
+class SRSeedingCurve extends SRMesh{
+		/**
+	* Adds an SRSeedingCurve to your scene. To populate it, call GenerateLines(String filename, SRSeedingCurve object)
+	* @constructor
+	* @params {THREE.Scene} scene - Scene you would like to add an object to.
+	*/
+	constructor(filename, scene){
+		super(scene);
+	}
+}
