@@ -77,13 +77,13 @@ var shadowPlane = new SRMesh(scene);
 shadowPlane.updateMesh(shadowPlane.object);
 
 //drag controls
-var dragControls = new THREE.DragControls( objects, camera, renderer.domElement );
+/*var dragControls = new THREE.DragControls( objects, camera, renderer.domElement );
 dragControls.addEventListener( 'dragstart', function (event) {
 	controls.enabled = false;
 } );
 dragControls.addEventListener( 'dragend', function (event) {
 	controls.enabled = true;
-} );
+} );*/
 
 function animate() {
 	if(loading){
