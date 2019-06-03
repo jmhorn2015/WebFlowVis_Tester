@@ -62,13 +62,13 @@ light2.position(0,-10,10);
 //objects
 var objects = [];
 let surf1 = new SRSurface(scene);
-objects.push(surf1);
+objects.push(surf1.object);
 let surf2 = new SRSurface(scene);
-objects.push(surf2);
+objects.push(surf2.object);
 let surf3 = new SRSurface(scene);
-objects.push(surf3);
+objects.push(surf3.object);
 let surf4 = new SRSurface(scene);
-objects.push(surf4);
+objects.push(surf4.object);
 let line1 = new SRSeedingCurve(scene);
 let line2 = new SRSeedingCurve(scene);
 GenerateCurves("data/seeding_curve_1.txt", line1);
