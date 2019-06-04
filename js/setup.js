@@ -62,13 +62,13 @@ light2.position(0,-10,10);
 //objects
 var objects = [];
 let surf1 = new SRSurface(scene);
-objects.push(surf1.object);
+objects.push(surf1);
 let surf2 = new SRSurface(scene);
-objects.push(surf2.object);
+objects.push(surf2);
 let surf3 = new SRSurface(scene);
-objects.push(surf3.object);
+objects.push(surf3);
 let surf4 = new SRSurface(scene);
-objects.push(surf4.object);
+objects.push(surf4);
 let line1 = new SRSeedingCurve(scene);
 let line2 = new SRSeedingCurve(scene);
 GenerateCurves("data/seeding_curve_1.txt", line1);
@@ -77,6 +77,8 @@ AddObject("data/surface1_1.obj", surf1);
 AddObject("data/surface1_2.obj", surf2);
 AddObject("data/surface2_1.obj", surf3);
 AddObject("data/surface2_2.obj", surf4);
+
+for(int x = 0; x < objects.length; 
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
