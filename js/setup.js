@@ -110,7 +110,7 @@ var gui;
         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
         INTERSECTED.material.emissive.setHex(0xff0000);
       }
-      intersects[0].object.callback();
+      //intersects[0].object.callback();
 		
 
       $('#surface_view').append(currObject.getGUIMenu().domElement);
