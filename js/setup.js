@@ -88,7 +88,8 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 var gui;
   function onDocumentMouseDown(event) {
-
+	console.log("click");
+  
     event.preventDefault();
 
     mouse.x = ((event.clientX - canvasBounds.left) / (canvasBounds.right - canvasBounds.left)) * 2 - 1;
@@ -98,7 +99,7 @@ var gui;
 
     var intersects = raycaster.intersectObjects(objects, true);
 
-    console.log(intersects);
+    console.log(intersects.length);
     if (intersects.length > 0) {
       if (INTERSECTED != intersects[0].object) {
         if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
