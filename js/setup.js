@@ -83,6 +83,7 @@ var shadowPlane = new SRMesh(scene);
 shadowPlane.updateMesh(shadowPlane.object);
 
 //Raycaster
+var currObject;
 renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2(), INTERSECTED;
@@ -105,20 +106,21 @@ var gui;
       if (INTERSECTED != intersects[0].object) {
         if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
         INTERSECTED = intersects[0].object;
+		currObject = intersects[0].object;
         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
         INTERSECTED.material.emissive.setHex(0xff0000);
       }
       intersects[0].object.callback();
+		
 
-
-      $('#surface_view').append(surfaceObject.getGUIMenu().domElement);
+      $('#surface_view').append(currObject.getGUIMenu().domElement);
 
     }
     else {
       if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
       INTERSECTED = null;
 
-      surfaceObject.removeMenu();
+      currObject.removeMenu();
 
 
     }
