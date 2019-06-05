@@ -78,6 +78,13 @@ AddObject("data/surface1_2.obj", surf2);
 AddObject("data/surface2_1.obj", surf3);
 AddObject("data/surface2_2.obj", surf4);
 
+var objectMesh = [];
+	
+for(a = 0; a < objects.length; a++){
+	objectMesh[a] = objects[a].object;
+	console.log(objectMesh[a].name);
+}
+
 //shadow plane
 var shadowPlane = new SRMesh(scene);
 shadowPlane.updateMesh(shadowPlane.object);
@@ -98,12 +105,6 @@ var gui;
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-	var objectMesh = [];
-	
-	for(a = 0; a < objects.length; a++){
-		objectMesh[a] = objects[a].object;
-		console.log(objectMesh[a].name);
-	}
 
     var intersects = raycaster.intersectObjects(objectMesh, true);
 
