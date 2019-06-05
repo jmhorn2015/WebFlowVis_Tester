@@ -102,6 +102,7 @@ var gui;
 	
 	for(a = 0; a < objects.length; a++){
 		objectMesh[a] = objects[a].object;
+		console.log(objectMesh[a].name);
 	}
 
     var intersects = raycaster.intersectObjects(objectMesh, true);
