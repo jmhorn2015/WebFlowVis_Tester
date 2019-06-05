@@ -100,7 +100,7 @@ var gui;
     raycaster.setFromCamera(mouse, camera);
 	var objectMesh = [];
 	
-	for(int a = 0; a < objects.length; a++){
+	for(a = 0; a < objects.length; a++){
 		objectMesh[a] = objects[a].object;
 	}
 
@@ -113,7 +113,7 @@ var gui;
         INTERSECTED = intersects[0].object;
         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
         INTERSECTED.material.emissive.setHex(0xff0000);
-		for(int b = 0; b < objects.length; b++){
+		for(b = 0; b < objects.length; b++){
 			if(INTERSECTED.name = objectMesh[b].name){
 				currObject = objects[b];
 				break;
