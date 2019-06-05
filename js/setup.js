@@ -78,8 +78,6 @@ AddObject("data/surface1_2.obj", surf2);
 AddObject("data/surface2_1.obj", surf3);
 AddObject("data/surface2_2.obj", surf4);
 
-for(int x = 0; x < objects.length; 
-
 //shadow plane
 var shadowPlane = new SRMesh(scene);
 shadowPlane.updateMesh(shadowPlane.object);
@@ -100,17 +98,27 @@ var gui;
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
+	var objectMesh = [];
+	
+	for(int a = 0; a < objects.length; a++){
+		objectMesh[a] = objects[a].object;
+	}
 
-    var intersects = raycaster.intersectObjects(objects, true);
+    var intersects = raycaster.intersectObjects(objectMesh, true);
 
     console.log(intersects.length);
     if (intersects.length > 0) {
       if (INTERSECTED != intersects[0].object) {
         if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
         INTERSECTED = intersects[0].object;
-		currObject = intersects[0].object;
         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
         INTERSECTED.material.emissive.setHex(0xff0000);
+		for(int b = 0; b < objects.length; b++){
+			if(INTERSECTED.name = objectMesh[b].name){
+				currObject = objects[b];
+				break;
+			}
+		}
       }
       //intersects[0].object.callback();
 		

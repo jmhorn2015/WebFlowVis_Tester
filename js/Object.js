@@ -45,7 +45,7 @@ class SRObject{
 	* Construct a local dat.GUI menu. Made by Duong Ngyuyen.
 	* @returns {dat.GUI} surface local menu
 	*/
-	get getGUIMenu() {
+	getGUIMenu() {
 		this.surfaceLocalMenu = new dat.GUI({ autoPlace: false });
 		this.surfaceLocalMenu.domElement.id = 'gui';
 
@@ -59,7 +59,7 @@ class SRObject{
 	* Remove a local dat.GUI menu. Made by Duong Ngyugen.
 	* 
 	*/
-	set removeMenu() {
+	removeMenu() {
 		$('#gui').remove();
 	}
 	get Position(){
