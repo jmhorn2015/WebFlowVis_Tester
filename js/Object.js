@@ -1,7 +1,3 @@
-// Holds all mesh objects
-//var objects = [];
-
-
 /** 
 * @class SRObject
 * @classdesc This is the type in which all scene objects fall under other than the scene and the camera. This is a base class, so you will not need to construct an object as an SRObject. Instead, utilize the constructors with the children classes. 
