@@ -103,7 +103,7 @@ var gui;
         INTERSECTED.material.emissive.setHex(0xff0000);
 		for(b = 0; b < objects.length; b++){
 			console.log(INTERSECTED.name);
-			if(INTERSECTED.name = objects[b].object.name){
+			if(INTERSECTED.name = objects[b].name){
 				currObject = objects[b];
 				
 				break;
