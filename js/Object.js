@@ -1,5 +1,5 @@
 // Holds all mesh objects
-var objects = [];
+//var objects = [];
 
 
 /** 
