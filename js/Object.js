@@ -53,7 +53,7 @@ class SRObject{
 	getGUIMenu(container) {
 		this.surfaceLocalMenu = new dat.GUI({ autoPlace: false });
 		this.surfaceLocalMenu.domElement.id = 'gui';
-		container.appendChild( gui.dom );
+		container.appendChild( this.surfaceLocalMenu.domElement.dom );
 		
 		var cam = this.surfaceLocalMenu.addFolder('Camera');
 		//cam.add(camera, 'speed', 0, 0.0010).listen();
