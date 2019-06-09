@@ -1,4 +1,7 @@
+//Holds meshes of the objects for the raycaster
 var objects = [];
+//Holds the current SRObjects in the scene
+var surfaceObjects = [];
 
 /** 
 * @class SRObject
@@ -278,6 +281,7 @@ class SRMesh extends SRObject{
 		this.object.name = mesh.name;
 		scene.add(this.object);
 		objects.push(this.object);
+		surfaceObjects.push(this);
 	};
 	getColor(){
 		

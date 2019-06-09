@@ -102,8 +102,8 @@ var gui;
         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
         INTERSECTED.material.emissive.setHex(0xff0000);
 		for(b = 0; b < objects.length; b++){
-			if(INTERSECTED.name = objects[b].name){
-				currObject = objects[b];
+			if(INTERSECTED.name = surfaceObjects[b].object.name){
+				currObject = surfaceObjects[b];
 				console.log(INTERSECTED.name);
 				break;
 			}
