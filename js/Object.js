@@ -50,7 +50,7 @@ class SRObject{
 	* Construct a local dat.GUI menu. Made by Duong Ngyuyen.
 	* @returns {dat.GUI} surface local menu
 	*/
-	getGUIMenu() {
+	getGUIMenu(camera) {
 		this.surfaceLocalMenu = new dat.GUI({ autoPlace: false });
 		this.surfaceLocalMenu.domElement.id = 'gui';
 

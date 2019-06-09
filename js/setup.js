@@ -112,7 +112,7 @@ var gui;
       //intersects[0].object.callback();
 		
 
-      $('#surface_view').append(currObject.getGUIMenu().domElement);
+      $('#surface_view').append(currObject.getGUIMenu(camera).domElement);
 
     }
     else {
