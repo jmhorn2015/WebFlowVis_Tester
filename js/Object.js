@@ -51,7 +51,7 @@ class SRObject{
 	* @returns {dat.GUI} surface local menu
 	*/
 	getGUIMenu(camera) {
-		this.surfaceLocalMenu = new dat.GUI({ autoPlace: false });
+		this.surfaceLocalMenu = new dat.GUI({ autoPlace: true });
 		this.surfaceLocalMenu.domElement.id = 'gui';
 
 		var cam = this.surfaceLocalMenu.addFolder('Camera');
