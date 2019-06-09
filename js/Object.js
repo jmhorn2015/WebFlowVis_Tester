@@ -55,7 +55,7 @@ class SRObject{
 		this.surfaceLocalMenu.domElement.id = 'gui';
 
 		var cam = this.surfaceLocalMenu.addFolder('Camera');
-		cam.add(this.options.camera, 'speed', 0, 0.0010).listen();
+		cam.add(camera, 'speed', 0, 0.0010).listen();
 		cam.open();
 	
 		return this.surfaceLocalMenu;
