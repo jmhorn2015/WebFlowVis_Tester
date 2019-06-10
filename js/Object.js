@@ -57,11 +57,10 @@ class SRObject{
 		var guiContainer = document.getElementById('localGUI');
 		guiContainer.appendChild(this.surfaceLocalMenu.domElement);
 		
-		var cam = this.surfaceLocalMenu.addFolder('Camera');
-		//cam.add(camera, 'speed', 0, 0.0010).listen();
-		cam.open();
+		var objMenu = this.surfaceLocalMenu.addFolder(object.name);
+		objMenu.open();
 	
-		return this.surfaceLocalMenu;
+		//return this.surfaceLocalMenu;
 	}
 	/**
 	* Remove a local dat.GUI menu. Made by Duong Ngyugen.
@@ -286,6 +285,19 @@ class SRMesh extends SRObject{
 		objects.push(this.object);
 		surfaceObjects.push(this);
 	};
+		/**
+	* Allows a local menu to show on the screen when the object is clicked on
+	* @params {domElement} mesh - new mesh information to adapt to object.
+	*/
+	getGUIMenu(container) {
+		super(container);
+		var opacityCntrlr = objMenu.add(text, 'Opacity', 0 , 1);
+		controller.onChange(function(value) {
+			this.transparency(value);
+		});
+	
+		return this.surfaceLocalMenu;
+	}
 	getColor(){
 		
 	}
