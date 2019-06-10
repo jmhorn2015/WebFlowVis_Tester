@@ -167,16 +167,20 @@ class SRMesh extends SRObject{
 		this.mat = new THREE.MeshPhongMaterial( { color: 0x888888, dithering: true } );
 		if(shape == "Sphere"){
 			this.geo = new THREE.SphereGeometry(5,32,32);
+			this.object.name = "Sphere";
 		}
 		else if(shape == "Box"){
 			this.geo = new THREE.BoxGeometry(5,5,5);
+			this.object.name = "Box";
+		}
+		else{
+			this.object.name = "Plane";
 		}
 		this.mat.transparent = true;
 		this.mat.opacity = 1;
 		this.object = new THREE.Mesh( this.geo, this.mat);
 		this.object.position.set(0, 0, -1);
-		//this.object.castShadow = true;
-		//this.object.receiveShadow = true;
+		
 	}
 	add(newobject){
 		
