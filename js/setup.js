@@ -108,7 +108,7 @@ var gui;
 			console.log(surfaceObjects[b].object.name);
 		}
 		for(b = 0; b < objects.length; b++){
-			if(INTERSECTED.name = surfaceObjects[b].object.name){
+			if(INTERSECTED.name == surfaceObjects[b].object.name){
 				currObject = surfaceObjects[b];
 				console.log(INTERSECTED.name);
 				break;
