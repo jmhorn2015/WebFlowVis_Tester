@@ -58,7 +58,7 @@ class SRObject{
 		guiContainer.appendChild(this.surfaceLocalMenu.domElement);
 		
 		var objMenu;
-		if(object.name != ''){
+		if(this.object.name != ''){
 			objMenu = this.surfaceLocalMenu.addFolder(object.name);
 		}
 		else{
