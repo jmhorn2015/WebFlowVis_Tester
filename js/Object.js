@@ -58,13 +58,13 @@ class SRObject{
 		guiContainer.appendChild(this.surfaceLocalMenu.domElement);
 		
 		var objMenu;
-			if(object.name != null){
+			if(object.name != ''){
 				objMenu = this.surfaceLocalMenu.addFolder(object.name);
 			else
 				objMenu = this.surfaceLocalMenu.addFolder('Light');
 		objMenu.open();
 	
-		//return this.surfaceLocalMenu;
+		return this.surfaceLocalMenu;
 	}
 	/**
 	* Remove a local dat.GUI menu. Made by Duong Ngyugen.
