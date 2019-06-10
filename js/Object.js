@@ -59,7 +59,7 @@ class SRObject{
 		
 		var objMenu;
 		if(this.object.name != ''){
-			objMenu = this.surfaceLocalMenu.addFolder(object.name);
+			objMenu = this.surfaceLocalMenu.addFolder(this.object.name);
 		}
 		else{
 			objMenu = this.surfaceLocalMenu.addFolder('Light');
