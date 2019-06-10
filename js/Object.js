@@ -295,9 +295,12 @@ class SRMesh extends SRObject{
 	* @params {domElement} mesh - new mesh information to adapt to object.
 	*/
 	getGUIMenu(container) {
+		var params = {
+				Opacity: .5
+		};
 		var objMenu = super.getGUIMenu(container);
 		var opacityCntrlr = objMenu.add('Opacity', 0 , 1);
-		controller.onChange(function(value) {
+		opacityCntrlr.onChange(function(value) {
 			this.transparency(value);
 		});
 	
