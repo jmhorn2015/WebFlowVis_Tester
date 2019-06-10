@@ -94,7 +94,7 @@ var gui;
 
     var intersects = raycaster.intersectObjects(objects, true);
 
-    console.log(intersects.length);
+    console.log(objects.length);
     if (intersects.length > 0) {
       if (INTERSECTED != intersects[0].object) {
         if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
@@ -106,6 +106,8 @@ var gui;
 		}
 		for(b = 0; b < objects.length; b++){
 			console.log(surfaceObjects[b].object.name);
+		}
+		for(b = 0; b < objects.length; b++){
 			if(INTERSECTED.name = surfaceObjects[b].object.name){
 				currObject = surfaceObjects[b];
 				console.log(INTERSECTED.name);
