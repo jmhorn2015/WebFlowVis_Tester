@@ -101,16 +101,14 @@ var gui;
         INTERSECTED = intersects[0].object;
         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
         INTERSECTED.material.emissive.setHex(0xff0000);
-		if(currObject != null){
+		if(currObject != null || ){
 			currObject.removeMenu();
 		}
-		if(currObject.object.name != INTERSECTED.name && currObject != null){
-			for(b = 0; b < objects.length; b++){
-				if(INTERSECTED.name == surfaceObjects[b].object.name){
-					currObject = surfaceObjects[b];
-					console.log(INTERSECTED.name);
-					break;
-				}
+		for(b = 0; b < objects.length; b++){
+			if(INTERSECTED.name == surfaceObjects[b].object.name){
+				currObject = surfaceObjects[b];
+				console.log(INTERSECTED.name);
+				break;
 			}
 		}
       }
@@ -121,6 +119,7 @@ var gui;
     else {
       if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
       INTERSECTED = null;
+
       currObject.removeMenu();
 	  currObject = null;
 
