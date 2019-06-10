@@ -104,14 +104,13 @@ var gui;
 		if(currObject != null){
 			currObject.removeMenu();
 		}
-		for(b = 0; b < objects.length; b++){
-			console.log(surfaceObjects[b].object.name);
-		}
-		for(b = 0; b < objects.length; b++){
-			if(INTERSECTED.name == surfaceObjects[b].object.name){
-				currObject = surfaceObjects[b];
-				console.log(INTERSECTED.name);
-				break;
+		else if(currObject.object.name != INTERSECTED.name){
+			for(b = 0; b < objects.length; b++){
+				if(INTERSECTED.name == surfaceObjects[b].object.name){
+					currObject = surfaceObjects[b];
+					console.log(INTERSECTED.name);
+					break;
+				}
 			}
 		}
       }
@@ -122,7 +121,6 @@ var gui;
     else {
       if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
       INTERSECTED = null;
-
       currObject.removeMenu();
 	  currObject = null;
 
