@@ -296,7 +296,7 @@ class SRMesh extends SRObject{
 	*/
 	getGUIMenu(container) {
 		var objMenu = super.getGUIMenu(container);
-		var opacityCntrlr = objMenu.add(text, 'Opacity', 0 , 1);
+		var opacityCntrlr = objMenu.add('Opacity', 0 , 1);
 		controller.onChange(function(value) {
 			this.transparency(value);
 		});
