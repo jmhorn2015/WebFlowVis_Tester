@@ -272,7 +272,7 @@ class SRMesh extends SRObject{
 	* @params {double} x - value of transparency.
 	*/
 	transparency(x){
-		this.mat.opacity = num/100;
+		this.mat.opacity = x/100;
 	}
 	/**
 	* Updates the geometry of the object. Used with the sub classes to load in the data properly.
