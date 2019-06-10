@@ -299,7 +299,7 @@ class SRMesh extends SRObject{
 				Opacity: 50
 		};
 		var objMenu = super.getGUIMenu(container);
-		var objEditor = this.object;
+		var objEditor = this;
 		var opacityCntrlr = objMenu.add(params, 'Opacity', 1 , 100);
 		opacityCntrlr.onChange(function(value) {
 			objEditor.transparency(value);
