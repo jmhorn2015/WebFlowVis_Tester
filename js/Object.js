@@ -296,12 +296,13 @@ class SRMesh extends SRObject{
 	*/
 	getGUIMenu(container) {
 		var params = {
-				Opacity: .5
+				Opacity: 50
 		};
 		var objMenu = super.getGUIMenu(container);
-		var opacityCntrlr = objMenu.add(params, 'Opacity', 0 , 1);
+		var opacityCntrlr = objMenu.add(params, 'Opacity', 1 , 100);
 		opacityCntrlr.onChange(function(value) {
-			this.transparency(value);
+			transparency(value);
+			console.log(this);
 		});
 	
 		return this.surfaceLocalMenu;
