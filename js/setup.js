@@ -104,7 +104,7 @@ var gui;
 		if(currObject != null){
 			currObject.removeMenu();
 		}
-		else if(currObject.object.name != INTERSECTED.name){
+		if(currObject.object.name != INTERSECTED.name && currObject != null){
 			for(b = 0; b < objects.length; b++){
 				if(INTERSECTED.name == surfaceObjects[b].object.name){
 					currObject = surfaceObjects[b];
