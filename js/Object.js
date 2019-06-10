@@ -319,7 +319,7 @@ class SRMesh extends SRObject{
 	getGUIMenu(container) {
 		var objParams = {
 				Opacity: 50,
-				Material: "Phong",
+				Material: 'Phong',
 				Recieve Shadows: false,
 				Textured: false,
 				Reflective: false
