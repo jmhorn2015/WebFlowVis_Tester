@@ -64,7 +64,23 @@ class SRObject{
 		else{
 			objMenu = this.surfaceLocalMenu.addFolder('Light');
 		}
-		objMenu.open();
+		var posParams = {
+			X: 0,
+			Y: 0,
+			Z: 0
+		};
+		var rotParams = {
+			X: 0,
+			Y: 0,
+			Z: 0
+		};
+		var objEditor = this;
+		var posMenu = this.surfaceLocalMenu.addFolder("Position");
+		var posXCntrlr = posMenu.add(posParams, 'X', -10 , 10);
+		posXCntrlr.onChange(function(value) {
+			var currPos  = objEditor.Position();
+			objEditor.position(value, currPos.y, currPos);
+		});
 		return objMenu;
 	}
 	/**
@@ -301,12 +317,16 @@ class SRMesh extends SRObject{
 	* @params {domElement} mesh - new mesh information to adapt to object.
 	*/
 	getGUIMenu(container) {
-		var params = {
-				Opacity: 50
+		var objParams = {
+				Opacity: 50,
+				Material: "Phong",
+				Recieve Shadows?: false,
+				Textured?: false,
+				Reflective?: false
 		};
 		var objMenu = super.getGUIMenu(container);
 		var objEditor = this;
-		var opacityCntrlr = objMenu.add(params, 'Opacity', 1 , 100);
+		var opacityCntrlr = objMenu.add(objParams, 'Opacity', 1 , 100);
 		opacityCntrlr.onChange(function(value) {
 			objEditor.transparency(value);
 		});
