@@ -101,7 +101,7 @@ var gui;
         INTERSECTED = intersects[0].object;
         INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
         INTERSECTED.material.emissive.setHex(0xff0000);
-		if(currObject != null || ){
+		if(currObject != null){
 			currObject.removeMenu();
 		}
 		for(b = 0; b < objects.length; b++){
