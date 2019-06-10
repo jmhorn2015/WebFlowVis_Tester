@@ -113,7 +113,7 @@ var gui;
 		}
       }
 
-      $('#surface_view').append(currObject.getGUIMenu(container).domElement);
+      $('#localGUI').append(currObject.getGUIMenu(container).domElement);
 
     }
     else {
