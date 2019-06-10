@@ -57,7 +57,11 @@ class SRObject{
 		var guiContainer = document.getElementById('localGUI');
 		guiContainer.appendChild(this.surfaceLocalMenu.domElement);
 		
-		var objMenu = this.surfaceLocalMenu.addFolder(object.name);
+		var objMenu;
+			if(object.name != null){
+				objMenu = this.surfaceLocalMenu.addFolder(object.name);
+			else
+				objMenu = this.surfaceLocalMenu.addFolder('Light');
 		objMenu.open();
 	
 		//return this.surfaceLocalMenu;
