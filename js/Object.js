@@ -163,23 +163,25 @@ class SRMesh extends SRObject{
 	*/
 	constructor(scene, shape){
 		super(scene);
+		var newName;
 		this.geo = new THREE.PlaneGeometry(9,9,32);
 		this.mat = new THREE.MeshPhongMaterial( { color: 0x888888, dithering: true } );
 		if(shape == "Sphere"){
 			this.geo = new THREE.SphereGeometry(5,32,32);
-			this.object.name = "Sphere";
+			newName = "Sphere";
 		}
 		else if(shape == "Box"){
 			this.geo = new THREE.BoxGeometry(5,5,5);
-			this.object.name = "Box";
+			newName = "Box";
 		}
 		else{
-			this.object.name = "Plane";
+			newName = "Plane";
 		}
 		this.mat.transparent = true;
 		this.mat.opacity = 1;
 		this.object = new THREE.Mesh( this.geo, this.mat);
 		this.object.position.set(0, 0, -1);
+		this.object.name = newName;
 		
 	}
 	add(newobject){
