@@ -75,12 +75,43 @@ class SRObject{
 			Z: 0
 		};
 		var objEditor = this;
+		
+		//Position folder
 		var posMenu = this.surfaceLocalMenu.addFolder("Position");
 		var posXCntrlr = posMenu.add(posParams, 'X', -5 , 5);
 		posXCntrlr.onChange(function(value) {
 			var currPos  = objEditor.Position;
 			objEditor.position(value, currPos.y, currPos.z);
 		});
+		var posYCntrlr = posMenu.add(posParams, 'Y', -5 , 5);
+		posYCntrlr.onChange(function(value) {
+			var currPos  = objEditor.Position;
+			objEditor.position(currPos.x, value, currPos.z);
+		});
+		var posZCntrlr = posMenu.add(posParams, 'Z', -5 , 5);
+		posZCntrlr.onChange(function(value) {
+			var currPos  = objEditor.Position;
+			objEditor.position(currPos.x, currPos.y, value);
+		});
+		
+		//Rotation folder
+		var rotMenu = this.surfaceLocalMenu.addFolder("Rotation");
+		var rotXCntrlr = rotMenu.add(rotParams, 'X', -5 , 5);
+		rotXCntrlr.onChange(function(value) {
+			var currRot  = objEditor.Rotation;
+			objEditor.rotation(value, currRot.y, currRot.z);
+		});
+		var rotYCntrlr = rotMenu.add(rotParams, 'Y', -5 , 5);
+		rotYCntrlr.onChange(function(value) {
+			var currRot  = objEditor.Rotation;
+			objEditor.rotation(currRot.x, value, currRot.z);
+		});
+		var rotZCntrlr = rotMenu.add(rotParams, 'Z', -5 , 5);
+		rotZCntrlr.onChange(function(value) {
+			var currRot  = objEditor.Rotation;
+			objEditor.rotation(currRot.x, currRot.y, value);
+		});
+		
 		return objMenu;
 	}
 	/**
