@@ -105,16 +105,16 @@ var gui;
 			currObject.removeMenu();
 		}
 		for(b = 0; b < objects.length; b++){
+			if(currObject.object.name == INTERSECTED.name){
+				break;
+			}
 			if(INTERSECTED.name == surfaceObjects[b].object.name){
 				currObject = surfaceObjects[b];
-				console.log(INTERSECTED.name);
+				$('#localGUI').append(currObject.getGUIMenu(container).domElement);
 				break;
 			}
 		}
       }
-
-      $('#localGUI').append(currObject.getGUIMenu(container).domElement);
-
     }
     else {
       if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
