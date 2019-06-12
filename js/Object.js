@@ -319,7 +319,7 @@ class SRMesh extends SRObject{
 	getGUIMenu(container) {
 		var objParams = {
 				Opacity: 50,
-				//Material: 'Phong',
+				Material: 'Phong',
 				Recieve_Shadows: false,
 				Textured: false,
 				Reflective: false
@@ -330,7 +330,7 @@ class SRMesh extends SRObject{
 		opacityCntrlr.onChange(function(value) {
 			objEditor.transparency(value);
 		});
-		var shadCntrlr = objMenu.add(objParams, 'Recieve Shadows');
+		var shadCntrlr = objMenu.add(objParams, 'Recieve_Shadows');
 		shadCntrlr.onChange(function(value) {
 			objEditor.recvShadow(value);
 		});
