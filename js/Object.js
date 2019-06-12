@@ -78,8 +78,8 @@ class SRObject{
 		var posMenu = this.surfaceLocalMenu.addFolder("Position");
 		var posXCntrlr = posMenu.add(posParams, 'X', -10 , 10);
 		posXCntrlr.onChange(function(value) {
-			var currPos  = objEditor.Position();
-			objEditor.position(value, currPos.y, currPos);
+			var currPos  = objEditor.Position;
+			objEditor.position(value, currPos.y, currPos.z);
 		});
 		return objMenu;
 	}
@@ -319,6 +319,7 @@ class SRMesh extends SRObject{
 	getGUIMenu(container) {
 		var objParams = {
 				Opacity: 50,
+				Color: 0,
 				Material: 'Phong',
 				Recieve_Shadows: false,
 				Textured: false,
@@ -330,12 +331,22 @@ class SRMesh extends SRObject{
 		opacityCntrlr.onChange(function(value) {
 			objEditor.transparency(value);
 		});
+		var colorCntrlr = objMenu.add(objParams, 'Color', 0 , 1);
+		opacityCntrlr.onChange(function(value) {
+			objEditor.color(value);
+		});
 		var shadCntrlr = objMenu.add(objParams, 'Recieve_Shadows');
 		shadCntrlr.onChange(function(value) {
 			objEditor.recvShadow(value);
 		});
-	
-	
+		var textCntrlr = objMenu.add(objParams, 'Textured');
+		textCntrlr.onChange(function(value) {
+			objEditor.texture(value);
+		});
+		var reflectCntrlr = objMenu.add(objParams, 'Reflective');
+		reflectCntrlr.onChange(function(value) {
+			objEditor.reflective(value);
+		});
 		return this.surfaceLocalMenu;
 	}
 	getColor(){
