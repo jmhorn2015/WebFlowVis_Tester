@@ -320,7 +320,7 @@ class SRMesh extends SRObject{
 		var objParams = {
 				Opacity: 50,
 				//Material: 'Phong',
-				Recieve Shadows: false,
+				Recieve_Shadows: false,
 				Textured: false,
 				Reflective: false
 		};
