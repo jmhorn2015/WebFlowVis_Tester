@@ -99,17 +99,17 @@ class SRObject{
 		var rotXCntrlr = rotMenu.add(rotParams, 'X', -5 , 5);
 		rotXCntrlr.onChange(function(value) {
 			var currRot  = objEditor.Rotation;
-			objEditor.rotation(value, currRot.y, currRot.z);
+			objEditor.rotate(value, currRot.y, currRot.z);
 		});
 		var rotYCntrlr = rotMenu.add(rotParams, 'Y', -5 , 5);
 		rotYCntrlr.onChange(function(value) {
 			var currRot  = objEditor.Rotation;
-			objEditor.rotation(currRot.x, value, currRot.z);
+			objEditor.rotate(currRot.x, value, currRot.z);
 		});
 		var rotZCntrlr = rotMenu.add(rotParams, 'Z', -5 , 5);
 		rotZCntrlr.onChange(function(value) {
 			var currRot  = objEditor.Rotation;
-			objEditor.rotation(currRot.x, currRot.y, value);
+			objEditor.rotate(currRot.x, currRot.y, value);
 		});
 		
 		return objMenu;
