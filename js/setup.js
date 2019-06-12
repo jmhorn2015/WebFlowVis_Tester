@@ -104,8 +104,11 @@ var gui;
 		if(currObject != null && currObject.object.name != INTERSECTED.name){
 			currObject.removeMenu();
 		}
+		console.log(currObject.object.name);
+		console.log(INTERSECTED.name);
 		for(b = 0; b < objects.length; b++){
 			if(currObject.object.name == INTERSECTED.name){
+				console.log(currObject.object.name);
 				break;
 			}
 			if(INTERSECTED.name == surfaceObjects[b].object.name){
