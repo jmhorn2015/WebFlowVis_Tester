@@ -125,15 +125,6 @@ var gui;
 
   }
 
-//drag controls
-/*var dragControls = new THREE.DragControls( objects, camera, renderer.domElement );
-dragControls.addEventListener( 'dragstart', function (event) {
-	controls.enabled = false;
-} );
-dragControls.addEventListener( 'dragend', function (event) {
-	controls.enabled = true;
-} );*/
-
 function animate() {
 	if(loading){
 		$("#loading").addClass('spinner-border');
