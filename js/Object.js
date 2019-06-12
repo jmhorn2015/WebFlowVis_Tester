@@ -76,7 +76,7 @@ class SRObject{
 		};
 		var objEditor = this;
 		var posMenu = this.surfaceLocalMenu.addFolder("Position");
-		var posXCntrlr = posMenu.add(posParams, 'X', -10 , 10);
+		var posXCntrlr = posMenu.add(posParams, 'X', -5 , 5);
 		posXCntrlr.onChange(function(value) {
 			var currPos  = objEditor.Position;
 			objEditor.position(value, currPos.y, currPos.z);
@@ -208,7 +208,7 @@ class SRMesh extends SRObject{
 	* @params {double} hue - value of hue.
 	*/
 	color(hue){
-		this.mat.color.setHSL(hue, 1, .5);
+		this.mat.color.setHSL(hue/100, 1, .5);
 	}
 	/**
 	* Changes the material of the Mesh object.
@@ -331,9 +331,21 @@ class SRMesh extends SRObject{
 		opacityCntrlr.onChange(function(value) {
 			objEditor.transparency(value);
 		});
-		var colorCntrlr = objMenu.add(objParams, 'Color', 0 , 1);
-		opacityCntrlr.onChange(function(value) {
+		var colorCntrlr = objMenu.add(objParams, 'Color', 0 , 100);
+		colorCntrlr.onChange(function(value) {
 			objEditor.color(value);
+		});
+		var matCntrlr = objMenu.add(objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
+		matCntrlr.onChange(function(value) {
+			if(value == 'Phong'){
+				objEditor.material(0);
+			}
+			else if(value == 'Basic'){
+				objEditor.material(1);
+			}
+			else{
+				objEditor.material(2);
+			}
 		});
 		var shadCntrlr = objMenu.add(objParams, 'Recieve_Shadows');
 		shadCntrlr.onChange(function(value) {
