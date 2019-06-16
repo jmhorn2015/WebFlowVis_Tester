@@ -83,7 +83,6 @@ renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2(), INTERSECTED;
 var canvasBounds = renderer.context.canvas.getBoundingClientRect();
-var gui;
   function onDocumentMouseDown(event) {
     event.preventDefault();
 
@@ -124,6 +123,30 @@ var gui;
     }
 
   }
+  // Skybox Cube
+  var path = "data/skybox/";
+  var urls = [
+		path + "px.jpg", path + "nx.jpg",
+		path + "py.jpg", path + "ny.jpg",
+		path + "pz.jpg", path + "nz.jpg"
+	  ];
+	textureCube = new THREE.CubeTextureLoader().load( urls );
+	textureCube.format = THREE.RGBFormat;
+	
+  //Main Screen GUI Functions
+  function skyboxOnOff(){
+	console.log("test");
+	var onoff = $('#skySwitch').value;
+	if(!onoff){
+		scene.background = null;
+		scene.background = new THREE.Color('white');
+	}
+	else{
+		scene.background = textureCube;
+	}
+  }
+  
+  
 
 function animate() {
 	if(loading){

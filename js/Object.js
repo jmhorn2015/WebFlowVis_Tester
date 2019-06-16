@@ -295,30 +295,17 @@ class SRMesh extends SRObject{
 	/**
 	* Allows the mesh to reflect the scene background onto its surface. The scene is required in the call to load a skybox for best effect.
 	* @params {bool} onoff - On = true, Off = false
-	* @params {THREE.Scene} scene - Scene you would like to add an object to.
+	* @params {THREE.CubeTextureLoader} texturecube - Skybox code info for the reflection map.
 	*/
-	reflective(onoff, scene){
-		this.object.traverse( function ( child ) {
+	reflective(onoff, textureCube){
 			if(onoff){
-				var path = "data/skybox/";
-				var urls = [
-					path + "px.jpg", path + "nx.jpg",
-					path + "py.jpg", path + "ny.jpg",
-					path + "pz.jpg", path + "nz.jpg"
-				];
-				var textureCube = new THREE.CubeTextureLoader().load( urls );
-				textureCube.format = THREE.RGBFormat;
-				scene.background = textureCube;
 				child.material.envMap = textureCube;
 				child.material.needsUpdate = true;
 			}
 			else{
-				scene.background = null;
 				child.material.envMap = null;
 				child.material.needsUpdate = true;
-				scene.background = new THREE.Color('white');
 			}
-		});
 	}
 	/**
 	* Changes the transparency of the object. On a scale of 0-1.
@@ -388,7 +375,15 @@ class SRMesh extends SRObject{
 		});
 		var reflectCntrlr = objMenu.add(objParams, 'Reflective');
 		reflectCntrlr.onChange(function(value) {
-			objEditor.reflective(value);
+			var path = "data/skybox/";
+			var urls = [
+				path + "px.jpg", path + "nx.jpg",
+				path + "py.jpg", path + "ny.jpg",
+				path + "pz.jpg", path + "nz.jpg"
+			];
+			textureCube = new THREE.CubeTextureLoader().load( urls );
+			textureCube.format = THREE.RGBFormat;
+			objEditor.reflective(value, texturecube);
 		});
 		return this.surfaceLocalMenu;
 	}
