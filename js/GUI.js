@@ -1,8 +1,6 @@
   //Main Screen GUI Functions
   function skyboxOnOff(){
-	console.log($('#skySwitch').value);
-	var onoff = $('#skySwitch').value;
-	if(!onoff){
+	if(scene.background == textureCube){
 		scene.background = null;
 		scene.background = new THREE.Color('white');
 	}
