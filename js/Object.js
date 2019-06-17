@@ -383,7 +383,7 @@ class SRMesh extends SRObject{
 			];
 			textureCube = new THREE.CubeTextureLoader().load( urls );
 			textureCube.format = THREE.RGBFormat;
-			objEditor.reflective(value, texturecube);
+			objEditor.reflective(value, textureCube);
 		});
 		return this.surfaceLocalMenu;
 	}
