@@ -1,6 +1,6 @@
   //Main Screen GUI Functions
   function skyboxOnOff(){
-	console.log("test");
+	console.log($('#skySwitch').value);
 	var onoff = $('#skySwitch').value;
 	if(!onoff){
 		scene.background = null;
