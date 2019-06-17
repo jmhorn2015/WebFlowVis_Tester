@@ -299,12 +299,12 @@ class SRMesh extends SRObject{
 	*/
 	reflective(onoff, textureCube){
 			if(onoff){
-				child.material.envMap = textureCube;
-				child.material.needsUpdate = true;
+				this.mat.envMap = textureCube;
+				this.mat.needsUpdate = true;
 			}
 			else{
-				child.material.envMap = null;
-				child.material.needsUpdate = true;
+				this.mat.envMap = null;
+				this.mat.needsUpdate = true;
 			}
 	}
 	/**
