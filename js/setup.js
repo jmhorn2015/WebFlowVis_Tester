@@ -131,22 +131,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 		path + "pz.jpg", path + "nz.jpg"
 	  ];
 	textureCube = new THREE.CubeTextureLoader().load( urls );
-	textureCube.format = THREE.RGBFormat;
-	
-  //Main Screen GUI Functions
-  function skyboxOnOff(){
-	console.log("test");
-	var onoff = $('#skySwitch').value;
-	if(!onoff){
-		scene.background = null;
-		scene.background = new THREE.Color('white');
-	}
-	else{
-		scene.background = textureCube;
-	}
-  }
-  
-  
+	textureCube.format = THREE.RGBFormat;  
 
 function animate() {
 	if(loading){
