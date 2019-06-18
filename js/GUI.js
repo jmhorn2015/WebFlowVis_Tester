@@ -2,7 +2,7 @@
   function shadowsOnOff(){
 	  console.log("test");
 	for( x = 0; x < objects.length; x++){
-		objects[x].castShadow(!objects[x].object.castShadow);
+		objects[x].castShadow(true);
 	}
   }
   function skyboxOnOff(){
