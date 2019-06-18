@@ -1,6 +1,6 @@
   //Main Screen GUI Functions
   function shadowsOnOff(){
-	for( x = 0; x < objects.length; x++){
+	for( x = 0; x < surfaceObjects.length; x++){
 		if(!surfaceObjects[x].object.isAmbientLight){
 			surfaceObjects[x].castShadow(!surfaceObjects[x].object.castShadow);
 		}
