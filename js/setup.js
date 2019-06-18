@@ -11,7 +11,7 @@ $("surface_view").append(taxis);*/
 container = document.createElement( 'div' );
 document.getElementById( 'surface_view' ).appendChild( container );
 stats = new Stats();
-document.getElementById('profile').appendChild( stats.dom );
+container.appendChild( stats.dom );
 //Scene Setup
 var w = $(".col-sm-8").width();
 var h = 550;

@@ -14,4 +14,3 @@
 		scene.background = textureCube;
 	}
   }
-  function 
