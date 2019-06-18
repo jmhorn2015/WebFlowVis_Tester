@@ -1,8 +1,7 @@
   //Main Screen GUI Functions
   function shadowsOnOff(){
-	  console.log("test");
 	for( x = 0; x < objects.length; x++){
-		if(!surfaceObjects[x].object.isAmbientLight()){
+		if(!surfaceObjects[x].object.isAmbientLight){
 			surfaceObjects[x].castShadow(!surfaceObjects[x].object.castShadow);
 		}
 	}

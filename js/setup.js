@@ -110,6 +110,9 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 				$('#localGUI').append(currObject.getGUIMenu(container).domElement);
 				break;
 			}
+			if(b+1 == objects.length){
+				console.log("not found");
+			}
 		}
       }
     }
