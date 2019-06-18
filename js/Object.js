@@ -144,6 +144,7 @@ class SRLight extends SRObject{
 		super(scene);
 		this.object = new THREE.AmbientLight(0x777777);
 		this.object.position.set(0, 0, 0);
+		surfaceObjects.push(this);
 		scene.add( this.object );
 	}
 	/**
