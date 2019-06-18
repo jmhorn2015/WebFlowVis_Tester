@@ -2,7 +2,9 @@
   function shadowsOnOff(){
 	  console.log("test");
 	for( x = 0; x < objects.length; x++){
-		surfaceObjects[x].castShadow(!surfaceObjects[x].object.castShadow);
+		if(!surfaceObjects[x].object.isAmbientLight()){
+			surfaceObjects[x].castShadow(!surfaceObjects[x].object.castShadow);
+		}
 	}
   }
   function skyboxOnOff(){
