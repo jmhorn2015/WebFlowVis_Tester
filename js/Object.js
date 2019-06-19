@@ -36,7 +36,7 @@ class SRObject{
 	*/
 	castShadow(onoff){
 		this.object.castShadow = onoff;
-		console.log("cast");
+		console.log(this.object.name);
 	}
 	/**
 	* Sets the ability for an object to recieve shadows. Default is false.
