@@ -149,6 +149,7 @@ class SRLight extends SRObject{
 		this.object.name = "Light";
 		scene.add( this.object );
 		surfaceObjects.push(this);
+		objects.push(this.object);
 	}
 	/**
 	* Sets how bright the light is. On a scale of 0-1.
