@@ -144,7 +144,9 @@ class SRLight extends SRObject{
 		super(scene);
 		this.object = new THREE.AmbientLight(0x777777);
 		this.object.position.set(0, 0, 0);
+		this.object.name = "Light";
 		scene.add( this.object );
+		surfaceObjects.push(this);
 	}
 	/**
 	* Sets how bright the light is. On a scale of 0-1.
