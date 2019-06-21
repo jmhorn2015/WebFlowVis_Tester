@@ -297,7 +297,6 @@ class SRMesh extends SRObject{
 				else
 					this.mat.map = null;
 				this.mat.needsUpdate = true;
-				});
 			},
 			undefined,
 			function ( err ) {
