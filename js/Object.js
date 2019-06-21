@@ -9,6 +9,16 @@ var surfaceObjects = [];
 */
 class SRObject{
 	object;
+	var posParams = {
+		X: 0,
+		Y: 0,
+		Z: 0
+	};
+	var rotParams = {
+		X: 0,
+		Y: 0,
+		Z: 0
+	};
 	constructor(scene){
 		this.object = new THREE.Object3D();
 	}
@@ -66,31 +76,21 @@ class SRObject{
 		else{
 			objMenu = this.surfaceLocalMenu.addFolder('Light');
 		}
-		var posParams = {
-			X: 0,
-			Y: 0,
-			Z: 0
-		};
-		var rotParams = {
-			X: 0,
-			Y: 0,
-			Z: 0
-		};
 		var objEditor = this;
 		
 		//Position folder
 		var posMenu = this.surfaceLocalMenu.addFolder("Position");
-		var posXCntrlr = posMenu.add(posParams, 'X', -5 , 5);
+		var posXCntrlr = posMenu.add(this.posParams, 'X', -5 , 5);
 		posXCntrlr.onChange(function(value) {
 			var currPos  = objEditor.Position;
 			objEditor.position(value, currPos.y, currPos.z);
 		});
-		var posYCntrlr = posMenu.add(posParams, 'Y', -5 , 5);
+		var posYCntrlr = posMenu.add(this.posParams, 'Y', -5 , 5);
 		posYCntrlr.onChange(function(value) {
 			var currPos  = objEditor.Position;
 			objEditor.position(currPos.x, value, currPos.z);
 		});
-		var posZCntrlr = posMenu.add(posParams, 'Z', -5 , 5);
+		var posZCntrlr = posMenu.add(this.posParams, 'Z', -5 , 5);
 		posZCntrlr.onChange(function(value) {
 			var currPos  = objEditor.Position;
 			objEditor.position(currPos.x, currPos.y, value);
@@ -98,17 +98,17 @@ class SRObject{
 		
 		//Rotation folder
 		var rotMenu = this.surfaceLocalMenu.addFolder("Rotation");
-		var rotXCntrlr = rotMenu.add(rotParams, 'X', -5 , 5);
+		var rotXCntrlr = rotMenu.add(this.rotParams, 'X', -5 , 5);
 		rotXCntrlr.onChange(function(value) {
 			var currRot  = objEditor.Rotation;
 			objEditor.rotate(value, currRot.y, currRot.z);
 		});
-		var rotYCntrlr = rotMenu.add(rotParams, 'Y', -5 , 5);
+		var rotYCntrlr = rotMenu.add(this.rotParams, 'Y', -5 , 5);
 		rotYCntrlr.onChange(function(value) {
 			var currRot  = objEditor.Rotation;
 			objEditor.rotate(currRot.x, value, currRot.z);
 		});
-		var rotZCntrlr = rotMenu.add(rotParams, 'Z', -5 , 5);
+		var rotZCntrlr = rotMenu.add(this.rotParams, 'Z', -5 , 5);
 		rotZCntrlr.onChange(function(value) {
 			var currRot  = objEditor.Rotation;
 			objEditor.rotate(currRot.x, currRot.y, value);
