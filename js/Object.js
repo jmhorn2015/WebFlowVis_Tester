@@ -208,6 +208,7 @@ class SRLight extends SRObject{
 class SRMesh extends SRObject{
 	geo;
 	mat;
+	objParams;
 	/**
 	* Adds an "x" object to your scene. Currently supports "Sphere" and "Box".
 	* @constructor
@@ -216,6 +217,14 @@ class SRMesh extends SRObject{
 	*/
 	constructor(scene, shape){
 		super(scene);
+		this.objParams = {
+			Opacity: 50,
+			Color: 0,
+			Material: 'Phong',
+			Recieve_Shadows: false,
+			Textured: false,
+			Reflective: false
+		};
 		var newName;
 		this.geo = new THREE.PlaneGeometry(9,9,32);
 		this.mat = new THREE.MeshPhongMaterial( { color: 0x888888, dithering: true } );
@@ -283,12 +292,11 @@ class SRMesh extends SRObject{
 				texture.repeat.set(.01,.01); 
 				texture.wrapS = THREE.RepeatWrapping;
 				texture.wrapT = THREE.RepeatWrapping;
-				this.object.traverse( function ( child ) {
-				if(child.material.map == null)
-					child.material.map = texture;
+				if(this.mat.map == null)
+					this.mat.map = texture;
 				else
-					child.material.map = null;
-				child.material.needsUpdate = true;
+					this.mat.map = null;
+				this.mat.needsUpdate = true;
 				});
 			},
 			undefined,
@@ -341,25 +349,17 @@ class SRMesh extends SRObject{
 	* @params {domElement} mesh - new mesh information to adapt to object.
 	*/
 	getGUIMenu(container) {
-		var objParams = {
-				Opacity: 50,
-				Color: 0,
-				Material: 'Phong',
-				Recieve_Shadows: false,
-				Textured: false,
-				Reflective: false
-		};
 		var objMenu = super.getGUIMenu(container);
 		var objEditor = this;
-		var opacityCntrlr = objMenu.add(objParams, 'Opacity', 1 , 100);
+		var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
 		opacityCntrlr.onChange(function(value) {
 			objEditor.transparency(value);
 		});
-		var colorCntrlr = objMenu.add(objParams, 'Color', 0 , 100);
+		var colorCntrlr = objMenu.add(this.objParams, 'Color', 0 , 100);
 		colorCntrlr.onChange(function(value) {
 			objEditor.color(value);
 		});
-		var matCntrlr = objMenu.add(objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
+		var matCntrlr = objMenu.add(this.objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
 		matCntrlr.onChange(function(value) {
 			if(value == 'Phong'){
 				objEditor.material(0);
@@ -371,15 +371,15 @@ class SRMesh extends SRObject{
 				objEditor.material(2);
 			}
 		});
-		var shadCntrlr = objMenu.add(objParams, 'Recieve_Shadows');
+		var shadCntrlr = objMenu.add(this.objParams, 'Recieve_Shadows');
 		shadCntrlr.onChange(function(value) {
 			objEditor.recvShadow(value);
 		});
-		var textCntrlr = objMenu.add(objParams, 'Textured');
+		var textCntrlr = objMenu.add(this.objParams, 'Textured');
 		textCntrlr.onChange(function(value) {
 			objEditor.texture(value);
 		});
-		var reflectCntrlr = objMenu.add(objParams, 'Reflective');
+		var reflectCntrlr = objMenu.add(this.objParams, 'Reflective');
 		reflectCntrlr.onChange(function(value) {
 			var path = "data/skybox/";
 			var urls = [
