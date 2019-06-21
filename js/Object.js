@@ -9,18 +9,20 @@ var surfaceObjects = [];
 */
 class SRObject{
 	object;
-	var posParams = {
-		X: 0,
-		Y: 0,
-		Z: 0
-	};
-	var rotParams = {
-		X: 0,
-		Y: 0,
-		Z: 0
-	};
+	posParams;
+	rotParams;
 	constructor(scene){
 		this.object = new THREE.Object3D();
+		this.posParams = {
+			X: 0,
+			Y: 0,
+			Z: 0
+		};
+		this.rotParams = {
+			X: 0,
+			Y: 0,
+			Z: 0
+		};
 	}
 	/**
 	* Sets the position of the object within the scene.
