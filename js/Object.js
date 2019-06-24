@@ -125,6 +125,13 @@ class SRObject{
 	removeMenu() {
 		$('#gui').remove();
 	}
+		/**
+	* Add a node to represent the object in our 2D space
+	* 
+	*/
+	generate2DNode() {
+		nodes.add({ id: this.object.name, reflexive: false });
+	}
 	get Position(){
 		return this.object.position;
 	}
@@ -152,6 +159,7 @@ class SRLight extends SRObject{
 		scene.add( this.object );
 		surfaceObjects.push(this);
 		objects.push(this.object);
+		generate2DNode();
 	}
 	/**
 	* Sets how bright the light is. On a scale of 0-1.
@@ -342,6 +350,7 @@ class SRMesh extends SRObject{
 		scene.add(this.object);
 		objects.push(this.object);
 		surfaceObjects.push(this);
+		generate2DNode();
 	};
 		/**
 	* Allows a local menu to show on the screen when the object is clicked on
