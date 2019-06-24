@@ -21,7 +21,10 @@ const nodes = [
   { id: 2, reflexive: false }
 ];
 let lastNodeId = 2;
-const links = [];
+const links = [
+  { source: nodes[1], target: nodes[0], left: false, right: true },
+  { source: nodes[2], target: nodes[1], left: false, right: true }
+];
 
 // init D3 force layout
 const force = d3.forceSimulation()
