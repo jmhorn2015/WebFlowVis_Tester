@@ -1,8 +1,5 @@
 const nodes = [];
-const links = [
-  { source: nodes[1], target: nodes[0], left: false, right: true },
-  { source: nodes[2], target: nodes[1], left: false, right: true }
-];
+const links = [];
 
 $(document).ready(function () {
 // set up SVG for D3
