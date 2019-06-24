@@ -130,7 +130,7 @@ class SRObject{
 	* 
 	*/
 	generate2DNode() {
-		nodes.add({ id: this.object.name, reflexive: false });
+		nodes.push({ id: this.object.name, reflexive: false });
 	}
 	get Position(){
 		return this.object.position;
