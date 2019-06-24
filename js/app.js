@@ -18,7 +18,8 @@ const svg = d3.select('#d3-test')
 const nodes = [
   { id: 0, reflexive: false },
   { id: 1, reflexive: true },
-  { id: 2, reflexive: false }
+  { id: 2, reflexive: false },
+  { id: 3, reflexive: false }
 ];
 let lastNodeId = 2;
 const links = [
