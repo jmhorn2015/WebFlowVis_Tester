@@ -303,7 +303,6 @@ class SRMesh extends SRObject{
 				console.error( 'An error happened.' );
 			}
 		);
-		
 	}
 	/**
 	* Allows the mesh to reflect the scene background onto its surface. The scene is required in the call to load a skybox for best effect.
