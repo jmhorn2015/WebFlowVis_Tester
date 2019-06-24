@@ -1,9 +1,4 @@
-const nodes = [
-  { id: 0, reflexive: false },
-  { id: 1, reflexive: true },
-  { id: 2, reflexive: false },
-  { id: 3, reflexive: false }
-];
+const nodes = [];
 const links = [
   { source: nodes[1], target: nodes[0], left: false, right: true },
   { source: nodes[2], target: nodes[1], left: false, right: true }
