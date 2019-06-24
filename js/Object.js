@@ -286,17 +286,18 @@ class SRMesh extends SRObject{
 	*/
 	texture(onoff){
 		var loader = new THREE.TextureLoader();
+		var materialPtr = this.mat;
 		loader.load(
 			"data/graniteTXT.jpg",
 			function ( texture ) {
 				texture.repeat.set(.01,.01); 
 				texture.wrapS = THREE.RepeatWrapping;
 				texture.wrapT = THREE.RepeatWrapping;
-				if(this.mat.map == null)
-					this.mat.map = texture;
+				if(materialPtr.map == null)
+					materialPtr.map = texture;
 				else
-					this.mat.map = null;
-				this.mat.needsUpdate = true;
+					materialPtr.map = null;
+				materialPtr.needsUpdate = true;
 			},
 			undefined,
 			function ( err ) {
