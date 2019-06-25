@@ -11,7 +11,8 @@
 }
 
 svg {
-  background-color: #FFF;
+	border: 1px solid black;
+	background-color: #FFF;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
