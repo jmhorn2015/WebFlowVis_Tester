@@ -9,6 +9,7 @@ $("surface_view").append(taxis);*/
 
 //-----Three.js Setup-----//
 container = document.createElement( 'div' );
+container.border = 1px solid black;
 document.getElementById( 'surface_view' ).appendChild( container );
 stats = new Stats();
 container.appendChild( stats.dom );
