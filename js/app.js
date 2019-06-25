@@ -4,7 +4,7 @@ const links = [];
 $(document).ready(function () {
 // set up SVG for D3
 const width = 920;
-const height = 200;
+const height = 50;
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
 let lastNodeId = 2;
