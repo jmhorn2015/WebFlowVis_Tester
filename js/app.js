@@ -4,7 +4,7 @@ const links = [];
 $(document).ready(function () {
 // set up SVG for D3
 const width = 920;
-const height = 50;
+const height = 250;
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
 let lastNodeId = 2;
@@ -25,7 +25,7 @@ const force = d3.forceSimulation()
   .force('link', d3.forceLink().id((d) => d.id).distance(150))
   .force('charge', d3.forceManyBody().strength(-500))
   .force('x', d3.forceX(width / 2))
-  .force('y', d3.forceY(height / 2))
+  .force('y', d3.forceY(height * 2))
   .on('tick', tick);
 
 // init D3 drag support
