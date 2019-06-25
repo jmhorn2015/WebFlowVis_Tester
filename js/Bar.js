@@ -10,3 +10,5 @@ d3.select(".d3_Bar")
   .enter().append("div")
     .style("width", function(d) { return x(d) + "px"; })
     .text(function(d) { return d; });
+  .attr('width', 920)
+  .attr('height', 250);
