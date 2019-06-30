@@ -3,17 +3,18 @@ function GenerateTACLines(name, dataFile, scene){
 	$.get(name,	function(data) {
 		 texts = data.split(" ");
 		 sub();
+		 $.get(dataFile,	function(data) {
+				texts = data.split(" ");
+				sub2();
+			})
+			.fail(function() {
+				alert( "error data" );	
+			});
 		})
 		.fail(function() {
 			alert( "error load" );	
 		});
-	$.get(dataFile,	function(data) {
-		 texts = data.split(" ");
-		 sub2();
-		})
-		.fail(function() {
-			alert( "error data" );	
-		});
+
 
 	function sub2(){
 		var TACData = [];
