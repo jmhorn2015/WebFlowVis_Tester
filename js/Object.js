@@ -466,7 +466,7 @@ class SRSeedingCurve extends SRMesh{
 	* @params {Array} data - array of data to load into the object.
 	*/
 	loadDataOne(data){
-		for(a = 0; a < data.length; a++){
+		for(var a = 0; a < data.length; a++){
 			this.dataOne.push(data[a]);
 		}
 	};
