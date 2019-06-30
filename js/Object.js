@@ -460,6 +460,8 @@ class SRSeedingCurve extends SRMesh{
 	dataTwo;
 	constructor(filename, scene){
 		super(scene);
+		this.dataOne = [];
+		this.dataTwo = [];
 	}
 	/**
 	* Can load an array of data into the object to be used for 2D rendering
