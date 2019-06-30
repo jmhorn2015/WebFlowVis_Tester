@@ -28,10 +28,10 @@ function GenerateTACLines(name, dataFile, scene){
 				pointCounter++;
 			}
 			else{
+				console.log(newSRObjects.length);
 				newSRObjects[objCounter].loadDataTwo(TACData);
 				objCounter++;
 				a--;
-				console.log(objCounter);
 			}
 		}
 		console.log(objCounter);
@@ -85,6 +85,7 @@ function GenerateTACLines(name, dataFile, scene){
 				SCtemp.updateMesh(meshtemp);
 				SCtemp.loadDataOne(xData);
 				newSRObjects.push(SCtemp);
+				console.log(newSRObjects.length);
 				lineData = [];
 				xData = [];
 				pointCounter = 0;
