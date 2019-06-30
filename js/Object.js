@@ -456,8 +456,8 @@ class SRSeedingCurve extends SRMesh{
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
-	var dataOne;
-	var dataTwo;
+	dataOne;
+	dataTwo;
 	constructor(filename, scene){
 		super(scene);
 	}
@@ -467,7 +467,7 @@ class SRSeedingCurve extends SRMesh{
 	*/
 	loadDataOne(data){
 		for(a = 0; a < data.length; a++){
-			dataOne.push(data[a]);
+			this.dataOne.push(data[a]);
 		}
 	};
 		/**
@@ -476,7 +476,7 @@ class SRSeedingCurve extends SRMesh{
 	*/
 	loadDataTwo(data){
 		for(var a = 0; a < data.length; a++){
-			dataTwo.push(data[a]);
+			this.dataTwo.push(data[a]);
 		}
 	};
 }
