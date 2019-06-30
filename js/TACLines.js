@@ -28,14 +28,12 @@ function GenerateTACLines(name, dataFile, scene){
 				pointCounter++;
 			}
 			else{
-				console.log(objCounter);
 				newSRObjects[objCounter].loadDataTwo(TACData);
 				objCounter++;
 				pointCounter = 0;
 				a--;
 			}
 		}
-		console.log(objCounter);
 	}
 	function sub(){
 		var lineData = [];
@@ -79,8 +77,6 @@ function GenerateTACLines(name, dataFile, scene){
 				var geo = new THREE.ExtrudeBufferGeometry( circleShape, extrudeSettings );
 				var mat = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff , wireframe: false } );
 				var meshtemp = new THREE.Mesh( geo, mat );
-				//meshtemp.name = name;
-				//mesh.updateMesh(meshtemp);
 				meshtemp.name = name + lineCounter;
 				var SCtemp = new SRSeedingCurve(scene);
 				SCtemp.updateMesh(meshtemp);
@@ -95,3 +91,46 @@ function GenerateTACLines(name, dataFile, scene){
 		}
 	}
 };
+
+//2D setup
+var margin = {top: 50, right: 50, bottom: 50, left: 50}
+  , width = 920
+  , height = 250;
+  
+var dataSize = 49;
+var xScale = d3.scaleLinear()
+    .domain([0, 200]) // input
+    .range([width, 0]); // output
+ 
+var yScale = d3.scaleLinear()
+    .domain([0, 4]) // input 
+    .range([height, 0]); // output 
+
+function LoadTACGraph(objects, loc){
+	var dataset = d3.range(n).map(function(d) { 
+	return {"x": "y": d3.randomUniform(1)() } 
+	})
+	
+	var svg = d3.select(loc).append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	// 3. Call the x axis in a group tag
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
+	
+	// 4. Call the y axis in a group tag
+	svg.append("g")
+		.attr("class", "y axis")
+		.call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
+
+	// 9. Append the path, bind the data, and call the line generator 
+	svg.append("path")
+		.datum(dataset) // 10. Binds data to the line 
+		.attr("class", "line") // Assign a class for styling 
+		.attr("d", line); // 11. Calls the line generator 
+}
