@@ -4,12 +4,12 @@ function GenerateTACLines(name, dataFile, scene){
 	$.get(name,	function(data) {
 		 texts = data.split(" ");
 		 sub();
-		 loadData();
+		 dataLoader();
 		})
 		.fail(function() {
 			alert( "error load" );	
 		});
-	function loadData(){
+	function dataLoader(){
 	$.get(dataFile,	function(data) {
 		 texts = data.split(" ");
 		 sub2();
