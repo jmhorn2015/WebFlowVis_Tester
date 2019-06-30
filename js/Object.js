@@ -352,7 +352,7 @@ class SRMesh extends SRObject{
 		surfaceObjects.push(this);
 		this.generate2DNode();
 	};
-		/**
+	/**
 	* Allows a local menu to show on the screen when the object is clicked on
 	* @params {domElement} mesh - new mesh information to adapt to object.
 	*/
@@ -456,8 +456,27 @@ class SRSeedingCurve extends SRMesh{
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
-	
+	var dataOne;
+	var dataTwo;
 	constructor(filename, scene){
 		super(scene);
 	}
+	/**
+	* Can load an array of data into the object to be used for 2D rendering
+	* @params {Array} data - array of data to load into the object.
+	*/
+	loadDataOne(data){
+		for(a = 0; a < data.length; a++){
+			dataOne.push(data[a]);
+		}
+	};
+		/**
+	* Can load an second array of data into the object to be used for 2D rendering
+	* @params {Array} data - array of data to load into the object.
+	*/
+	loadDataTwo(data){
+		for(var a = 0; a < data.length; a++){
+			dataTwo.push(data[a]);
+		}
+	};
 }

@@ -1,16 +1,38 @@
-function GenerateTACLines(name, scene){
+function GenerateTACLines(name, dataFile, scene){
+	var newSRObjects = [];
 	$.get(name,	function(data) {
 		 texts = data.split(" ");
-		 return sub();
+		 sub();
+		})
+		.fail(function() {
+			alert( "error" );	
+		});
+	$.get(dataFile,	function(data) {
+		 texts = data.split(" ");
+		 sub2();
 		})
 		.fail(function() {
 			alert( "error" );	
 		});
 
+	function sub2(){
+		var TACData = [];
+		var objCounter = 0;
+		for(var a = 0; a <= texts.length; a++){
+			if(pointCounter < 200){
+				TACData.push(Number(texts[a]));
+			}
+			else{
+				newSRObjects[objCounter].loadDataTwo(TACData);
+				objCounter++;
+				a--;
+			}
+		}
+		console.log(objCounter);
+	}
 	function sub(){
-		var newSRObjects = [];
-		//
 		var lineData = [];
+		var xData = [];
 		var prevPos = 0;
 		var tempVal = 0;
 		var counter = 0;
@@ -26,6 +48,7 @@ function GenerateTACLines(name, scene){
 				prevPos = a+1;
 				if(counter == 1){
 					x = tempVal;
+					xData.push(x);
 				}
 				else if(counter == 2){
 					y = tempVal;
@@ -54,12 +77,14 @@ function GenerateTACLines(name, scene){
 				meshtemp.name = name + lineCounter;
 				var SCtemp = new SRSeedingCurve(scene);
 				SCtemp.updateMesh(meshtemp);
+				SCtemp.loadDataOne(xData);
+				newSRObjects.push(SCtemp);
 				lineData = [];
+				xData = [];
 				pointCounter = 0;
 				prevPos = a+1;
 				a--;
 			}
 		}
-		console.log(texts.length);
 	}
 };
