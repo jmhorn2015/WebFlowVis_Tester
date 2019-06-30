@@ -9,7 +9,7 @@ function GenerateTACLines(name, dataFile, scene){
 			alert( "error load" );	
 		});
 	$.get(dataFile,	function(data) {
-		 loadData = data.split(" ");
+		 texts = data.split(" ");
 		 sub2();
 		})
 		.fail(function() {
