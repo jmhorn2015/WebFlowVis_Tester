@@ -4,10 +4,12 @@ function GenerateTACLines(name, dataFile, scene){
 	$.get(name,	function(data) {
 		 texts = data.split(" ");
 		 sub();
+		 loadData();
 		})
 		.fail(function() {
 			alert( "error load" );	
 		});
+	function loadData(){
 	$.get(dataFile,	function(data) {
 		 texts = data.split(" ");
 		 sub2();
@@ -15,7 +17,7 @@ function GenerateTACLines(name, dataFile, scene){
 		.fail(function() {
 			alert( "error data" );	
 		});
-
+	}
 	function sub2(){
 		var TACData = [];
 		var objCounter = 0;
