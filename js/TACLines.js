@@ -57,6 +57,7 @@ function GenerateTACLines(name, scene){
 				lineData = [];
 				pointCounter = 0;
 				prevPos = a+1;
+				a--;
 			}
 		}
 		console.log(texts.length);
