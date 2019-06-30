@@ -105,6 +105,11 @@ var xScale = d3.scaleLinear()
 var yScale = d3.scaleLinear()
     .domain([0, 4]) // input 
     .range([height, 0]); // output 
+	
+var line = d3.line()
+    .x(function(d, i) { return xScale(i); }) // set the x values for the line generator
+    .y(function(d) { return yScale(d.y); }) // set the y values for the line generator 
+    .curve(d3.curveMonotoneX)
 
 function LoadTACGraph(objects, loc){
 	var dataset = d3.range(dataSize).map(function(d) { 
