@@ -456,7 +456,9 @@ class SRSeedingCurve extends SRMesh{
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
+	
 	constructor(filename, scene){
 		super(scene);
+	}
 	}
 }

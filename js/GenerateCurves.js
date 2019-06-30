@@ -11,16 +11,18 @@ var extrudeSettings;
 var bigData = [];
 var texts;
 
-function GenerateCurves(name, mesh){
+function GenerateCurves(name, scene){
 	$.get(name,	function(data) {
 		 texts = data.split(" ");
-		 sub();
+		 return sub();
 		})
 		.fail(function() {
 			alert( "error" );	
 		});
 
 	function sub(){
+		var newSRObjects = [];
+		//
 		var lineData = [];
 		var prevPos = 0;
 		var tempVal = 0;
@@ -61,8 +63,11 @@ function GenerateCurves(name, mesh){
 				var geo = new THREE.ExtrudeBufferGeometry( circleShape, extrudeSettings );
 				var mat = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff , wireframe: false } );
 				var meshtemp = new THREE.Mesh( geo, mat );
-				meshtemp.name = name;
-				mesh.updateMesh(meshtemp);
+				//meshtemp.name = name;
+				//mesh.updateMesh(meshtemp);
+				meshtemp.name = name + lineCounter;
+				var SCtemp = new SRSeedingCurve(scene);
+				SCtemp.updateMesh(meshtemp);
 				lineData = [];
 				counter = 0;
 				prevPos = a+1;
