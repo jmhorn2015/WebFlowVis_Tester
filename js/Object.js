@@ -460,5 +460,4 @@ class SRSeedingCurve extends SRMesh{
 	constructor(filename, scene){
 		super(scene);
 	}
-	}
 }
