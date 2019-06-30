@@ -31,6 +31,7 @@ function GenerateTACLines(name, dataFile, scene){
 				console.log(objCounter);
 				newSRObjects[objCounter].loadDataTwo(TACData);
 				objCounter++;
+				pointCounter = 0;
 				a--;
 			}
 		}
