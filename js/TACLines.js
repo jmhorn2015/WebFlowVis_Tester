@@ -19,9 +19,11 @@ function GenerateTACLines(name, dataFile, scene){
 	function sub2(){
 		var TACData = [];
 		var objCounter = 0;
+		var pointCounter = 0;
 		for(var a = 0; a <= texts.length; a++){
 			if(pointCounter < 200){
 				TACData.push(Number(texts[a]));
+				pointCounter++;
 			}
 			else{
 				newSRObjects[objCounter].loadDataTwo(TACData);
