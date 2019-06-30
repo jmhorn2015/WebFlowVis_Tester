@@ -108,7 +108,7 @@ var yScale = d3.scaleLinear()
 
 function LoadTACGraph(objects, loc){
 	var dataset = d3.range(n).map(function(d) { 
-	return {"x": "y": d3.randomUniform(1)() } 
+	return {"y": d3.randomUniform(1)() } 
 	})
 	
 	var svg = d3.select(loc).append("svg")
