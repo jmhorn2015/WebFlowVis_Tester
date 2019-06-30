@@ -5,14 +5,14 @@ function GenerateTACLines(name, dataFile, scene){
 		 sub();
 		})
 		.fail(function() {
-			alert( "error" );	
+			alert( "error load" );	
 		});
 	$.get(dataFile,	function(data) {
 		 texts = data.split(" ");
 		 sub2();
 		})
 		.fail(function() {
-			alert( "error" );	
+			alert( "error data" );	
 		});
 
 	function sub2(){
