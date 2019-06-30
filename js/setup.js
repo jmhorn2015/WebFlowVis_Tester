@@ -68,7 +68,7 @@ AddObject("data/surface1_2.obj", scene);
 AddObject("data/surface2_1.obj", scene);
 AddObject("data/surface2_2.obj", scene);*/
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
-LoadTACGraph(surfaceobjects, "d3-test");
+LoadTACGraph(surfaceObjects, "d3-test");
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
