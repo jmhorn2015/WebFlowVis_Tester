@@ -61,12 +61,13 @@ light2.type("Point");
 light2.position(0,-10,10);
 
 //objects
-GenerateCurves("data/seeding_curve_1.txt", scene);
+/*GenerateCurves("data/seeding_curve_1.txt", scene);
 GenerateCurves("data/seeding_curve_2.txt", scene);
 AddObject("data/surface1_1.obj", scene);
 AddObject("data/surface1_2.obj", scene);
 AddObject("data/surface2_1.obj", scene);
-AddObject("data/surface2_2.obj", scene);
+AddObject("data/surface2_2.obj", scene);*/
+GenerateTACLines("data/pathlines.txt",scene);
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
