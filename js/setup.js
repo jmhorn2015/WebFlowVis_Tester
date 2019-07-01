@@ -38,7 +38,7 @@ var cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspe
 cameraH.position.set( 0, 0, 128 );
 cameraH.up.set( 0, 0, 1 );
 
-var controls = new THREE.TrackballControls( cameraH, document.getElementById("surface_view"));
+var controls = new THREE.TrackballControls( camera, document.getElementById("surface_view"));
 controls.enableKeys = false;
 camera.position.set( 0, 0, 2);
 controls.enabled = false;
