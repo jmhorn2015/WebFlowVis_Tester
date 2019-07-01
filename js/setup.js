@@ -41,7 +41,6 @@ cameraH.up.set( 0, 0, 1 );
 var controls = new THREE.TrackballControls( camera, document.getElementById("surface_view"));
 controls.enableKeys = false;
 camera.position.set( 0, 0, 2);
-controls.enabled = false;
 
 //axis
 /*var axes = document.getElementById( 'inset' );
