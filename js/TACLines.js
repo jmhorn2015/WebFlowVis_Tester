@@ -115,14 +115,13 @@ function LoadTACGraph(objects, loc){
 	var dataset = d3.range(dataSize).map(function(d) { 
 	return {"y": d3.randomUniform(1)() } 
 	})
-	console.log(loc);
-	console.log(loc.toString);
-	var svg2 = d3.select(loc.toString).append("svg")
+	var svg2 = d3.select(loc).append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+	console.log(svg2);
 	// 3. Call the x axis in a group tag
 	svg2.append("g")
 		.attr("class", "x axis")
