@@ -95,38 +95,39 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
+	if(sceneCheck){
+		var intersects = raycaster.intersectObjects(objects, true);
+		if (intersects.length > 0) {
+			if (INTERSECTED != intersects[0].object) {
+				if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+				INTERSECTED = intersects[0].object;
+				INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+				INTERSECTED.material.emissive.setHex(0xff0000);
+				if(currObject != null){
+					currObject.removeMenu();
+					currObject = null;
+				}
+				for(b = 0; b < objects.length; b++){
+					if(INTERSECTED.name == surfaceObjects[b].object.name){
+						currObject = surfaceObjects[b];
+						$('#localGUI').append(currObject.getGUIMenu(container).domElement);
+							break;
+						}
+					if(b+1 == objects.length){
+						console.log("not found");
+					}
+				}
+			}
+		}
+		else {
+			if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+			INTERSECTED = null;
 
-    var intersects = raycaster.intersectObjects(objects, true);
-    if (intersects.length > 0) {
-      if (INTERSECTED != intersects[0].object) {
-        if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-        INTERSECTED = intersects[0].object;
-        INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-        INTERSECTED.material.emissive.setHex(0xff0000);
-		if(currObject != null){
 			currObject.removeMenu();
 			currObject = null;
-		}
-		for(b = 0; b < objects.length; b++){
-			if(INTERSECTED.name == surfaceObjects[b].object.name){
-				currObject = surfaceObjects[b];
-				$('#localGUI').append(currObject.getGUIMenu(container).domElement);
-				break;
-			}
-			if(b+1 == objects.length){
-				console.log("not found");
-			}
-		}
-      }
-    }
-    else {
-      if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-      INTERSECTED = null;
 
-      currObject.removeMenu();
-	  currObject = null;
-
-    }
+		}
+	}
 
   }
   // Skybox Cube
