@@ -1,5 +1,5 @@
 var loading = false;
-var sceneCheck = false;
+var sceneCheck = true;
 
 //-----Three.js Setup-----//
 container = document.createElement( 'div' );
@@ -41,7 +41,7 @@ cameraH.up.set( 0, 0, 1 );
 var controlsH = new THREE.TrackballControls( cameraH, document.getElementById("surface_view"));
 controlsH.enableKeys = false;
 cameraH.position.set( 0, 0, 2);
-controlsH.update();
+controlsH.enabled = false;
 
 //axis
 /*var axes = document.getElementById( 'inset' );
@@ -148,7 +148,6 @@ function animate() {
 		$("#loading").removeClass('spinner-border');
 	}
 	requestAnimationFrame( animate );
-	controls.update();
 	/*camera2.position.copy( camera.position );
 	camera2.position.sub( controls.target );
 	camera2.position.setLength( 15 );
@@ -156,9 +155,11 @@ function animate() {
 	stats.begin();
 	if(sceneCheck){
 		renderer.render( scene, camera );
+		controls.update();
 	}
 	else{
 		rendererH.render( sceneH, cameraH );
+		controlsH.update();
 	}
 	stats.end();
 	//renderer2.render( scene2, camera2 );
