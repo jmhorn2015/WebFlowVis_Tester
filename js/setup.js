@@ -1,11 +1,5 @@
 var loading = false;
-
-/*var three = $("<div id = 'three'></div>");
-$("body").append(three);
-$(three).innerHeight(window.innerHeight);
-$(three).innerWidth(window.innerWidth*.8);
-var taxis = $("<div id = 'inset'></div>");
-$("surface_view").append(taxis);*/
+var sceneCheck = false;
 
 //-----Three.js Setup-----//
 container = document.createElement( 'div' );
@@ -13,7 +7,7 @@ container.style.border = "1px solid black";
 document.getElementById( 'surface_view' ).appendChild( container );
 stats = new Stats();
 container.appendChild( stats.dom );
-//Scene Setup
+//Surface Scene Setup
 var w = $(".col-sm-8").width();
 var h = 550;
 var scene = new THREE.Scene();
@@ -29,10 +23,25 @@ renderer.gammaOutput = true;
 scene.background = new THREE.Color('white');
 container.appendChild( renderer.domElement );
 
-var controls = new THREE.TrackballControls( camera, document.getElementById("surface_view"));
-controls.enableKeys = false;
-camera.position.set( 0, 0, 2);
-controls.update();
+//Volume Scene Setup
+var sceneH = new THREE.Scene();
+var canvas = document.createElement( 'canvas' );
+var context = canvas.getContext( 'webgl2' );
+var rendererH = new THREE.WebGLRenderer( { canvas: canvas, context: context } );
+rendererH.setPixelRatio( window.devicePixelRatio );
+rendererH.setSize( w, h);
+
+			// Create camera (The volume renderer does not work very well with perspective yet)
+var frusth = 512; // frustum height
+var aspect = w / h;
+var cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 1, 1000 );
+cameraH.position.set( 0, 0, 128 );
+cameraH.up.set( 0, 0, 1 );
+
+var controlsH = new THREE.TrackballControls( cameraH, document.getElementById("surface_view"));
+controlsH.enableKeys = false;
+cameraH.position.set( 0, 0, 2);
+controlsH.update();
 
 //axis
 /*var axes = document.getElementById( 'inset' );
@@ -145,7 +154,12 @@ function animate() {
 	camera2.position.setLength( 15 );
     camera2.lookAt( scene2.position );*/
 	stats.begin();
-	renderer.render( scene, camera );
+	if(sceneCheck){
+		renderer.render( scene, camera );
+	}
+	else{
+		rendererH.render( sceneH, cameraH );
+	}
 	stats.end();
 	//renderer2.render( scene2, camera2 );
 };

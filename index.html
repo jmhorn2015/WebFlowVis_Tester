@@ -79,7 +79,7 @@
     <div class="row ">
 
       <div class="col">
-        <h1 class="page-header">Web-based Flow Visualization *test1</h1>
+        <h1 class="page-header">Web-based Flow Visualization *test</h1>
         <hr>
       </div>
 
@@ -151,49 +151,14 @@
         <div id="myTabContent" class="tab-content">
           <div class="tab-pane fade active show" id="home">
             <fieldset>
-              <legend>Select Data Source</legend>
+              <legend>Select Data View</legend>
               <div class="form-group">
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
-                  <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                  <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" disabled="">
-                  <label class="custom-control-label" for="customRadio3">Disabled custom radio</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
-                  <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck2" disabled="">
-                  <label class="custom-control-label" for="customCheck2">Disabled custom checkbox</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
-                  <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-                </div>
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" disabled="" id="customSwitch2">
-                  <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <select class="custom-select">
-                  <option selected="">Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select class="custom-select" onchange = switchViews()>
+                  <option selected="">Surface Rendering</option>
+                  <option value="1">Volume Rendering</option>
                 </select>
               </div>
+			  <legend>Load Data</legend>
               <div class="form-group">
                 <div class="input-group mb-3">
                   <div class="custom-file">
