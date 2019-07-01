@@ -18,12 +18,12 @@
   function switchViews(){
 	  console.log("fires");
 	  sceneCheck = !sceneCheck;
-	  if(controls.enabled == false){
+	  /*if(controls.enabled == false){
 		  controlsH.enabled = false;
 		  controls.enabled = true;
 	  }
 	  else{
 		  controls.enabled = false;
 		  controlsH.enabled = true;
-	  }
+	  }*/
   }
