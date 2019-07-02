@@ -27,7 +27,7 @@ container.appendChild( renderer.domElement );
 var sceneH = new THREE.Scene();
 sceneH.background = new THREE.Color('black');
 var canvas = document.createElement( 'canvas' );
-container.appendChild( canvas.domElement );
+container.appendChild(canvas);
 var context = canvas.getContext( 'webgl2' );
 var rendererH = new THREE.WebGLRenderer( { canvas: canvas, context: context } );
 rendererH.setPixelRatio( window.devicePixelRatio );
