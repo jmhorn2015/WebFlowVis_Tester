@@ -34,9 +34,7 @@ rendererH.setPixelRatio( window.devicePixelRatio );
 rendererH.setSize( w, h);
 container.appendChild( rendererH.domElement );
 rendererH.domElement.style.display = "none";
-
-			// Create camera (The volume renderer does not work very well with perspective yet)
-var frusth = 512; // frustum height
+var frusth = 512;
 var aspect = w / h;
 var cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 1, 1000 );
 cameraH.position.set( 0, 0, 128 );
@@ -81,6 +79,7 @@ AddObject("data/surface2_1.obj", scene);
 AddObject("data/surface2_2.obj", scene);*/
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
 LoadTACGraph(surfaceObjects, "d3-test2");
+AddVolume("data/stent.nnrd", "data/cm_viridis.png", sceneH);
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);

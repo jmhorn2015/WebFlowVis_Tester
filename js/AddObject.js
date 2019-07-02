@@ -31,3 +31,38 @@ function AddObject(name2, scene){
 	);
 	//$("#loading").removeClass('spinner-border');
 };
+
+function AddVolume(name, textureName,  scene){
+	new NRRDLoader().load( name2, function ( volume ) {
+		var texture = new THREE.DataTexture3D( volume.data, volume.xLength, volume.yLength, volume.zLength );
+		texture.format = THREE.RedFormat;
+		texture.type = THREE.FloatType;
+		texture.minFilter = texture.magFilter = THREE.LinearFilter;
+		texture.unpackAlignment = 1;
+		texture.needsUpdate = true;
+		// Colormap textures
+		cmtextures = new THREE.TextureLoader().load( textureName, render );
+		// Material
+		var shader = VolumeRenderShader1;
+		var uniforms = THREE.UniformsUtils.clone( shader.uniforms );
+		uniforms[ "u_data" ].value = texture;
+		uniforms[ "u_size" ].value.set( volume.xLength, volume.yLength, volume.zLength );
+		uniforms[ "u_clim" ].value.set( volconfig.clim1, volconfig.clim2 );
+		uniforms[ "u_renderstyle" ].value = 0;
+		uniforms[ "u_cmdata" ].value = cmtextures[ volconfig.colormap ];
+		material = new THREE.ShaderMaterial( {
+			uniforms: uniforms,
+			vertexShader: shader.vertexShader,
+			fragmentShader: shader.fragmentShader,
+			side: THREE.BackSide // The volume shader uses the backface as its "reference point"
+		} );
+		// THREE.Mesh
+		var geometry = new THREE.BoxBufferGeometry( volume.xLength, volume.yLength, volume.zLength );
+		geometry.translate( volume.xLength / 2 - 0.5, volume.yLength / 2 - 0.5, volume.zLength / 2 - 0.5 );
+		var mesh = new THREE.Mesh( geometry, material );
+		mesh.name = name;
+		var volumeTemp = new SRMesh(scene);
+		volumeTemp.updateMesh(mesh);
+		render();
+	} );
+};
