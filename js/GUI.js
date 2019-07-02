@@ -22,4 +22,12 @@
 		  currObject.removeMenu();
 		  currObject == null;
 	  }
+	  if(!sceneCheck){
+		  controls = new THREE.TrackballControls( cameraH, document.getElementById("surface_view"));
+		  controls.enableKeys = false;
+	  }
+	  else{
+		controls = new THREE.TrackballControls( camera, document.getElementById("surface_view"));
+		controls.enableKeys = false;
+	  }
   }
