@@ -30,6 +30,7 @@ var canvas = document.createElement( 'canvas' );
 container.appendChild(canvas);
 var context = canvas.getContext( 'webgl2' );
 var rendererH = new THREE.WebGLRenderer( { canvas: canvas, context: context } );
+rendererH.domElement.id = "rendererH";
 rendererH.setPixelRatio( window.devicePixelRatio );
 rendererH.setSize( w, h);
 container.appendChild( rendererH.domElement );
