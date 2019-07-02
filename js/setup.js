@@ -33,6 +33,7 @@ var rendererH = new THREE.WebGLRenderer( { canvas: canvas, context: context } );
 rendererH.setPixelRatio( window.devicePixelRatio );
 rendererH.setSize( w, h);
 container.appendChild( rendererH.domElement );
+$(container).find("rendererH").style.display = "none";
 
 			// Create camera (The volume renderer does not work very well with perspective yet)
 var frusth = 512; // frustum height
