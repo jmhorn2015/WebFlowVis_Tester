@@ -33,7 +33,7 @@ function AddObject(name2, sceneName){
 };
 
 function AddVolume(name, textureName,  sceneName){
-	var loader = new NRRDLoader();
+	var loader = new NRRDLoader;
 	loader.load( name, function ( volume ) {
 		var texture = new THREE.DataTexture3D( volume.data, volume.xLength, volume.yLength, volume.zLength );
 		texture.format = THREE.RedFormat;
