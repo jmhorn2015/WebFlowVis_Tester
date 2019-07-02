@@ -11,7 +11,7 @@ class SRObject{
 	object;
 	posParams;
 	rotParams;
-	constructor(scene){
+	constructor(sceneName){
 		this.object = new THREE.Object3D();
 		this.posParams = {
 			X: 0,
@@ -151,12 +151,12 @@ class SRLight extends SRObject{
 	* @constructor
 	* @params {THREE.Scene} scene - The scene in which you would like the object in.
 	*/
-	constructor(scene){
-		super(scene);
+	constructor(sceneName){
+		super(sceneName);
 		this.object = new THREE.AmbientLight(0x777777);
 		this.object.position.set(0, 0, 0);
 		this.object.name = "Light";
-		scene.add( this.object );
+		sceneName.add( this.object );
 		surfaceObjects.push(this);
 		objects.push(this.object);
 		this.generate2DNode();
@@ -183,7 +183,7 @@ class SRLight extends SRObject{
 			this.object = new THREE.AmbientLight(0x777777);
 		}
 		this.object.position.set(temp.position);
-		scene.add( this.object );
+		sceneName.add( this.object );
 		this.object.opacity = temp.opacity;
 		
 	}
@@ -223,8 +223,8 @@ class SRMesh extends SRObject{
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	* @params {string} x - type of object. If blank, Constructor makes a Plane.
 	*/
-	constructor(scene, shape){
-		super(scene);
+	constructor(sceneName, shape){
+		super(sceneName);
 		this.objParams = {
 			Opacity: 50,
 			Color: 0,
@@ -347,7 +347,7 @@ class SRMesh extends SRObject{
 		this.object = new THREE.Mesh( this.geo, this.mat);
 		this.object.receiveShadow = mesh.receiveShadow;
 		this.object.name = mesh.name;
-		scene.add(this.object);
+		sceneName.add(this.object);
 		objects.push(this.object);
 		surfaceObjects.push(this);
 		this.generate2DNode();
@@ -425,9 +425,8 @@ class SRMesh extends SRObject{
 * @extends SRObject
 */
 class SRBoundingBox extends SRObject{
-	constructor(scene){
-		super(scene);
-	}
+	constructor(sceneName){
+		super(sceneName
 	Resize(){
 		
 	}
@@ -442,8 +441,8 @@ class SRSurface extends SRMesh{
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
-	constructor(scene){
-		super(scene);
+	constructor(sceneName){
+		super(sceneName);
 	}
 }
 /**
@@ -458,8 +457,8 @@ class SRSeedingCurve extends SRMesh{
 	*/
 	dataOne;
 	dataTwo;
-	constructor(filename, scene){
-		super(scene);
+	constructor(filename, sceneName){
+		super(sceneName);
 		this.dataOne = [];
 		this.dataTwo = [];
 	}
