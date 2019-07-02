@@ -87,7 +87,7 @@ LoadTACGraph(surfaceObjects, "d3-test2");
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
-shadowPlane.updateMesh(shadowPlane.object);
+shadowPlane.updateMesh(shadowPlane.object, scene);
 
 //Raycaster
 var currObject;
