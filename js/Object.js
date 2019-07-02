@@ -426,7 +426,7 @@ class SRMesh extends SRObject{
 */
 class SRBoundingBox extends SRObject{
 	constructor(sceneName){
-		super(sceneName
+		super(sceneName);
 	Resize(){
 		
 	}
