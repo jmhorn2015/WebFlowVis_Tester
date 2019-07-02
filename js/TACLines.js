@@ -114,7 +114,7 @@ var line = d3.line()
 function LoadTACGraph(objects, loc){
 	var dataset = d3.range(dataSize).map(function(d) { 
 	return {"y": d3.randomUniform(1)() } 
-	})
+	});
 	var svg2 = d3.select(loc).append("svg2")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
