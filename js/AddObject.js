@@ -1,4 +1,4 @@
-function AddObject(name2, scene){
+function AddObject(name2, sceneName){
 	var loader = new THREE.OBJLoader();
 	loader.load(name2, function ( object ) {
     	object.traverse( function ( child ) {
@@ -9,7 +9,7 @@ function AddObject(name2, scene){
 				child.material.opacity = .5;
 				child.recieveShadow = false;
 				child.name = name2;
-				var SStemp = new SRSurface(scene);
+				var SStemp = new SRSurface(sceneName);
 				SStemp.updateMesh(child);
         	}
 			else{
@@ -32,7 +32,7 @@ function AddObject(name2, scene){
 	//$("#loading").removeClass('spinner-border');
 };
 
-function AddVolume(name, textureName,  scene){
+function AddVolume(name, textureName,  sceneName){
 	var loader = new NRRDLoader();
 	loader.load( name2, function ( volume ) {
 		var texture = new THREE.DataTexture3D( volume.data, volume.xLength, volume.yLength, volume.zLength );
@@ -62,7 +62,7 @@ function AddVolume(name, textureName,  scene){
 		geometry.translate( volume.xLength / 2 - 0.5, volume.yLength / 2 - 0.5, volume.zLength / 2 - 0.5 );
 		var mesh = new THREE.Mesh( geometry, material );
 		mesh.name = name;
-		var volumeTemp = new SRMesh(scene);
+		var volumeTemp = new SRMesh(sceneName);
 		volumeTemp.updateMesh(mesh);
 		render();
 	} );
