@@ -67,11 +67,11 @@ scene.add( wireframe );
 //lights
 var light = new SRLight(scene);
 var light2 = new SRLight(scene);
-light2.type("Point");
+light2.type("Point", scene);
 light2.position(0,-10,10);
 var light3 = new SRLight(sceneH);
 var light4 = new SRLight(sceneH);
-light4.type("Point");
+light4.type("Point", sceneH);
 light4.position(0,-10,10);
 
 //objects

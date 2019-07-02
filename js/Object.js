@@ -172,7 +172,7 @@ class SRLight extends SRObject{
 	* Sets the type of the light to the "x" type. Only works for "Point" Light
 	* @params {string} x - name of light type.
 	*/
-	type(x){
+	type(x, sceneName){
 		var temp = this.object;
 		if(x = "Point"){
 			this.object = new THREE.PointLight(0xffffff);
