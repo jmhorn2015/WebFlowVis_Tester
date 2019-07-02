@@ -67,7 +67,7 @@ function GenerateCurves(name, scene){
 				//mesh.updateMesh(meshtemp);
 				meshtemp.name = name + lineCounter;
 				var SCtemp = new SRSeedingCurve(scene);
-				SCtemp.updateMesh(meshtemp);
+				SCtemp.updateMesh(meshtemp, sceneName);
 				lineData = [];
 				counter = 0;
 				prevPos = a+1;

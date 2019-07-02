@@ -339,7 +339,7 @@ class SRMesh extends SRObject{
 	* Updates the geometry of the object. Used with the sub classes to load in the data properly.
 	* @params {THREE.Mesh} mesh - new mesh information to adapt to object.
 	*/
-	updateMesh(mesh){
+	updateMesh(mesh, sceneName){
 		this.geo = mesh.geometry;
 		this.mat = mesh.material;
 		this.mat.transparent = true;

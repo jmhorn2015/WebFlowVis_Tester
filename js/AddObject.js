@@ -10,7 +10,7 @@ function AddObject(name2, sceneName){
 				child.recieveShadow = false;
 				child.name = name2;
 				var SStemp = new SRSurface(sceneName);
-				SStemp.updateMesh(child);
+				SStemp.updateMesh(child, sceneName);
         	}
 			else{
 				var temp = object;
@@ -63,7 +63,7 @@ function AddVolume(name, textureName,  sceneName){
 		var mesh = new THREE.Mesh( geometry, material );
 		mesh.name = name;
 		var volumeTemp = new SRMesh(sceneName);
-		volumeTemp.updateMesh(mesh);
+		volumeTemp.updateMesh(mesh, sceneName);
 		render();
 	} );
 };

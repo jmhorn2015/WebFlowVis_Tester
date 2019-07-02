@@ -1,4 +1,4 @@
-function GenerateTACLines(name, dataFile, scene){
+function GenerateTACLines(name, dataFile, sceneName){
 	var newSRObjects = [];
 	var loadData = [];
 	$.get(name,	function(data) {
@@ -78,8 +78,8 @@ function GenerateTACLines(name, dataFile, scene){
 				var mat = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff , wireframe: false } );
 				var meshtemp = new THREE.Mesh( geo, mat );
 				meshtemp.name = name + lineCounter;
-				var SCtemp = new SRSeedingCurve(scene);
-				SCtemp.updateMesh(meshtemp);
+				var SCtemp = new SRSeedingCurve(sceneName);
+				SCtemp.updateMesh(meshtemp, sceneName);
 				SCtemp.loadDataOne(xData);
 				newSRObjects.push(SCtemp);
 				lineData = [];
