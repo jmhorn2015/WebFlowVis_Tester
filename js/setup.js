@@ -69,17 +69,21 @@ var light = new SRLight(scene);
 var light2 = new SRLight(scene);
 light2.type("Point");
 light2.position(0,-10,10);
+var light3 = new SRLight(sceneH);
+var light4 = new SRLight(sceneH);
+light4.type("Point");
+light4.position(0,-10,10);
 
 //objects
 /*GenerateCurves("data/seeding_curve_1.txt", scene);
-GenerateCurves("data/seeding_curve_2.txt", scene);
-AddObject("data/surface1_1.obj", scene);
-AddObject("data/surface1_2.obj", scene);
+GenerateCurves("data/seeding_curve_2.txt", scene);*/
+AddObject("data/surface1_1.obj", sceneH);
+/*AddObject("data/surface1_2.obj", scene);
 AddObject("data/surface2_1.obj", scene);
 AddObject("data/surface2_2.obj", scene);*/
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
 LoadTACGraph(surfaceObjects, "d3-test2");
-AddVolume("data/stent.nnrd", "data/cm_viridis.png", sceneH);
+//AddVolume("data/stent.nnrd", "data/cm_viridis.png", sceneH);
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
