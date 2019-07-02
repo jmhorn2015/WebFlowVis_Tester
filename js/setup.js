@@ -26,9 +26,10 @@ container.appendChild( renderer.domElement );
 //Volume Scene Setup
 var sceneH = new THREE.Scene();
 sceneH.background = new THREE.Color('black');
-var canvas = container.createElement( 'canvas' );
+var canvas = document.createElement( 'canvas' );
+container.appendChild( canvas.domElement );
 var context = canvas.getContext( 'webgl2' );
-var rendererH = new THREE.WebGLRenderer( { canvas: container, context: context } );
+var rendererH = new THREE.WebGLRenderer( { canvas: canvas, context: context } );
 rendererH.setPixelRatio( window.devicePixelRatio );
 rendererH.setSize( w, h);
 container.appendChild( rendererH.domElement );
