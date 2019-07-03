@@ -51,19 +51,18 @@ function AddVolume(name, textureName,  sceneName){
 		uniforms[ "u_clim" ].value.set( volconfig.clim1, volconfig.clim2 );
 		uniforms[ "u_renderstyle" ].value = 0;
 		uniforms[ "u_cmdata" ].value = cmtextures[ volconfig.colormap ];
-		material = new THREE.ShaderMaterial( {
+		var materialtemp = new THREE.ShaderMaterial( {
 			uniforms: uniforms,
 			vertexShader: shader.vertexShader,
 			fragmentShader: shader.fragmentShader,
 			side: THREE.BackSide // The volume shader uses the backface as its "reference point"
 		} );
 		// THREE.Mesh
-		var geometry = new THREE.BoxBufferGeometry( volume.xLength, volume.yLength, volume.zLength );
-		geometry.translate( volume.xLength / 2 - 0.5, volume.yLength / 2 - 0.5, volume.zLength / 2 - 0.5 );
-		var mesh = new THREE.Mesh( geometry, material );
-		mesh.name = name;
+		var geometrytemp = new THREE.BoxBufferGeometry( volume.xLength, volume.yLength, volume.zLength );
+		geometrytemp.translate( volume.xLength / 2 - 0.5, volume.yLength / 2 - 0.5, volume.zLength / 2 - 0.5 );
+		var meshtemp = new THREE.Mesh( geometrytemp, materialtemp );
+		meshtemp.name = name;
 		var volumeTemp = new SRMesh(sceneName);
-		volumeTemp.updateMesh(mesh, sceneName);
-		render();
+		volumeTemp.updateMesh(meshtemp, sceneName);
 	} );
 };
