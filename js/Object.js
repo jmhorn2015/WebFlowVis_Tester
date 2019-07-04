@@ -351,6 +351,7 @@ class SRMesh extends SRObject{
 		objects.push(this.object);
 		surfaceObjects.push(this);
 		this.generate2DNode();
+		console.log(this.object.name);
 	};
 	/**
 	* Allows a local menu to show on the screen when the object is clicked on
