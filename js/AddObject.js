@@ -70,5 +70,6 @@ function AddVolume(name, textureName,  sceneName){
 	console.log(value);
 	},	function ( error ) {
 		alert( 'An error happened in Add Volume' );
+		console.log(error);
 	});
 };
