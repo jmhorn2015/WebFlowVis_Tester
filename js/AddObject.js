@@ -66,5 +66,7 @@ function AddVolume(name, textureName,  sceneName){
 		var volumeTemp = new SRMesh(sceneName);
 		volumeTemp.updateMesh(meshtemp, sceneName);
 		console.log("done");
-	} );
+	}, function(value){ 
+	console.log(value);
+	});
 };
