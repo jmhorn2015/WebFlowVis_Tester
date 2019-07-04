@@ -120,8 +120,6 @@ function LoadTACGraph(objects, loc){
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-	console.log(svg2);
 	// 3. Call the x axis in a group tag
 	svg2.append("g")
 		.attr("class", "x axis")
