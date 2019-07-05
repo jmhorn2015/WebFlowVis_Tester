@@ -115,24 +115,24 @@ function LoadTACGraph(objects, loc){
 	var dataset = d3.range(dataSize).map(function(d) { 
 	return {"y": d3.randomUniform(1)() } 
 	});
-	var svg = d3.select(loc).append("svg")
+	var svgTAC = d3.select(loc).append("svgTAC")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	// 3. Call the x axis in a group tag
-	svg.append("g")
+	svgTAC.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height + ")")
 		.call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
 	
 	// 4. Call the y axis in a group tag
-	svg.append("g")
+	svgTAC.append("g")
 		.attr("class", "y axis")
 		.call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
 
 	// 9. Append the path, bind the data, and call the line generator 
-	svg.append("path")
+	svgTAC.append("path")
 		.datum(dataset) // 10. Binds data to the line 
 		.attr("class", "line") // Assign a class for styling 
 		.attr("d", line); // 11. Calls the line generator 
