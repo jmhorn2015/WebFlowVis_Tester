@@ -297,7 +297,7 @@ THREE.NRRDLoader.prototype = {
 
 			// we need to decompress the datastream
 			// here we start the unzipping and get a typed Uint8Array back
-			var inflate = new Zlib.Gunzip( new Uint8Array( _data ) ); // eslint-disable-line no-undef
+			var inflate = new zlib.gunzip( new Uint8Array( _data ) ); // eslint-disable-line no-undef
 			_data = inflate.decompress();
 
 		} else if ( headerObject.encoding === 'ascii' || headerObject.encoding === 'text' || headerObject.encoding === 'txt' || headerObject.encoding === 'hex' ) {
