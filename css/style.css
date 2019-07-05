@@ -36,7 +36,7 @@ svg:not(.active):not(.ctrl) path.link {
   cursor: pointer;
 }
 
-path.link.selected {
+/*path.link.selected {
   stroke-dasharray: 10,2;
 }
 
@@ -47,7 +47,7 @@ path.link.dragline {
 path.link.hidden {
   stroke-width: 0;
 }
-
+*/
 circle.node {
   stroke-width: 1.5px;
   cursor: pointer;
@@ -67,13 +67,13 @@ text.id {
   text-anchor: middle;
   font-weight: bold;
 }
-d3-test2.line {
+path.line {
 	fill: none;
 	stroke: #ffab00;
 	stroke-width: 3;
 }
   
-d3-test2.overlay {
+path.overlay {
 	fill: none;
 	pointer-events: all;
 }
