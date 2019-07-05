@@ -97,13 +97,13 @@ var margin = {top: 50, right: 50, bottom: 50, left: 50}
   , width = 920
   , height = 250;
   
-var dataSize = 49;
+var dataSize = 21;
 var xScale = d3.scaleLinear()
-    .domain([0, 200]) // input
-    .range([width, 0]); // output
+    .domain([0, 20]) // input
+    .range([0, width]); // output
  
 var yScale = d3.scaleLinear()
-    .domain([0, 4]) // input 
+    .domain([0, 1]) // input 
     .range([height, 0]); // output 
 	
 var line = d3.line()
@@ -115,24 +115,24 @@ function LoadTACGraph(objects, loc){
 	var dataset = d3.range(dataSize).map(function(d) { 
 	return {"y": d3.randomUniform(1)() } 
 	});
-	var svg2 = d3.select(loc).append("svg2")
+	var svg = d3.select(loc).append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	// 3. Call the x axis in a group tag
-	svg2.append("g")
+	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height + ")")
 		.call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
 	
 	// 4. Call the y axis in a group tag
-	svg2.append("g")
+	svg.append("g")
 		.attr("class", "y axis")
 		.call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
 
 	// 9. Append the path, bind the data, and call the line generator 
-	svg2.append("path")
+	svg.append("path")
 		.datum(dataset) // 10. Binds data to the line 
 		.attr("class", "line") // Assign a class for styling 
 		.attr("d", line); // 11. Calls the line generator 
