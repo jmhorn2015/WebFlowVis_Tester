@@ -9,7 +9,7 @@ stats = new Stats();
 container.appendChild( stats.dom );
 //Surface Scene Setup
 var w = $(".col-sm-8").width();
-var h = 550;
+var h = 450;
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, w/h, 0.1, 1000 );
 var renderer = new THREE.WebGLRenderer();
