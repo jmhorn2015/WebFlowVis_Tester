@@ -105,13 +105,18 @@ var xScale = d3.scaleLinear()
 var yScale = d3.scaleLinear()
     .domain([0, 1]) // input 
     .range([height, 0]); // output 
-	
-var line = d3.line()
+
+function LoadTACGraph(objects, loc){
+	var line = d3.line()
     .x(function(d, i) { return xScale(i); }) // set the x values for the line generator
     .y(function(d) { return yScale(d.y); }) // set the y values for the line generator 
     .curve(d3.curveMonotoneX)
-
-function LoadTACGraph(objects, loc){
+	
+	var line2 = d3.line()
+    .x(function(d, i) { return xScale(i); }) // set the x values for the line generator
+    .y(function(d) { return yScale(d.y); }) // set the y values for the line generator 
+    .curve(d3.curveMonotoneX)
+	
 	var dataset = d3.range(dataSize).map(function(d) { 
 	return {"y": d3.randomUniform(1)() } 
 	});
@@ -136,4 +141,5 @@ function LoadTACGraph(objects, loc){
 		.datum(dataset) // 10. Binds data to the line 
 		.attr("class", "line") // Assign a class for styling 
 		.attr("d", line); // 11. Calls the line generator 
+		.attr("d", line2);
 }
