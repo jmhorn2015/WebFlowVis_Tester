@@ -120,6 +120,9 @@ function LoadTACGraph(objects, loc){
 	var dataset = d3.range(dataSize).map(function(d) { 
 	return {"y": d3.randomUniform(1)() } 
 	});
+	var dataset2 = d3.range(dataSize).map(function(d) { 
+	return {"y": d3.randomUniform(1)() } 
+	});
 	var svgTAC = d3.select(loc).append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
@@ -142,7 +145,7 @@ function LoadTACGraph(objects, loc){
 		.attr("class", "line") // Assign a class for styling 
 		.attr("d", line); // 11. Calls the line generator 
 	svgTAC.append("path")
-		.datum(dataset) // 10. Binds data to the line 
+		.datum(dataset2) // 10. Binds data to the line 
 		.attr("class", "line") // Assign a class for styling 
 		.attr("d", line2); // 11. Calls the line generator 
 }
