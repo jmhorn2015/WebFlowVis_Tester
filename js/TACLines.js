@@ -132,7 +132,7 @@ function LoadTACGraph(objects, loc){
 		.call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
 
 	// 9. Append the path, bind the data, and call the line generator 
-	svgTAc.append("path")
+	svgTAC.append("path")
 		.datum(dataset) // 10. Binds data to the line 
 		.attr("class", "line") // Assign a class for styling 
 		.attr("d", line); // 11. Calls the line generator 
