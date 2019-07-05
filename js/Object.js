@@ -130,7 +130,8 @@ class SRObject{
 	* 
 	*/
 	generate2DNode() {
-		nodes.push({ id: this.object.name, reflexive: false });
+		//nodes.push({ id: this.object.name, reflexive: false });
+		console.log("node function");
 	}
 	get Position(){
 		return this.object.position;
