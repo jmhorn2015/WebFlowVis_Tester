@@ -140,6 +140,6 @@ function LoadTACGraph(objects, loc){
 	svgTAC.append("path")
 		.datum(dataset) // 10. Binds data to the line 
 		.attr("class", "line") // Assign a class for styling 
-		.attr("d", line); // 11. Calls the line generator 
+		.attr("d", line) // 11. Calls the line generator 
 		.attr("d", line2);
 }
