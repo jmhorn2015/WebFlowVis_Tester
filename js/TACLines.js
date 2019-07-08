@@ -144,9 +144,9 @@ function LoadTACGraph(objectsAll, loc){
 			var dataset = d3.range(dataSize).map(function(d) { 
 				return { "x": objectsAll[a].dataOne[d],"y": objectsAll[a].dataTwo[d]} 
 			});
-			console.log(objectsAll[a].mat.color.getHexString());
 			const styleLine = document.querySelector('line');
 			styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
+			console.log(styleLine.stroke);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", styleLine) 
