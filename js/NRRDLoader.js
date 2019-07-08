@@ -2,7 +2,7 @@
  *  three.js NRRD file loader
  */
 
-import {
+/*import {
 	DefaultLoadingManager,
 	FileLoader,
 	Matrix4,
@@ -10,7 +10,7 @@ import {
 } from "../../../build/three.module.js";
 import { Zlib } from "../libs/gunzip.module.min.js";
 import { Volume } from "../misc/Volume.js";
-
+*/
 
 var NRRDLoader = function ( manager ) {
 
