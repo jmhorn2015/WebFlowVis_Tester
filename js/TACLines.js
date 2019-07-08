@@ -107,6 +107,7 @@ var yScale = d3.scaleLinear()
     .range([height, 0]); // output 
 
 function LoadTACGraph(objectsAll, loc){
+	console.log("enter");
 	var line = d3.line()
     .x(function(d, i) { return xScale(i); })
     .y(function(d) { return yScale(d.y); })
@@ -142,7 +143,7 @@ function LoadTACGraph(objectsAll, loc){
 			var dataset = d3.range(dataSize).map(function(d) { 
 				return { "y": objectsAll[a].dataTwo[d]} 
 			});
-			console.log(dataset);
+			console.log("loop");
 			const styleLine = document.querySelector('line');
 			styleLine.remove("stroke");
 			styleLine.add("stroke: " + objectsAll.mat.color.getHex() );
@@ -152,4 +153,5 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("d", line);
 		}
 	}
+	console.log("Exit");
 }
