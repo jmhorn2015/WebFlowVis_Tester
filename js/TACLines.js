@@ -106,23 +106,16 @@ var yScale = d3.scaleLinear()
     .domain([0, 1]) // input 
     .range([height, 0]); // output 
 
-function LoadTACGraph(objects, loc){
+function LoadTACGraph(objectsAll, loc){
 	var line = d3.line()
-    .x(function(d, i) { return xScale(i); }) // set the x values for the line generator
-    .y(function(d) { return yScale(d.y); }) // set the y values for the line generator 
+    .x(function(d, i) { return xScale(i); })
+    .y(function(d) { return yScale(d.y); })
     .curve(d3.curveMonotoneX);
 	
-	var line2 = d3.line()
-    .x(function(d, i) { return xScale(i); }) // set the x values for the line generator
-    .y(function(d) { return yScale(d.y); }) // set the y values for the line generator 
-    .curve(d3.curveMonotoneX);
+	//var dataset = d3.range(dataSize).map(function(d) { 
+	//return {"y": d3.randomUniform(1)() } 
+	//});
 	
-	var dataset = d3.range(dataSize).map(function(d) { 
-	return {"y": d3.randomUniform(1)() } 
-	});
-	var dataset2 = d3.range(dataSize).map(function(d) { 
-	return {"y": d3.randomUniform(1)() } 
-	});
 	var svgTAC = d3.select(loc).append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
@@ -140,12 +133,22 @@ function LoadTACGraph(objects, loc){
 		.call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
 
 	// 9. Append the path, bind the data, and call the line generator 
-	svgTAC.append("path")
-		.datum(dataset) // 10. Binds data to the line 
-		.attr("class", "line") // Assign a class for styling 
-		.attr("d", line); // 11. Calls the line generator 
-	svgTAC.append("path")
-		.datum(dataset2) // 10. Binds data to the line 
-		.attr("class", "line") // Assign a class for styling 
-		.attr("d", line2); // 11. Calls the line generator 
+	/*svgTAC.append("path")
+		.datum(dataset)
+		.attr("class", "line") 
+		.attr("d", line); */
+	for(var a = 0; a < objectsAll.length; a++){
+		if(objectsAll[a].dataOne != null){
+			var dataset = d3.range(dataSize).map(function(d) { 
+				return {"x": objectsAll[a].dataOne "y": objectsAll[a].dataTwo} 
+			});
+			const styleLine = document.querySelector('line');
+			styleLine.remove("stroke");
+			styleLine.add("stroke: " + objectsAll.mat.color.getHex() );
+			svgTAC.append("path")
+				.datum(dataset)
+				.attr("class", "line") 
+				.attr("d", line);
+		}
+	}
 }
