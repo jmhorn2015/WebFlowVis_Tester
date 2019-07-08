@@ -82,7 +82,6 @@ GenerateCurves("data/seeding_curve_2.txt", scene);*/
 AddObject("data/surface2_1.obj", scene);
 AddObject("data/surface2_2.obj", scene);*/
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
-LoadTACGraph(surfaceObjects, "#d3-test2");
 //AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 
 //shadow plane

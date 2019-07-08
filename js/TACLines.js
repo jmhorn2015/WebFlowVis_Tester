@@ -34,6 +34,7 @@ function GenerateTACLines(name, dataFile, sceneName){
 				a--;
 			}
 		}
+		LoadTACGraph(surfaceObjects, "#d3-test2");
 	}
 	function sub(){
 		var lineData = [];
