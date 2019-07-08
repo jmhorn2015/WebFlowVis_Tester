@@ -140,8 +140,9 @@ function LoadTACGraph(objectsAll, loc){
 	for(var a = 0; a < objectsAll.length; a++){
 		if(objectsAll[a].dataOne != null){
 			var dataset = d3.range(dataSize).map(function(d) { 
-				return { "y": objectsAll[a].dataTwo} 
+				return { "y": objectsAll[a].dataTwo[d]} 
 			});
+			console.log(dataset);
 			const styleLine = document.querySelector('line');
 			styleLine.remove("stroke");
 			styleLine.add("stroke: " + objectsAll.mat.color.getHex() );
