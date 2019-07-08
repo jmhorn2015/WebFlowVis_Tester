@@ -145,11 +145,11 @@ function LoadTACGraph(objectsAll, loc){
 				return { "x": objectsAll[a].dataOne[d],"y": objectsAll[a].dataTwo[d]} 
 			});
 			console.log(objectsAll[a].mat.color.getHexString());
-			const styleLine = document.querySelector('.line');
+			const styleLine = document.querySelector('line');
 			styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
 			svgTAC.append("path")
 				.datum(dataset)
-				.attr("class", "line") 
+				.attr("class", styleLine) 
 				.attr("d", line);
 		}
 	}
