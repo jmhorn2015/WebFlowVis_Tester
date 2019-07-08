@@ -97,13 +97,13 @@ var margin = {top: 50, right: 50, bottom: 50, left: 50}
   , width = 820
   , height = 150;
   
-var dataSize = 21;
+var dataSize = 200;
 var xScale = d3.scaleLinear()
-    .domain([0, 20]) // input
+    .domain([0, 200]) // input
     .range([0, width]); // output
  
 var yScale = d3.scaleLinear()
-    .domain([0, 1]) // input 
+    .domain([0, 200]) // input 
     .range([height, 0]); // output 
 
 function LoadTACGraph(objectsAll, loc){
@@ -140,7 +140,7 @@ function LoadTACGraph(objectsAll, loc){
 	for(var a = 0; a < objectsAll.length; a++){
 		if(objectsAll[a].dataOne != null){
 			var dataset = d3.range(dataSize).map(function(d) { 
-				return {"x": objectsAll[a].dataOne "y": objectsAll[a].dataTwo} 
+				return { "y": objectsAll[a].dataTwo} 
 			});
 			const styleLine = document.querySelector('line');
 			styleLine.remove("stroke");
