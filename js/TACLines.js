@@ -109,11 +109,6 @@ var yScale = d3.scaleLinear()
 
 function LoadTACGraph(objectsAll, loc){
 	console.log("enter");
-	var line = d3.line()
-    .x(function(d, i) { return xScale(i); })
-    .y(function(d) { return yScale(d.y); })
-    .curve(d3.curveMonotoneX);
-	
 	//var dataset = d3.range(dataSize).map(function(d) { 
 	//return {"y": d3.randomUniform(1)() } 
 	//});
@@ -141,12 +136,16 @@ function LoadTACGraph(objectsAll, loc){
 		.attr("d", line); */
 	for(var a = 0; a < objectsAll.length; a++){
 		if(objectsAll[a].dataOne != null){
+			var line = d3.line()
+					.x(function(d, i) { return xScale(i); })
+					.y(function(d) { return yScale(d.y); })
+					.curve(d3.curveMonotoneX);
 			var dataset = d3.range(dataSize).map(function(d) { 
 				return { "x": objectsAll[a].dataOne[d],"y": objectsAll[a].dataTwo[d]} 
 			});
 			const styleLine = document.querySelector('line');
-			styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
-			console.log(a);
+			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
+			console.log(styleLine.stroke);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
