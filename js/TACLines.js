@@ -146,7 +146,7 @@ function LoadTACGraph(objectsAll, loc){
 			});
 			const styleLine = document.querySelector('line');
 			styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
-			console.log(styleLine.stroke);
+			console.log(document.querySelector('line').stroke);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
