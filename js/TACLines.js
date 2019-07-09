@@ -100,11 +100,11 @@ var margin = {top: 50, right: 50, bottom: 50, left: 50}
   
 var dataSize = 200;
 var xScale = d3.scaleLinear()
-    .domain([-3, 3]) // input
+    .domain([-1.5, 1.5]) // input
     .range([0, width]); // output
  
 var yScale = d3.scaleLinear()
-    .domain([0, 10]) // input 
+    .domain([1, 5]) // input 
     .range([height, 0]); // output 
 
 function LoadTACGraph(objectsAll, loc){
@@ -144,13 +144,12 @@ function LoadTACGraph(objectsAll, loc){
 				return {"x": objectsAll[a].dataOne[d], "y": objectsAll[a].dataTwo[d]}
 			});
 			
-			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
-			//console.log(styleLine.stroke);
+			styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
+			console.log(styleLine.stroke);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
 				.attr("d", lineGen)
-				.stroke = "#" + objectsAll[a].mat.color.getHexString();
 		}
 	}
 	console.log("Exit");
