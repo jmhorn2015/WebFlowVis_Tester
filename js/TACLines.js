@@ -100,11 +100,11 @@ var margin = {top: 50, right: 50, bottom: 50, left: 50}
   
 var dataSize = 200;
 var xScale = d3.scaleLinear()
-    .domain([-1.5, 1.5]) // input
+    .domain([0, 200]) // input
     .range([0, width]); // output
  
 var yScale = d3.scaleLinear()
-    .domain([1.5, 5]) // input 
+    .domain([0, 5]) // input 
     .range([height, 0]); // output 
 
 function LoadTACGraph(objectsAll, loc){
@@ -137,11 +137,11 @@ function LoadTACGraph(objectsAll, loc){
 	for(var a = 0; a < objectsAll.length; a++){
 		if(objectsAll[a].dataOne != null){
 			var lineGen = d3.line()
-					.x(function(d) { return xScale(d.x); })
+					.x(function(d) { return xScale(d); })
 					.y(function(d) { return yScale(d.y); })
 					.curve(d3.curveMonotoneX);
 			var dataset = d3.range(dataSize).map(function(d) { 
-				return {"x": objectsAll[a].dataOne[d], "y": objectsAll[a].dataTwo[d]}
+				return {"y": objectsAll[a].dataTwo[d]}
 			});
 			
 			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
