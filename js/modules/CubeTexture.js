@@ -2,8 +2,8 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
-import { Texture } from './Texture.js';
-import { CubeReflectionMapping } from '../constants.js';
+import { Texture } from '../js/modules/Texture.js';
+import { CubeReflectionMapping } from '../js/modules/constants.js';
 
 function CubeTexture( images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding ) {
 

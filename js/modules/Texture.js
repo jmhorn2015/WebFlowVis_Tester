@@ -4,7 +4,7 @@
  * @author szimek / https://github.com/szimek/
  */
 
-import { EventDispatcher } from '../core/EventDispatcher.js';
+import { EventDispatcher } from '../js/modules/EventDispatcher.js';
 import {
 	MirroredRepeatWrapping,
 	ClampToEdgeWrapping,
@@ -15,11 +15,11 @@ import {
 	LinearMipMapLinearFilter,
 	LinearFilter,
 	UVMapping
-} from '../constants.js';
-import { _Math } from '../math/Math.js';
-import { Vector2 } from '../math/Vector2.js';
-import { Matrix3 } from '../math/Matrix3.js';
-import { ImageUtils } from '../extras/ImageUtils.js';
+} from '../js/modules/constants.js';
+import { _Math } from '../js/modules/Math.js';
+import { Vector2 } from '../js/modules/Vector2.js';
+import { Matrix3 } from '../js/modules/Matrix3.js';
+import { ImageUtils } from '../js/modules/ImageUtils.js';
 
 var textureId = 0;
 
