@@ -94,9 +94,9 @@ function GenerateTACLines(name, dataFile, sceneName){
 };
 
 //2D setup
-var margin = {top: 10, right: 10, bottom: 10, left: 10}
-  , width = 900
-  , height = 230;
+var margin = {top: 50, right: 50, bottom: 50, left: 50}
+  , width = 820
+  , height = 150;
   
 var dataSize = 200;
 var xScale = d3.scaleLinear()
@@ -104,7 +104,7 @@ var xScale = d3.scaleLinear()
     .range([0, width]); // output
  
 var yScale = d3.scaleLinear()
-    .domain([1, 5]) // input 
+    .domain([-1, 5]) // input 
     .range([height, 0]); // output 
 
 function LoadTACGraph(objectsAll, loc){
