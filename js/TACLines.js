@@ -143,13 +143,14 @@ function LoadTACGraph(objectsAll, loc){
 			var dataset = d3.range(dataSize).map(function(d) { 
 				return { "x": objectsAll[a].dataOne[d],"y": objectsAll[a].dataTwo[d]} 
 			});
-			const styleLine = document.querySelector('line');
+			
 			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
 			console.log(styleLine.stroke);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
-				.attr("d", lineGen);
+				.attr("d", lineGen)
+				.stroke = "#" + objectsAll[a].mat.color.getHexString();
 		}
 	}
 	console.log("Exit");
