@@ -15,11 +15,11 @@ import {
 	LinearMipMapLinearFilter,
 	LinearFilter,
 	UVMapping
-} from '../js/modules/constants.js';
-import { _Math } from '../js/modules/Math.js';
-import { Vector2 } from '../js/modules/Vector2.js';
-import { Matrix3 } from '../js/modules/Matrix3.js';
-import { ImageUtils } from '../js/modules/ImageUtils.js';
+} from '../modules/constants.js';
+import { _Math } from '../modules/Math.js';
+import { Vector2 } from '../modules/Vector2.js';
+import { Matrix3 } from '../modules/Matrix3.js';
+import { ImageUtils } from '../modules/ImageUtils.js';
 
 var textureId = 0;
 
