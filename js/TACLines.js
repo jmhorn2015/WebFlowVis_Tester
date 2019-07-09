@@ -149,7 +149,7 @@ function LoadTACGraph(objectsAll, loc){
 			console.log(styleLine.stroke);
 			svgTAC.append("path")
 				.datum(dataset)
-				.attr("class", styleLine) 
+				.attr("class", "line") 
 				.attr("d", line);
 		}
 	}
