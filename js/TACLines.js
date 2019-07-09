@@ -144,8 +144,8 @@ function LoadTACGraph(objectsAll, loc){
 				return {"x": objectsAll[a].dataOne[d], "y": objectsAll[a].dataTwo[d]}
 			});
 			
-			styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
-			console.log(styleLine.stroke);
+			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
+			//console.log(styleLine.stroke);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
