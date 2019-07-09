@@ -94,9 +94,9 @@ function GenerateTACLines(name, dataFile, sceneName){
 };
 
 //2D setup
-var margin = {top: 50, right: 50, bottom: 50, left: 50}
-  , width = 820
-  , height = 150;
+var margin = {top: 10, right: 10, bottom: 10, left: 10}
+  , width = 900
+  , height = 230;
   
 var dataSize = 200;
 var xScale = d3.scaleLinear()
