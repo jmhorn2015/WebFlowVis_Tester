@@ -55,7 +55,6 @@ function GenerateTACLines(name, dataFile, sceneName){
 				if(counter == 1){
 					x = tempVal;
 					xData.push(x);
-					console.log(x);
 				}
 				else if(counter == 2){
 					y = tempVal;

@@ -2,9 +2,9 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
-import { ImageLoader } from './ImageLoader.js';
-import { CubeTexture } from '../textures/CubeTexture.js';
-import { DefaultLoadingManager } from './LoadingManager.js';
+import { ImageLoader } from "../js/modules/ImageLoader.js";
+import { CubeTexture } from "../js/modules/CubeTexture.js";
+import { DefaultLoadingManager } from "../js/modules/LoadingManager.js";
 
 
 function CubeTextureLoader( manager ) {
