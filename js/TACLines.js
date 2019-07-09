@@ -142,7 +142,7 @@ function LoadTACGraph(objectsAll, loc){
 					.curve(d3.curveMonotoneX);
 			var dataset = d3.range(dataSize).map(function(d) { 
 				d.x = objectsAll[a].dataOne[d];
-				d.y = objectsAll[a].dataTwo[d];})
+				d.y = objectsAll[a].dataTwo[d];
 			});
 			
 			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
