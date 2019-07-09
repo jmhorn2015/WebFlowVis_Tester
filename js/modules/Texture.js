@@ -4,7 +4,7 @@
  * @author szimek / https://github.com/szimek/
  */
 
-import { EventDispatcher } from '../js/modules/EventDispatcher.js';
+import { EventDispatcher } from '../modules/EventDispatcher.js';
 import {
 	MirroredRepeatWrapping,
 	ClampToEdgeWrapping,
