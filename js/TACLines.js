@@ -137,12 +137,11 @@ function LoadTACGraph(objectsAll, loc){
 	for(var a = 0; a < objectsAll.length; a++){
 		if(objectsAll[a].dataOne != null){
 			var lineGen = d3.line()
-					.x(function(d) { return xScale(d); })
-					.y(function(e) { return yScale(e); })
+					.x(function(d) { return xScale(d.x); })
+					.y(function(d) { return yScale(d.y); })
 					.curve(d3.curveMonotoneX);
-			var dataset = d3.range(dataSize).map(function(d, e) { 
-				d = objectsAll[a].dataOne[d];
-				e = objectsAll[a].dataTwo[d];
+			var dataset = d3.range(dataSize).map(function(d) { 
+				return {"x": objectsAll[a].dataOne[d], "y": objectsAll[a].dataTwo[d]}
 			});
 			
 			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
