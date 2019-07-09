@@ -136,7 +136,7 @@ function LoadTACGraph(objectsAll, loc){
 		.attr("d", line); */
 	for(var a = 0; a < objectsAll.length; a++){
 		if(objectsAll[a].dataOne != null){
-			var line = d3.line()
+			var lineGen = d3.line()
 					.x(function(d, i) { return xScale(i); })
 					.y(function(d) { return yScale(d.y); })
 					.curve(d3.curveMonotoneX);
@@ -149,7 +149,7 @@ function LoadTACGraph(objectsAll, loc){
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
-				.attr("d", line);
+				.attr("d", lineGen);
 		}
 	}
 	console.log("Exit");
