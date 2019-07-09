@@ -104,7 +104,7 @@ var xScale = d3.scaleLinear()
     .range([0, width]); // output
  
 var yScale = d3.scaleLinear()
-    .domain([-1, 5]) // input 
+    .domain([1.5, 5]) // input 
     .range([height, 0]); // output 
 
 function LoadTACGraph(objectsAll, loc){
