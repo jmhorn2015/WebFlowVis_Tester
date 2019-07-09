@@ -137,8 +137,8 @@ function LoadTACGraph(objectsAll, loc){
 	for(var a = 0; a < objectsAll.length; a++){
 		if(objectsAll[a].dataOne != null){
 			var lineGen = d3.line()
-					.x(function(d, i) { return xScale(i); })
-					.y(function(d) { return yScale(d.y); })
+					.x(function(d) { return x(d); })
+					.y(function(d) { return y(d); })
 					.curve(d3.curveMonotoneX);
 			var dataset = d3.range(dataSize).map(function(d) { 
 				return { "x": objectsAll[a].dataOne[d],"y": objectsAll[a].dataTwo[d]} 
