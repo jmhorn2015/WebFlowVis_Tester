@@ -91,7 +91,6 @@ shadowPlane.updateMesh(shadowPlane.object, scene);
 //Raycaster
 renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
 var raycaster = new THREE.Raycaster();
-mouse = new THREE.Vector2(), INTERSECTED;
 var canvasBounds = renderer.context.canvas.getBoundingClientRect();
   function onDocumentMouseDown(event) {
     event.preventDefault();

@@ -8,7 +8,7 @@ var renderer;
 var rendererH;
 var scene;
 var sceneH;
-var mouse;
+var mouse = new THREE.Vector2(), INTERSECTED;
 
   //Main Screen GUI Functions
   function shadowsOnOff(){
