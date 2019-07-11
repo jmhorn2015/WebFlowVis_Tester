@@ -34,7 +34,7 @@ var sceneH;
 		  currObject == null;
 	  }
 	  if(!sceneCheck){
-		  controls = new THREE.TrackballControls( cameraH, document.getElementById("surface_view"));
+		  controls = new THREE.OrbitControls( cameraH, document.getElementById("surface_view"));
 		  controls.enableKeys = false;
 		  renderer.domElement.style.display = "none";
 		  rendererH.domElement.style.display = "block";
