@@ -495,8 +495,22 @@ class SRVolume extends SRMesh{
 	*/
 	constructor(sceneName){
 		super(sceneName);
-		objects.pop();
-		surfaceObjects.pop();
-		
 	}
+		/**
+	* Updates the geometry of the object. Used with the sub classes to load in the data properly.
+	* @params {THREE.Mesh} mesh - new mesh information to adapt to object.
+	*/
+	updateMesh(mesh, sceneName){
+		this.geo = mesh.geometry;
+		this.mat = mesh.material;
+		this.mat.transparent = true;
+		this.mat.opacity = 0.5;
+		this.object = new THREE.Mesh( this.geo, this.mat);
+		this.object.receiveShadow = mesh.receiveShadow;
+		this.object.name = mesh.name;
+		sceneName.add(this.object);
+		//objects.push(this.object);
+		//surfaceObjects.push(this);
+		this.generate2DNode();
+	};
 }
