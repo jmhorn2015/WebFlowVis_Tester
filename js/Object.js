@@ -439,7 +439,7 @@ class SRBoundingBox extends SRObject{
 */
 class SRSurface extends SRMesh{
 	/**
-	* Adds an SRSurface to your scene. To populate it, call AddObject(String filename, SRSurface object)
+	* Adds an SRSurface to your scene. To populate it, call AddObject(String filename, THREE.Scene scene)
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
@@ -453,7 +453,7 @@ class SRSurface extends SRMesh{
 */
 class SRSeedingCurve extends SRMesh{
 		/**
-	* Adds an SRSeedingCurve to your scene. To populate it, call GenerateLines(String filename, SRSeedingCurve object)
+	* Adds an SRSeedingCurve to your scene. To populate it, call GenerateLines(String filename, THREE.Scene scene)
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
@@ -482,4 +482,21 @@ class SRSeedingCurve extends SRMesh{
 			this.dataTwo.push(data[a]);
 		}
 	};
+}
+/**
+* SRVolume is used to load in .nrrd files into your scene.
+* @extends SRMesh
+*/
+class SRVolume extends SRMesh{
+	/**
+	* Adds an SRVolume to your scene. To populate it, call AddVolume(String filename, String textureMapName, THREE.Scene scene)
+	* @constructor
+	* @params {THREE.Scene} scene - Scene you would like to add an object to.
+	*/
+	constructor(sceneName){
+		super(sceneName);
+		objects.pop();
+		surfaceObjects.pop();
+		
+	}
 }

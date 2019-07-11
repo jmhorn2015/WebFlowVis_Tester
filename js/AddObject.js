@@ -71,7 +71,7 @@ export function AddVolume(name, textureName,  sceneName){
 		geometrytemp.translate( volume.xLength / 2 - 0.5, volume.yLength / 2 - 0.5, volume.zLength / 2 - 0.5 );
 		var meshtemp = new THREE.Mesh( geometrytemp, materialtemp );
 		meshtemp.name = name;
-		var volumeTemp = new SRMesh(sceneName);
+		var volumeTemp = new SRVolume(sceneName);
 		volumeTemp.updateMesh(meshtemp, sceneName);
 		console.log("done");
 	}, function(value){ 
