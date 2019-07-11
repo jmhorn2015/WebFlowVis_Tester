@@ -1,5 +1,6 @@
 var loading = false;
 var sceneCheck = true;
+var currObject;
 
   //Main Screen GUI Functions
   function shadowsOnOff(){

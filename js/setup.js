@@ -89,7 +89,6 @@ var shadowPlane = new SRMesh(scene);
 shadowPlane.updateMesh(shadowPlane.object, scene);
 
 //Raycaster
-var currObject;
 renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2(), INTERSECTED;
