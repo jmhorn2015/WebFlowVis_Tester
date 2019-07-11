@@ -1,5 +1,3 @@
-var loading = false;
-var sceneCheck = true;
 
 //-----Three.js Setup-----//
 var container = document.createElement( 'div' );

@@ -1,3 +1,6 @@
+var loading = false;
+var sceneCheck = true;
+
   //Main Screen GUI Functions
   function shadowsOnOff(){
 	for( x = 0; x < surfaceObjects.length; x++){
