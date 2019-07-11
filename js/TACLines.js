@@ -28,7 +28,7 @@ function GenerateTACLines(name, dataFile, sceneName){
 				pointCounter++;
 			}
 			else{
-				newSRObjects[objCounter].loadDataTwo(TACData);
+				newSRObjects[objCounter].loadDataOne(TACData);
 				objCounter++;
 				pointCounter = 0;
 				a--;
@@ -81,7 +81,6 @@ function GenerateTACLines(name, dataFile, sceneName){
 				meshtemp.name = name + lineCounter;
 				var SCtemp = new SRSeedingCurve(sceneName);
 				SCtemp.updateMesh(meshtemp, sceneName);
-				SCtemp.loadDataOne(xData);
 				newSRObjects.push(SCtemp);
 				lineData = [];
 				xData = [];
@@ -141,7 +140,7 @@ function LoadTACGraph(objectsAll, loc){
 					.y(function(d) { return yScale(d.y); })
 					.curve(d3.curveMonotoneX);
 			var dataset = d3.range(dataSize).map(function(d) { 
-				return {"y": objectsAll[a].dataTwo[d]}
+				return {"y": objectsAll[a].dataOne[d]}
 			});
 			
 			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
