@@ -8,6 +8,7 @@ var renderer;
 var rendererH;
 var scene;
 var sceneH;
+var mouse;
 
   //Main Screen GUI Functions
   function shadowsOnOff(){
@@ -36,6 +37,9 @@ var sceneH;
 	  if(!sceneCheck){
 		  controls = new THREE.OrbitControls( cameraH, document.getElementById("surface_view"));
 		  controls.enableKeys = false;
+		  controls.target.set( 64, 64, 128 );
+		  controls.minZoom = 0.5;
+		  controls.maxZoom = 4;
 		  renderer.domElement.style.display = "none";
 		  rendererH.domElement.style.display = "block";
 	  }
