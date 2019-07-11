@@ -32,9 +32,17 @@ function AddObject(name2, sceneName){
 	//$("#loading").removeClass('spinner-border');
 };
 
-function AddVolume(name, textureName,  sceneName){
+import {
+	DefaultLoadingManager,
+	FileLoader,
+	Matrix4,
+	Vector3
+} from "./modules/three.module.js";
+import { NRRDLoader } from './NRRDLoader.js';
+import { VolumeRenderShader1 } from './VolumeShader.js';		
+export function AddVolume(name, textureName,  sceneName){
 	console.log("enter");
-	new NRRDLoader.load( name, function ( volume ) {
+	new NRRDLoader().load( name, function ( volume ) {
 		console.log("start");
 		var texture = new THREE.DataTexture3D( volume.data, volume.xLength, volume.yLength, volume.zLength );
 		texture.format = THREE.RedFormat;

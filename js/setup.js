@@ -2,10 +2,10 @@ var loading = false;
 var sceneCheck = true;
 
 //-----Three.js Setup-----//
-container = document.createElement( 'div' );
+var container = document.createElement( 'div' );
 container.style.border = "1px solid black";
 document.getElementById( 'surface_view' ).appendChild( container );
-stats = new Stats();
+var stats = new Stats();
 container.appendChild( stats.dom );
 //Surface Scene Setup
 var w = $(".col-sm-8").width();
@@ -82,7 +82,9 @@ GenerateCurves("data/seeding_curve_2.txt", scene);*/
 AddObject("data/surface2_1.obj", scene);
 AddObject("data/surface2_2.obj", scene);*/
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
-//AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
+
+import {AddVolume} from "./AddObject.js";
+AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
@@ -113,7 +115,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					currObject.removeMenu();
 					currObject = null;
 				}
-				for(b = 0; b < objects.length; b++){
+				for( var b = 0; b < objects.length; b++){
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
 						currObject = surfaceObjects[b];
 						$('#localGUI').append(currObject.getGUIMenu(container).domElement);
@@ -143,7 +145,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 		path + "py.jpg", path + "ny.jpg",
 		path + "pz.jpg", path + "nz.jpg"
 	  ];
-	textureCube = new THREE.CubeTextureLoader().load( urls );
+	var textureCube = new THREE.CubeTextureLoader().load( urls );
 	textureCube.format = THREE.RGBFormat;  
 
 function animate() {
