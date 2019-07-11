@@ -1,6 +1,13 @@
 var loading = false;
 var sceneCheck = true;
 var currObject;
+var cameraH;
+var camera;
+var controls;
+var renderer;
+var rendererH;
+var scene;
+var sceneH;
 
   //Main Screen GUI Functions
   function shadowsOnOff(){

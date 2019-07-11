@@ -8,9 +8,9 @@ container.appendChild( stats.dom );
 //Surface Scene Setup
 var w = $(".col-sm-8").width();
 var h = 450;
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, w/h, 0.1, 1000 );
-var renderer = new THREE.WebGLRenderer();
+scene = new THREE.Scene();
+camera = new THREE.PerspectiveCamera( 75, w/h, 0.1, 1000 );
+renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio( window.devicePixelRatio);
 renderer.setSize( w, h );
 renderer.shadowMap.enabled = true;
@@ -22,23 +22,23 @@ scene.background = new THREE.Color('white');
 container.appendChild( renderer.domElement );
 
 //Volume Scene Setup
-var sceneH = new THREE.Scene();
+sceneH = new THREE.Scene();
 sceneH.background = new THREE.Color('black');
 var canvas = document.createElement( 'canvas' );
 container.appendChild(canvas);
 var context = canvas.getContext( 'webgl2' );
-var rendererH = new THREE.WebGLRenderer( { canvas: canvas, context: context } );
+rendererH = new THREE.WebGLRenderer( { canvas: canvas, context: context } );
 rendererH.setPixelRatio( window.devicePixelRatio );
 rendererH.setSize( w, h);
 container.appendChild( rendererH.domElement );
 rendererH.domElement.style.display = "none";
 var frusth = 512;
 var aspect = w / h;
-var cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 1, 1000 );
+cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 1, 1000 );
 cameraH.position.set( 0, 0, 128 );
 cameraH.up.set( 0, 0, 1 );
 
-var controls = new THREE.TrackballControls( camera, document.getElementById("surface_view"));
+controls = new THREE.TrackballControls( camera, document.getElementById("surface_view"));
 controls.enableKeys = false;
 camera.position.set( 0, 0, 2);
 
