@@ -5,6 +5,14 @@ container.style.border = "1px solid black";
 document.getElementById( 'surface_view' ).appendChild( container );
 var stats = new Stats();
 container.appendChild( stats.dom );
+
+//D3 setup
+d3.selection.prototype.moveToFront = function() {  
+    return this.each(function(){
+       this.parentNode.appendChild(this);
+     });
+};
+	
 //Surface Scene Setup
 var w = $(".col-sm-8").width();
 var h = 450;

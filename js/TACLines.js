@@ -152,11 +152,6 @@ function LoadTACGraph(objectsAll, loc){
 	}
 }
 function selectLine(){
-	d3.selection.prototype.moveToFront = function() {  
-      return this.each(function(){
-        this.parentNode.appendChild(this);
-      });
-    };
 	var clicked = this;
 	d3.selectAll("path").classed("line", function() {
 		return clicked === this;
