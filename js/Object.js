@@ -64,7 +64,7 @@ class SRObject{
 	* Construct a local dat.GUI menu. Made by Duong Ngyuyen.
 	* @returns {dat.GUI} surface local menu
 	*/
-	getGUIMenu(container) {
+	getGUIMenu() {
 		this.surfaceLocalMenu = new dat.GUI({ autoPlace: false });
 		this.surfaceLocalMenu.domElement.id = 'gui';
 		
@@ -357,8 +357,8 @@ class SRMesh extends SRObject{
 	* Allows a local menu to show on the screen when the object is clicked on
 	* @params {domElement} mesh - new mesh information to adapt to object.
 	*/
-	getGUIMenu(container) {
-		var objMenu = super.getGUIMenu(container);
+	getGUIMenu() {
+		var objMenu = super.getGUIMenu();
 		var objEditor = this;
 		var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
 		opacityCntrlr.onChange(function(value) {

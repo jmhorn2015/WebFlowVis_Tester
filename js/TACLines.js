@@ -159,7 +159,7 @@ function selectLine(){
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
-			$('#localGUI').append(currObject.getGUIMenu(container).domElement);
+			$('#localGUI').append(currObject.getGUIMenu().domElement);
 				break;
 			}
 			if(b+1 == objects.length){
