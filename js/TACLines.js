@@ -32,7 +32,7 @@ function GenerateTACLines(name, dataFile, sceneName){
 				objCounter++;
 				pointCounter = 0;
 				a--;
-				console.log(TACData[199]);
+				console.log(a);
 			}
 		}
 		LoadTACGraph(surfaceObjects, "#d3-test2");
