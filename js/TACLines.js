@@ -142,10 +142,11 @@ function LoadTACGraph(objectsAll, loc){
 			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
 			//console.log(objectsAll[a].object.name);
 			svgTAC.append("path")
-				.datum(dataset)
-				.attr("class", "line") 
+				.datum(dataset) 
 				.attr("d", lineGen)
 				.attr("id", objectsAll[a].dataOne[200])
+				.attr("fill", "none")
+				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
 				.on("click", selectLine); 
 		}

@@ -67,10 +67,6 @@ text.id {
   text-anchor: middle;
   font-weight: bold;
 }*/
-.line {
-	fill: none;
-	stroke-width: 3;
-}
   
 .overlay {
 	fill: none;
