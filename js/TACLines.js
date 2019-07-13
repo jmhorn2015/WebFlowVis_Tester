@@ -152,10 +152,16 @@ function LoadTACGraph(objectsAll, loc){
 	}
 }
 function selectLine(){
+	d3.selection.prototype.moveToFront = function() {  
+      return this.each(function(){
+        this.parentNode.appendChild(this);
+      });
+    };
 	var clicked = this;
 	d3.selectAll("path").classed("line", function() {
-    return clicked === this;  // Assign class for clicked element, else unassign class
-  });
+		return clicked === this;
+	});
+	d3.select(clicked).moveToFront();
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
