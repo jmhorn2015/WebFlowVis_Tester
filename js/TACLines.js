@@ -28,6 +28,7 @@ function GenerateTACLines(name, dataFile, sceneName){
 				pointCounter++;
 			}
 			else{
+				TACData.push(newSRObjects[objCounter].object.name);
 				newSRObjects[objCounter].loadDataOne(TACData);
 				objCounter++;
 				pointCounter = 0;
@@ -128,12 +129,7 @@ function LoadTACGraph(objectsAll, loc){
 	svgTAC.append("g")
 		.attr("class", "y axis")
 		.call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
-
-	// 9. Append the path, bind the data, and call the line generator 
-	/*svgTAC.append("path")
-		.datum(dataset)
-		.attr("class", "line") 
-		.attr("d", line); */
+		
 	for(var a = 0; a < objectsAll.length; a++){
 		if(objectsAll[a].dataOne != null){
 			var lineGen = d3.line()
@@ -144,13 +140,13 @@ function LoadTACGraph(objectsAll, loc){
 				return {"y": objectsAll[a].dataOne[d]}
 			});
 			
-			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
+			styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
 			//console.log(objectsAll[a].object.name);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
 				.attr("d", lineGen)
+				.attr("id", objectsAll[a].dataOne[200]);
 		}
 	}
-	console.log("Exit");
 }
