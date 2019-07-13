@@ -146,7 +146,24 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("class", "line") 
 				.attr("d", lineGen)
 				.attr("id", objectsAll[a].dataOne[200])
-				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString());
+				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
+				.on("click", selectLine); 
 		}
 	}
+}
+function selectLine(){
+	var clicked = this;
+	d3.selectAll("path").classed("line", function() {
+    return clicked === this;  // Assign class for clicked element, else unassign class
+  });
+	for( var b = 0; b < objects.length; b++){
+		if(clicked.id == surfaceObjects[b].object.name){
+			currObject = surfaceObjects[b];
+			$('#localGUI').append(currObject.getGUIMenu(container).domElement);
+				break;
+			}
+			if(b+1 == objects.length){
+				console.log("not found");
+			}
+		}
 }
