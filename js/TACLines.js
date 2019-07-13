@@ -139,14 +139,14 @@ function LoadTACGraph(objectsAll, loc){
 			var dataset = d3.range(dataSize).map(function(d) { 
 				return {"y": objectsAll[a].dataOne[d]}
 			});
-			
-			styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
+			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
 			//console.log(objectsAll[a].object.name);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
 				.attr("d", lineGen)
-				.attr("id", objectsAll[a].dataOne[200]);
+				.attr("id", objectsAll[a].dataOne[200])
+				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString());
 		}
 	}
 }
