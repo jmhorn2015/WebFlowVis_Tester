@@ -32,6 +32,7 @@ function GenerateTACLines(name, dataFile, sceneName){
 				objCounter++;
 				pointCounter = 0;
 				a--;
+				console.log(TACData[199]);
 			}
 		}
 		LoadTACGraph(surfaceObjects, "#d3-test2");
@@ -144,7 +145,7 @@ function LoadTACGraph(objectsAll, loc){
 			});
 			
 			//styleLine.stroke = "#" + objectsAll[a].mat.color.getHexString();
-			console.log(objectsAll[a].object.name);
+			//console.log(objectsAll[a].object.name);
 			svgTAC.append("path")
 				.datum(dataset)
 				.attr("class", "line") 
