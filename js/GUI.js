@@ -10,6 +10,16 @@ var scene;
 var sceneH;
 var mouse = new THREE.Vector2(), INTERSECTED;
 
+  // Skybox Cube
+  var path = "data/skybox/";
+  var urls = [
+		path + "px.jpg", path + "nx.jpg",
+		path + "py.jpg", path + "ny.jpg",
+		path + "pz.jpg", path + "nz.jpg"
+	  ];
+	var textureCube = new THREE.CubeTextureLoader().load( urls );
+	textureCube.format = THREE.RGBFormat;  
+
   //Main Screen GUI Functions
   function shadowsOnOff(){
 	for( x = 0; x < surfaceObjects.length; x++){

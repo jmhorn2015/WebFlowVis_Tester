@@ -151,15 +151,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 	}
 
   }
-  // Skybox Cube
-  var path = "data/skybox/";
-  var urls = [
-		path + "px.jpg", path + "nx.jpg",
-		path + "py.jpg", path + "ny.jpg",
-		path + "pz.jpg", path + "nz.jpg"
-	  ];
-	var textureCube = new THREE.CubeTextureLoader().load( urls );
-	textureCube.format = THREE.RGBFormat;  
 
 function animate() {
 	if(loading){
