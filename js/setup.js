@@ -119,7 +119,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 				if(currObject != null){
 					currObject.removeMenu();
 					currObject = null;
-					clicked.style.stroke-width = "3";
 				}
 				for( var b = 0; b < objects.length; b++){
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
@@ -127,7 +126,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
 						var clicked = document.getElementById(currObject.object.name);
 						d3.select(clicked).moveToFront();
-						clicked.style.stroke-width = "6";
 						break;
 					}
 					if(b+1 == objects.length){
