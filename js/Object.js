@@ -463,12 +463,6 @@ class SRSurface extends SRMesh{
 	constructor(sceneName){
 		super(sceneName);
 	}
-	/**
-	* Used to differentiate Surfaces from Curves and Volumes.
-	*/
-	isSurface(){
-		return true;
-	};
 }
 /**
 * SRSeedingCurve is used to load in 3D line coordinates into a tube and insert it into your scene.
@@ -504,12 +498,6 @@ class SRSeedingCurve extends SRMesh{
 		for(var a = 0; a < data.length; a++){
 			this.dataTwo.push(data[a]);
 		}
-	};
-	/**
-	* Used to differentiate Seeding Curves from Surfaces and Volumes.
-	*/
-	isSeedingCurve(){
-		return true;
 	};
 }
 /**
