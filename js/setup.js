@@ -107,6 +107,9 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
+	d3.select(clicked)
+		.attr('stroke-width', null)
+		.attr('stroke-width', "3");
 	if(sceneCheck){
 		var intersects = raycaster.intersectObjects(objects, true);
 		if (intersects.length > 0) {
@@ -142,9 +145,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 
 			currObject.removeMenu();
 			currObject = null;
-			d3.select(clicked)
-				.attr('stroke-width', null)
-				.attr('stroke-width', "3");
 		}
 	}
 
