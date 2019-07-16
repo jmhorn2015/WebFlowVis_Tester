@@ -157,7 +157,6 @@ function selectLine(){
 	d3.selectAll("path").classed("line", function() {
 		return clicked === this;
 	});
-	console.log(clicked);
 	d3.select(clicked).moveToFront();
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
