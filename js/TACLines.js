@@ -158,7 +158,7 @@ function selectLine(){
 	if(currObject != null){
 		currObject.removeMenu();
 		currObject = null;
-		clicked.style.stroke-width = 3;
+		//clicked.style.stroke-width = 3;
 	}
 	clicked = this;
 	d3.selectAll("path").classed("line", function() {

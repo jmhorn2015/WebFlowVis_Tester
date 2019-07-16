@@ -119,7 +119,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 				if(currObject != null){
 					currObject.removeMenu();
 					currObject = null;
-					clicked.style.stroke-width = 3;
+					//clicked.style.stroke-width = 3;
 				}
 				for( var b = 0; b < objects.length; b++){
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
