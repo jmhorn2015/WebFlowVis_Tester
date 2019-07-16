@@ -108,9 +108,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 
     raycaster.setFromCamera(mouse, camera);
 	console.log(clicked);
-	d3.select(clicked)
-		.attr('stroke-width', null)
-		.attr('stroke-width', "3");
 	if(sceneCheck){
 		var intersects = raycaster.intersectObjects(objects, true);
 		if (intersects.length > 0) {
@@ -130,6 +127,9 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
 						currObject = surfaceObjects[b];
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
+						d3.select(clicked)
+						.attr('stroke-width', null)
+						.attr('stroke-width', "3");
 						var clicked = document.getElementById(currObject.object.name);
 						d3.select(clicked).moveToFront()
 						.attr('stroke-width', null)
