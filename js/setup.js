@@ -107,6 +107,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
+	console.log(clicked);
 	d3.select(clicked)
 		.attr('stroke-width', null)
 		.attr('stroke-width', "3");
@@ -119,9 +120,11 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 				INTERSECTED = intersects[0].object;
 				INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
 				INTERSECTED.material.emissive.setHex(0xff0000);
+				console.log(clicked);
 				if(currObject != null){
 					currObject.removeMenu();
 					currObject = null;
+					console.log(clicked);
 				}
 				for( var b = 0; b < objects.length; b++){
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
@@ -145,6 +148,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 
 			currObject.removeMenu();
 			currObject = null;
+			console.log(clicked);
 		}
 	}
 
