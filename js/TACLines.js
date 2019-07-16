@@ -1,3 +1,5 @@
+var clicked;
+
 function GenerateTACLines(name, dataFile, sceneName){
 	var newSRObjects = [];
 	var loadData = [];
@@ -153,16 +155,22 @@ function LoadTACGraph(objectsAll, loc){
 	}
 }
 function selectLine(){
-	var clicked = this;
+	if(currObject != null){
+		currObject.removeMenu();
+		currObject = null;
+		clicked.stroke-width = "3";
+	}
+	clicked = this;
 	d3.selectAll("path").classed("line", function() {
 		return clicked === this;
 	});
 	d3.select(clicked).moveToFront();
+	clicked.stroke-width = "6";
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
 			$('#localGUI').append(currObject.getGUIMenu().domElement);
-				break;
+			break;
 			}
 			if(b+1 == objects.length){
 				console.log("not found");
