@@ -130,7 +130,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						d3.select(clicked)
 						.attr('stroke-width', null)
 						.attr('stroke-width', "3");
-						var clicked = document.getElementById(currObject.object.name);
+						clicked = document.getElementById(currObject.object.name);
 						d3.select(clicked).moveToFront()
 						.attr('stroke-width', null)
 						.attr('stroke-width', "6");
