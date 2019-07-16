@@ -125,13 +125,27 @@ class SRObject{
 	removeMenu() {
 		$('#gui').remove();
 	}
-		/**
+	/**
 	* Add a node to represent the object in our 2D space
 	* 
 	*/
 	generate2DNode() {
 		//nodes.push({ id: this.object.name, reflexive: false });
 		console.log("node function");
+	}
+	/**
+	* Hides the object from the scene
+	* 
+	*/
+	hideObject() {
+		this.object.enabled = false;
+	}
+	/**
+	* Lets a hidden object come back into the visualization
+	* 
+	*/
+	unHideObject() {
+		this.object.enabled = true;
 	}
 	get Position(){
 		return this.object.position;
@@ -399,6 +413,15 @@ class SRMesh extends SRObject{
 			textureCube = new THREE.CubeTextureLoader().load( urls );
 			textureCube.format = THREE.RGBFormat;
 			objEditor.reflective(value, textureCube);
+		});
+		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
+		hideCntrlr.onChange(function(value) {
+			if(value){
+				this.hideObject();
+			}
+			else{
+				this.unHideObject();
+			}
 		});
 		return this.surfaceLocalMenu;
 	}
