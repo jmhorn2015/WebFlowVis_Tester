@@ -50,3 +50,17 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 		rendererH.domElement.style.display = "none";
 	  }
   }
+  function unhideCurves(){
+	  for(var a = 0; a < surfaceObjects.length; a++){
+		 if(surfaceObjects[a].isSeedingCurve()){
+			surfaceObjects[a].hideObject(false);
+		 }		 
+	  }
+  }
+   function unhideSurface(){
+	  for(var a = 0; a < surfaceObjects.length; a++){
+		 if(surfaceObjects[a].isSurface()){
+			surfaceObjects[a].hideObject(false);
+		 }		 
+	  }
+  }

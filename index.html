@@ -71,7 +71,7 @@
     <div class="row ">
 
       <div class="col">
-        <h1 class="page-header">Web-based Flow Visualization *test1</h1>
+        <h1 class="page-header">Web-based Flow Visualization *test</h1>
         <hr>
       </div>
 
@@ -182,12 +182,12 @@
                 <label class="custom-control-label" for="skySwitch">Load Skybox (Reflective)</label>
               </div>
 			  <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="hideCurveSwitch">
-                <label class="custom-control-label" for="hideCurveSwitch">Hide all Seeding Curves</label>
+                <input type="checkbox" class="custom-control-input" id="unhideCurveSwitch" onchange="unhideCurves()">
+                <label class="custom-control-label" for="hideCurveSwitch">Unhide all Seeding Curves</label>
               </div>
 			  <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="hideSurfSwitch">
-                <label class="custom-control-label" for="hideSurfSwitch">Hide all Surfaces</label>
+                <input type="checkbox" class="custom-control-input" id="unhideSurfSwitch" onchange="unhideSurface()" >
+                <label class="custom-control-label" for="hideSurfSwitch">Unhide all Surfaces</label>
               </div>
             </div>
           </div>
