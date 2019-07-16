@@ -417,6 +417,7 @@ class SRMesh extends SRObject{
 		});
 		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
 		hideCntrlr.onChange(function(value) {
+			console.log(value);
 			if(value){
 				objEditor.hideObject();
 			}
