@@ -138,14 +138,14 @@ class SRObject{
 	* 
 	*/
 	hideObject() {
-		this.object.enabled = false;
+		this.object.visable = false;
 	}
 	/**
 	* Lets a hidden object come back into the visualization
 	* 
 	*/
 	unHideObject() {
-		this.object.enabled = true;
+		this.object.visable = true;
 	}
 	get Position(){
 		return this.object.position;
