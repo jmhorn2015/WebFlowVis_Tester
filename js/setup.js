@@ -125,6 +125,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						currObject = surfaceObjects[b];
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
 						var clicked = document.getElementById(currObject.name);
+						console.log(clicked);
 						d3.select(clicked).moveToFront();
 						break;
 					}
