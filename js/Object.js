@@ -418,10 +418,10 @@ class SRMesh extends SRObject{
 		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
 		hideCntrlr.onChange(function(value) {
 			if(value){
-				this.hideObject();
+				objEditor.hideObject();
 			}
 			else{
-				this.unHideObject();
+				objEditor.unHideObject();
 			}
 		});
 		return this.surfaceLocalMenu;
