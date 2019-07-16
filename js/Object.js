@@ -246,7 +246,8 @@ class SRMesh extends SRObject{
 			Material: 'Phong',
 			Recieve_Shadows: false,
 			Textured: false,
-			Reflective: false
+			Reflective: false,
+			Hide: false
 		};
 		var newName;
 		this.geo = new THREE.PlaneGeometry(9,9,32);
