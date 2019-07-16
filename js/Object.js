@@ -135,17 +135,15 @@ class SRObject{
 	}
 	/**
 	* Hides the object from the scene
+	* @param {bool} onoff - On = true, Off = false
 	* 
 	*/
-	hideObject() {
-		this.object.visable = false;
-	}
-	/**
-	* Lets a hidden object come back into the visualization
-	* 
-	*/
-	unHideObject() {
-		this.object.visable = true;
+	hideObject(onOff) {
+		this.object.traverse ( function (child) {
+			if (child instanceof THREE.Mesh) {
+				child.visible = onOff;
+			}
+		});
 	}
 	get Position(){
 		return this.object.position;
@@ -417,13 +415,7 @@ class SRMesh extends SRObject{
 		});
 		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
 		hideCntrlr.onChange(function(value) {
-			console.log(value);
-			if(value){
-				objEditor.hideObject();
-			}
-			else{
-				objEditor.unHideObject();
-			}
+			objEditor.hideObject(value);
 		});
 		return this.surfaceLocalMenu;
 	}
