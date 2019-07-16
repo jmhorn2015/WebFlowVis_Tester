@@ -63,14 +63,14 @@ var mouse = new THREE.Vector2(), INTERSECTED;
   function unhideCurves(){
 	  for(var a = 0; a < surfaceObjects.length; a++){
 		 if(surfaceObjects[a] instanceof SRSeedingCurve){
-			surfaceObjects[a].hideObject(false);
+			surfaceObjects[a].hideObject(true);
 		 }		 
 	  }
   }
    function unhideSurface(){
 	  for(var a = 0; a < surfaceObjects.length; a++){
 		 if(surfaceObjects[a] instanceof SRSurface){
-			surfaceObjects[a].hideObject(false);
+			surfaceObjects[a].hideObject(true);
 		 }		 
 	  }
   }
