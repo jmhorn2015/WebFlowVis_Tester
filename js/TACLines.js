@@ -164,6 +164,8 @@ function selectLine(){
 		return clicked === this;
 	});
 	d3.select(clicked).moveToFront();
+	clicked.attr('stroke-width', null);
+	clicked.attr('stroke-width', "6");
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
