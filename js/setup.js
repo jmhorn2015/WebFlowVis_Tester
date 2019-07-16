@@ -124,8 +124,10 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
 						currObject = surfaceObjects[b];
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
-							break;
-						}
+						var clicked = document.getElementById(currObject.name);
+						d3.select(clicked).moveToFront();
+						break;
+					}
 					if(b+1 == objects.length){
 						console.log("not found");
 					}

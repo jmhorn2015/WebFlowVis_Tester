@@ -158,7 +158,6 @@ function selectLine(){
 		return clicked === this;
 	});
 	d3.select(clicked).moveToFront();
-	clicked.
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
