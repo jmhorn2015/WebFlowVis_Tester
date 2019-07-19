@@ -126,10 +126,17 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						d3.select(clicked)
 						.attr('stroke-width', null)
 						.attr('stroke-width', "3");
+						d3.selectAll("path").classed("line", function() {
+						d3.select(this)
+						.attr('stroke', null)
+						.attr('stroke', "#888888");
+						});
 						clicked = document.getElementById(currObject.object.name);
 						d3.select(clicked).moveToFront()
 						.attr('stroke-width', null)
-						.attr('stroke-width', "6");
+						.attr('stroke-width', "6")
+						.attr('stroke', null)
+						.attr('stroke', clicked.getAttribute('origColor'));
 						break;
 					}
 					if(b+1 == objects.length){
@@ -144,6 +151,11 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 
 			currObject.removeMenu();
 			currObject = null;
+			d3.selectAll("path").classed("line", function() {
+				d3.select(this)
+				.attr('stroke', null)
+				.attr('stroke', clicked.getAttribute('origColor'));
+			});
 			d3.select(clicked)
 			.attr('stroke-width', null)
 			.attr('stroke-width', "3");
