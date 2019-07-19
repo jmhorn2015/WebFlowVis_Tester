@@ -150,7 +150,7 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("fill", "none")
 				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
-				.on("mouseover", displayData); 
+				.on("mouseover", displayData)
 				.on("click", selectLine); 
 		}
 	}
