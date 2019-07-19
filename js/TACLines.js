@@ -176,7 +176,7 @@ function selectLine(){
 	.attr('stroke-width', null)
 	.attr('stroke-width', "6")
 	.attr('stroke', null)
-	.attr('stroke', clicked.getAttribute('origColor');
+	.attr('stroke', clicked.getAttribute('origColor'));
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
