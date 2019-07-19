@@ -171,11 +171,13 @@ function selectLine(){
 		.attr('stroke', "#888888");
 		return clicked === this;
 	});
+	console.log(clicked.style.origColor);
 	d3.select(clicked).moveToFront()
 	.attr('stroke-width', null)
 	.attr('stroke-width', "6")
 	.attr('stroke', null)
-	.attr('stroke', clicked.origColor);
+	.attr('stroke', clicked.style.origColor);
+		console.log(clicked.style.stroke);
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
