@@ -164,6 +164,9 @@ function selectLine(){
 	}
 	clicked = this;
 	d3.selectAll("path").classed("line", function() {
+		d3.select(this)
+		.attr('stroke', null)
+		.attr('stroke', "#888888");
 		return clicked === this;
 	});
 	d3.select(clicked).moveToFront()
