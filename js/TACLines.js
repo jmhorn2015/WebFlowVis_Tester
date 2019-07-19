@@ -150,6 +150,7 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("fill", "none")
 				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
+				.attr("origColor", "#" + objectsAll[a].mat.color.getHexString())
 				.on("mouseover", displayData)
 				.on("click", selectLine); 
 		}
@@ -172,7 +173,9 @@ function selectLine(){
 	});
 	d3.select(clicked).moveToFront()
 	.attr('stroke-width', null)
-	.attr('stroke-width', "6");
+	.attr('stroke-width', "6")
+	.attr('stroke', null)
+	.attr('stroke', clicked.origColor);
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
