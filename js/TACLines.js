@@ -185,5 +185,5 @@ function selectLine(){
 }
 
 function displayData(){
-	console.log(this.id);
+	//console.log(this.id);
 }
