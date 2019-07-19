@@ -150,7 +150,7 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("fill", "none")
 				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
-				.on("click", selectLine); 
+				.on("mouseover", displayData); 
 		}
 	}
 }
@@ -179,4 +179,8 @@ function selectLine(){
 				console.log("not found");
 			}
 		}
+}
+
+function displayData(){
+	console.log(this.id);
 }
