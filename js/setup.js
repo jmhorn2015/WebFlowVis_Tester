@@ -123,7 +123,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					d3.selectAll("path").classed("line", function() {
 						d3.select(this)
 						.attr('stroke', null)
-						.attr('stroke', clicked.getAttribute('origColor'));
+						.attr('stroke', this.getAttribute('origColor'));
 					});
 					d3.select(clicked)
 					.attr('stroke-width', null)
@@ -164,7 +164,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 			d3.selectAll("path").classed("line", function() {
 				d3.select(this)
 				.attr('stroke', null)
-				.attr('stroke', clicked.getAttribute('origColor'));
+				.attr('stroke', this.getAttribute('origColor'));
 			});
 			d3.select(clicked)
 			.attr('stroke-width', null)
