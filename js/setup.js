@@ -119,6 +119,16 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					currObject.removeMenu();
 					currObject = null;
 				}
+				if(!(INTERSECTED instanceof SRSeedingCurve)){
+					d3.selectAll("path").classed("line", function() {
+						d3.select(this)
+						.attr('stroke', null)
+						.attr('stroke', clicked.getAttribute('origColor'));
+					});
+					d3.select(clicked)
+					.attr('stroke-width', null)
+					.attr('stroke-width', "3");
+				}
 				for( var b = 0; b < objects.length; b++){
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
 						currObject = surfaceObjects[b];
