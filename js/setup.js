@@ -133,20 +133,25 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
 						currObject = surfaceObjects[b];
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
-						d3.select(clicked)
-						.attr('stroke-width', null)
-						.attr('stroke-width', "3");
-						d3.selectAll("path").classed("line", function() {
-						d3.select(this)
-						.attr('stroke', null)
-						.attr('stroke', "#888888");
-						});
-						clicked = document.getElementById(currObject.object.name);
-						d3.select(clicked).moveToFront()
-						.attr('stroke-width', null)
-						.attr('stroke-width', "6")
-						.attr('stroke', null)
-						.attr('stroke', clicked.getAttribute('origColor'));
+						if(INTERSECTED instanceof SRSeedingCurve){
+							d3.select(clicked)
+							.attr('stroke-width', null)
+							.attr('stroke-width', "3");
+							d3.selectAll("path").classed("line", function() {
+							d3.select(this)
+							.attr('stroke', null)
+							.attr('stroke', "#888888");
+							});
+							clicked = document.getElementById(currObject.object.name);
+							d3.select(clicked).moveToFront()
+							.attr('stroke-width', null)
+							.attr('stroke-width', "6")
+							.attr('stroke', null)
+							.attr('stroke', clicked.getAttribute('origColor'));
+						}
+						else{
+							clicked = document.getElementById(currObject.object.name);
+						}
 						break;
 					}
 					if(b+1 == objects.length){
