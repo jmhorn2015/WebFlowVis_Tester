@@ -171,7 +171,6 @@ function selectLine(){
 		.attr('stroke', "#888888");
 		return clicked === this;
 	});
-	console.log(clicked);
 	d3.select(clicked).moveToFront()
 	.attr('stroke-width', null)
 	.attr('stroke-width', "6")
