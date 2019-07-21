@@ -206,6 +206,7 @@ class SRLight extends SRObject{
 	*/
 	color(hue){
 		this.object.color.setHSL(hue/100, 1, .5);
+		document.getElementById(this.object.name).setAttribute("#" + this.object.color.getHexString());
 	}
 	getIntensity(){
 		return this.object.intensity;
@@ -380,6 +381,7 @@ class SRMesh extends SRObject{
 		var colorCntrlr = objMenu.add(this.objParams, 'Color', 0 , 100);
 		colorCntrlr.onChange(function(value) {
 			objEditor.color(value);
+			
 		});
 		var matCntrlr = objMenu.add(this.objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
 		matCntrlr.onChange(function(value) {
