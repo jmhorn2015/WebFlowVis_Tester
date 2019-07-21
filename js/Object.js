@@ -381,7 +381,7 @@ class SRMesh extends SRObject{
 		colorCntrlr.onChange(function(value) {
 			objEditor.color(value);
 			console.log("test");
-			document.getElementById(objEditor.object.name).setAttribute("#" + objEditor.object.color.getHexString());
+			document.getElementById(objEditor.object.name).setAttribute("#" + objEditor.mat.color.getHexString());
 			
 		});
 		var matCntrlr = objMenu.add(this.objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
