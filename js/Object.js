@@ -206,7 +206,7 @@ class SRLight extends SRObject{
 	*/
 	color(hue){
 		this.object.color.setHSL(hue/100, 1, .5);
-		console.log(document.getElementByID(this.object.name));
+		console.log("test");
 		document.getElementByID(this.object.name).setAttribute("#" + this.object.color.getHexString());
 	}
 	getIntensity(){
