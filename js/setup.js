@@ -175,6 +175,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 		var intersects = raycaster.intersectObjects(vObjects, true);
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
+				console.log(INTERSECTED.name);
 				INTERSECTED = intersects[0].object;
 				if(currObject != null){
 					currObject.removeMenu();
