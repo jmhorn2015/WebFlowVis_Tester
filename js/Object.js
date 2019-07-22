@@ -3,7 +3,7 @@ var objects = [];
 //Holds the current SRObjects in the Surface rendering scene
 var surfaceObjects = [];
 //Holds meshes of the objects for the raycaster in Volume view
-var objects = [];
+var vObjects = [];
 //Holds the current SRObjects in the Surface volume scene
 var volumeObjects = [];
 /** 
