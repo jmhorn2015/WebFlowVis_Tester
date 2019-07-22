@@ -109,6 +109,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
     raycaster.setFromCamera(mouse, camera);
 	if(sceneCheck){
 		var intersects = raycaster.intersectObjects(objects, true);
+		console.log(intersects.length);
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
 				if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
@@ -173,9 +174,9 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 	}
 	else{
 		var intersects = raycaster.intersectObjects(vObjects, true);
+		console.log(intersects.length);
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
-				console.log(INTERSECTED.name);
 				INTERSECTED = intersects[0].object;
 				if(currObject != null){
 					currObject.removeMenu();
