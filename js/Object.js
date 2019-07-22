@@ -545,14 +545,15 @@ class SRVolume extends SRMesh{
 	
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
-		var objEditor = this;
-		objMenu.add( this.volConfig, 'clim1', 0, 1, 0.01 ).onChange( this.updateUniforms(objEditor));
-		objMenu.add( this.volConfig, 'clim2', 0, 1, 0.01 ).onChange( this.updateUniforms(objEditor));
+		var volObject = this;
+		var c1Control = objMenu.add( this.volConfig, 'clim1', 0, 1, 0.01 )
+		c1Control.onChange( function(value){
+			volObject.mat.uniforms[ "u_clim" ].value.set( value, volObject.volConfig.clim2);
+		});
+		var c2Control = objMenu.add( this.volConfig, 'clim2', 0, 1, 0.01 )
+		c2Control.onChange( function(value){
+			volObject.mat.uniforms[ "u_clim" ].value.set( volObject.volConfig.clim1 , value);
+		});
 		return this.surfaceLocalMenu;
-	}
-	
-	updateUniforms(volObject){
-			volObject.mat.uniforms[ "u_clim" ].value.set( volObject.volConfig.clim1, volObject.volConfig.clim2);
-			rendererH.render( sceneH, cameraH );
 	}
 }
