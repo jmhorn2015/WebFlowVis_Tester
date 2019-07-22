@@ -539,7 +539,7 @@ class SRVolume extends SRMesh{
 		this.generate2DNode();
 	};
 	
-	getGUIMenu() {
+	getGUIMenu(renderName) {
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
 		objMenu.add( this.volConfig, 'clim1', 0, 1, 0.01 ).onChange( this.updateUniforms(objEditor));
@@ -548,8 +548,7 @@ class SRVolume extends SRMesh{
 	}
 	
 	updateUniforms(volObject){
-			console.log(volObject);
-			console.log(volObject.volConfig.clim1);
 			volObject.mat.uniforms[ "u_clim" ].value.set( volObject.volConfig.clim1, volObject.volConfig.clim2);
+			volObject.mat.needsUpdate = true;
 	}
 }
