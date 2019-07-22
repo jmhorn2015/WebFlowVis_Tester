@@ -270,6 +270,13 @@ class SRMesh extends SRObject{
 		this.object.position.set(0, 0, -1);
 		this.object.name = newName;
 		
+		if (!(this instanceof SRVolume)){
+			return this.surfaceLocalMenu;
+		}
+		else{
+			return objMenu;
+		}
+		
 	}
 	add(newobject){
 		
@@ -423,7 +430,6 @@ class SRMesh extends SRObject{
 		hideCntrlr.onChange(function(value) {
 			objEditor.hideObject(!value);
 		});
-		return this.surfaceLocalMenu;
 	}
 	getColor(){
 		
@@ -549,6 +555,5 @@ class SRVolume extends SRMesh{
 	
 	updateUniforms(volObject){
 			volObject.mat.uniforms[ "u_clim" ].value.set( volObject.volConfig.clim1, volObject.volConfig.clim2);
-			animate();
 	}
 }

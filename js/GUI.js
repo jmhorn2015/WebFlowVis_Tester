@@ -9,7 +9,6 @@ var rendererH;
 var scene;
 var sceneH;
 var mouse = new THREE.Vector2(), INTERSECTED;
-var animate;
 
   // Skybox Cube
   var path = "data/skybox/";
