@@ -107,10 +107,8 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-	var intersects = raycaster.intersectObjects(objects, true);
 	if(sceneCheck){
-		intersects = raycaster.intersectObjects(vObjects, true);
-	}
+		var intersects = raycaster.intersectObjects(objects, true);
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
 				if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
@@ -132,9 +130,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					.attr('stroke-width', "3");
 				}
 				for( var b = 0; b < objects.length; b++){
-					if (sceneCheck && vObjects.length < b){
-						break
-					}
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
 						currObject = surfaceObjects[b];
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
@@ -152,11 +147,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						.attr('stroke-width', "6")
 						.attr('stroke', null)
 						.attr('stroke', clicked.getAttribute('origColor'));
-						break;
-					}
-					if(INTERSECTED.name == volumeObjects[b].object.name){
-						currObject = volumeObjects[b];
-						$('#localGUI').append(currObject.getGUIMenu().domElement);
 						break;
 					}
 					if(b+1 == objects.length){
@@ -180,6 +170,44 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 			.attr('stroke-width', null)
 			.attr('stroke-width', "3");
 		}
+	}
+	else{
+		var intersects = raycaster.intersectObjects(vObjects, true);
+		if (intersects.length > 0) {
+			if (INTERSECTED != intersects[0].object) {
+				INTERSECTED = intersects[0].object;
+				if(currObject != null){
+					currObject.removeMenu();
+					currObject = null;
+				}
+				if(!(INTERSECTED instanceof SRSeedingCurve)){
+					d3.selectAll("path").classed("line", function() {
+						d3.select(this)
+						.attr('stroke', null)
+						.attr('stroke', this.getAttribute('origColor'));
+					});
+					d3.select(clicked)
+					.attr('stroke-width', null)
+					.attr('stroke-width', "3");
+				}
+				for( var b = 0; b < vObjects.length; b++){
+					if(INTERSECTED.name == volumeObjects[b].object.name){
+						currObject = volumeObjects[b];
+						$('#localGUI').append(currObject.getGUIMenu().domElement);
+						break;
+					}
+					if(b+1 == objects.length){
+						console.log("not found");
+					}
+				}
+			}
+		}
+		else {
+			INTERSECTED = null;
+			currObject.removeMenu();
+			currObject = null;
+		}
+	}
 
   }
 
