@@ -542,9 +542,8 @@ class SRVolume extends SRMesh{
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
-		
-		objMenu.add( this.volconfig, 'clim1', 0, 1, 0.01 ).onChange( updateUniforms );
-		objMenu.add( this.volconfig, 'clim2', 0, 1, 0.01 ).onChange( updateUniforms );
+		objMenu.add( this.volConfig, 'clim1', 0, 1, 0.01 ).onChange( updateUniforms );
+		objMenu.add( this.volConfig, 'clim2', 0, 1, 0.01 ).onChange( updateUniforms );
 		return this.surfaceLocalMenu;
 	}
 	
