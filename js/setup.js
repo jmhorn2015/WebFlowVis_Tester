@@ -106,8 +106,8 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
     mouse.x = ((event.clientX - canvasBounds.left) / (canvasBounds.right - canvasBounds.left)) * 2 - 1;
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 
-    raycaster.setFromCamera(mouse, camera);
 	if(sceneCheck){
+		raycaster.setFromCamera(mouse, camera);
 		var intersects = raycaster.intersectObjects(objects, true);
 		console.log(intersects.length);
 		if (intersects.length > 0) {
@@ -173,6 +173,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 		}
 	}
 	else{
+		raycaster.setFromCamera(mouse, cameraH);
 		var intersects = raycaster.intersectObjects(vObjects, true);
 		console.log(intersects.length);
 		if (intersects.length > 0) {
