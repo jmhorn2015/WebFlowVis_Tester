@@ -513,7 +513,7 @@ class SRVolume extends SRMesh{
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
-	var volConfig;
+	volConfig;
 	constructor(sceneName){
 		super(sceneName);
 		this.volConfig{ clim1: 0, clim2: 1 };
