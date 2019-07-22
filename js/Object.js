@@ -513,8 +513,10 @@ class SRVolume extends SRMesh{
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
+	var volConfig;
 	constructor(sceneName){
 		super(sceneName);
+		this.volConfig{ clim1: 0, clim2: 1 };
 	}
 		/**
 	* Updates the geometry of the object. Used with the sub classes to load in the data properly.
@@ -529,8 +531,22 @@ class SRVolume extends SRMesh{
 		this.object.receiveShadow = mesh.receiveShadow;
 		this.object.name = mesh.name;
 		sceneName.add(this.object);
-		//objects.push(this.object);
-		//surfaceObjects.push(this);
+		objects.push(this.object);
+		surfaceObjects.push(this);
 		this.generate2DNode();
 	};
+	
+	getGUIMenu() {
+		var objMenu = super.getGUIMenu();
+		var objEditor = this;
+		
+		objMenu.add( this.volconfig, 'clim1', 0, 1, 0.01 ).onChange( updateUniforms );
+		objMenu.add( this.volconfig, 'clim2', 0, 1, 0.01 ).onChange( updateUniforms );
+		return this.surfaceLocalMenu;
+	}
+	
+	updateUniforms(){
+			this.mat.uniforms[ "u_clim" ].value.set( volCnfig.clim1, volConfig.clim2);
+		
+	}
 }
