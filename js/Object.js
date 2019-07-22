@@ -1,8 +1,11 @@
-//Holds meshes of the objects for the raycaster
+//Holds meshes of the objects for the raycaster in Surface view
 var objects = [];
-//Holds the current SRObjects in the scene
+//Holds the current SRObjects in the Surface rendering scene
 var surfaceObjects = [];
-
+//Holds meshes of the objects for the raycaster in Volume view
+var objects = [];
+//Holds the current SRObjects in the Surface volume scene
+var volumeObjects = [];
 /** 
 * @class SRObject
 * @classdesc This is the type in which all scene objects fall under other than the scene and the camera. This is a base class, so you will not need to construct an object as an SRObject. Instead, utilize the constructors with the children classes. 
@@ -531,8 +534,8 @@ class SRVolume extends SRMesh{
 		this.object.receiveShadow = mesh.receiveShadow;
 		this.object.name = mesh.name;
 		sceneName.add(this.object);
-		objects.push(this.object);
-		surfaceObjects.push(this);
+		vObjects.push(this.object);
+		volumeObjects.push(this);
 		this.generate2DNode();
 	};
 	
