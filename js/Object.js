@@ -268,15 +268,7 @@ class SRMesh extends SRObject{
 		this.mat.opacity = 1;
 		this.object = new THREE.Mesh( this.geo, this.mat);
 		this.object.position.set(0, 0, -1);
-		this.object.name = newName;
-		
-		if (!(this instanceof SRVolume)){
-			return this.surfaceLocalMenu;
-		}
-		else{
-			return objMenu;
-		}
-		
+		this.object.name = newName;		
 	}
 	add(newobject){
 		
@@ -430,6 +422,12 @@ class SRMesh extends SRObject{
 		hideCntrlr.onChange(function(value) {
 			objEditor.hideObject(!value);
 		});
+		if (!(this instanceof SRVolume)){
+			return this.surfaceLocalMenu;
+		}
+		else{
+			return objMenu;
+		}
 	}
 	getColor(){
 		
