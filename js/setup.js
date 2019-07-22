@@ -107,7 +107,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-	if(sceneCheck){
+	//if(sceneCheck){
 		var intersects = raycaster.intersectObjects(objects, true);
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
@@ -170,7 +170,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 			.attr('stroke-width', null)
 			.attr('stroke-width', "3");
 		}
-	}
+	//}
 
   }
 
