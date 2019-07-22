@@ -98,6 +98,7 @@ shadowPlane.updateMesh(shadowPlane.object, scene);
 
 //Raycaster
 renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
+rendererH.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
 var raycaster = new THREE.Raycaster();
 var canvasBounds = renderer.context.canvas.getBoundingClientRect();
   function onDocumentMouseDown(event) {
@@ -175,7 +176,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 	else{
 		raycaster.setFromCamera(mouse, cameraH);
 		var intersects = raycaster.intersectObjects(vObjects, true);
-		console.log(intersects.length);
+		console.log("volume");
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
 				INTERSECTED = intersects[0].object;
