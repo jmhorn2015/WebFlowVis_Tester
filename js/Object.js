@@ -516,7 +516,7 @@ class SRVolume extends SRMesh{
 	volConfig;
 	constructor(sceneName){
 		super(sceneName);
-		this.volConfig{ clim1: 0, clim2: 1 };
+		this.volConfig = { clim1: 0, clim2: 1 };
 	}
 		/**
 	* Updates the geometry of the object. Used with the sub classes to load in the data properly.
