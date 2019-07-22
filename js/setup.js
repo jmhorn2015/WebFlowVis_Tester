@@ -215,7 +215,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 
   }
 
-function animate() {
+	animate = function(){
 	if(loading){
 		$("#loading").addClass('spinner-border');
 	}
