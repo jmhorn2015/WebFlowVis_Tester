@@ -548,7 +548,7 @@ class SRVolume extends SRMesh{
 	}
 	
 	updateUniforms(){
-			console.log(this.volConfig);
+			console.log(this.mat);
 			this.mat.uniforms[ "u_clim" ].value.set( this.volConfig.clim1, this.volConfig.clim2);
 	}
 }
