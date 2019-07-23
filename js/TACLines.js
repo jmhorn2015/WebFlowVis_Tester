@@ -180,6 +180,7 @@ function LoadTACGraph(objectsAll, loc){
       .attr("stroke", "black")
       .attr('r', 8.5)
       .style("opacity", 0)
+	  .style("z-index", 100)
 
 	// Create the text that travels along the curve of chart
 	focusText = svgTAC
@@ -188,6 +189,7 @@ function LoadTACGraph(objectsAll, loc){
       .style("opacity", 0)
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
+	  .style("z-index", 100)
 }
 function selectLine(){
 	if(currObject != null){
@@ -239,12 +241,10 @@ function selectLine(){
 		focus
 		.attr("cx", xScale(x0))
 		.attr("cy", yScale(selectedData[x0]))
-		d3.select(focus).moveToFront();
 		focusText
 		.html("x:" + x0 + "  -  " + "y:" + selectedData[x0])
 		.attr("x", xScale(x0)+15)
 		.attr("y", yScale(selectedData[x0]))
-		d3.select(focusText).moveToFront();
 	}
 }
   function mouseout() {
