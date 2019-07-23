@@ -111,6 +111,9 @@ var xScale = d3.scaleLinear()
 var yScale = d3.scaleLinear()
     .domain([0, 5]) // input 
     .range([height, 0]); // output 
+	
+var focus;
+var focusText;
 
 function LoadTACGraph(objectsAll, loc){
 	console.log("enter");
@@ -128,7 +131,7 @@ function LoadTACGraph(objectsAll, loc){
 	var bisect = d3.bisector(function(d) { return d.x; }).left;
 
 	// Create the circle that travels along the curve of chart
-	var focus = svgTAC
+	focus = svgTAC
 	.append('g')
     .append('circle')
       .style("fill", "none")
@@ -137,7 +140,7 @@ function LoadTACGraph(objectsAll, loc){
       .style("opacity", 0)
 
 	// Create the text that travels along the curve of chart
-	var focusText = svgTAC
+	focusText = svgTAC
     .append('g')
     .append('text')
       .style("opacity", 0)
@@ -229,12 +232,12 @@ function selectLine(){
 
   function mousemove() {
     // recover coordinate we need
-    var x0 = x.invert(d3.mouse(this)[0]);
+    var x0 = xScale.invert(d3.mouse(this)[0]);
     var i = bisect(data, x0, 1);
     selectedData = data[i]
     focus
-      .attr("cx", x(selectedData.x))
-      .attr("cy", y(selectedData.y))
+      .attr("cx", xScale(selectedData.x))
+      .attr("cy", yScale(selectedData.y))
     focusText
       .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
       .attr("x", x(selectedData.x)+15)
