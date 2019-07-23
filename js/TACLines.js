@@ -129,16 +129,15 @@ function LoadTACGraph(objectsAll, loc){
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-	// Create the circle that travels along the curve of chart
-	focus = svgTAC
-	.append('g')
-    .append('circle')
-      .style("fill", "none")
-      .attr("stroke", "black")
-      .attr('r', 8.5)
-      .style("opacity", 0)
-	  
+	  // Create a rect on top of the svg area: this rectangle recovers mouse position
+	svgTAC.append('rect')
+		.style("fill", "none")
+		.style("pointer-events", "all")
+		.attr('width', width)
+		.attr('height', height)
+		.on('mouseover', mouseover)
+		.on('mousemove', mousemove)
+		.on('mouseout', mouseout);
 	// 3. Call the x axis in a group tag
 	svgTAC.append("g")
 		.attr("class", "x axis")
@@ -173,6 +172,15 @@ function LoadTACGraph(objectsAll, loc){
 				.on("click", selectLine); 
 		}
 	}
+	// Create the circle that travels along the curve of chart
+	focus = svgTAC
+	.append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
 	// Create the text that travels along the curve of chart
 	focusText = svgTAC
     .append('g')
@@ -180,17 +188,7 @@ function LoadTACGraph(objectsAll, loc){
       .style("opacity", 0)
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
-	  // Create a rect on top of the svg area: this rectangle recovers mouse position
-	svgTAC.append('rect')
-		.style("fill", "none")
-		.style("pointer-events", "all")
-		.attr('width', width)
-		.attr('height', height)
-		.on('mouseover', mouseover)
-		.on('mousemove', mousemove)
-		.on('mouseout', mouseout);
 }
-
 function selectLine(){
 	if(currObject != null){
 		currObject.removeMenu();
