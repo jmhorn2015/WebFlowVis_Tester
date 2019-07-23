@@ -232,6 +232,7 @@ function selectLine(){
 
   function mousemove() {
     // recover coordinate we need
+	console.log(clicked);
 	if(selectMode){
 		var x0 = xScale.invert(d3.mouse(this)[0]);
 		var i = bisect(clicked.datum, x0, 1);
