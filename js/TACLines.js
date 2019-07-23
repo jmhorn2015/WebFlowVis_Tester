@@ -185,7 +185,7 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
 				.attr("origColor", "#" + objectsAll[a].mat.color.getHexString())
-				.attr("data", dataset)
+				.attr("data", objectsAll[a].dataOne)
 				.on("click", selectLine); 
 		}
 	}
