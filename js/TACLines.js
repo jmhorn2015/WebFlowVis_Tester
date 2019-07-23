@@ -239,12 +239,12 @@ function selectLine(){
 		focus
 		.attr("cx", xScale(x0))
 		.attr("cy", yScale(selectedData[x0]))
-		.moveToFront()
+		d3.select(focus).moveToFront();
 		focusText
 		.html("x:" + x0 + "  -  " + "y:" + selectedData[x0])
 		.attr("x", xScale(x0)+15)
 		.attr("y", yScale(selectedData[x0]))
-		.moveToFront()
+		d3.select(focusText).moveToFront();
 	}
 }
   function mouseout() {
