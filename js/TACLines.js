@@ -1,4 +1,6 @@
 var clicked;
+var label;
+var selectMode = false;
 
 function GenerateTACLines(name, dataFile, sceneName){
 	var newSRObjects = [];
@@ -121,6 +123,35 @@ function LoadTACGraph(objectsAll, loc){
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		
+	// This allows to find the closest X index of the mouse:
+	var bisect = d3.bisector(function(d) { return d.x; }).left;
+
+	// Create the circle that travels along the curve of chart
+	var focus = svgTAC
+	.append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+	// Create the text that travels along the curve of chart
+	var focusText = svgTAC
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+	  // Create a rect on top of the svg area: this rectangle recovers mouse position
+	svgTAC.append('rect')
+		.style("fill", "none")
+		.style("pointer-events", "all")
+		.attr('width', width)
+		.attr('height', height)
+		.on('mouseover', mouseover)
+		.on('mousemove', mousemove)
+		.on('mouseout', mouseout);
 	// 3. Call the x axis in a group tag
 	svgTAC.append("g")
 		.attr("class", "x axis")
@@ -151,7 +182,7 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
 				.attr("origColor", "#" + objectsAll[a].mat.color.getHexString())
-				.on("mouseover", displayData)
+				.on("mouseover", displayData(event))
 				.on("click", selectLine); 
 		}
 	}
@@ -165,6 +196,7 @@ function selectLine(){
 		.attr('stroke-width', "3");
 	}
 	clicked = this;
+	selectMode = true;
 	d3.selectAll("path").classed("line", function() {
 		d3.select(this)
 		.attr('stroke', null)
@@ -186,8 +218,30 @@ function selectLine(){
 				console.log("not found");
 			}
 		}
+	}
 }
+  // What happens when the mouse move -> show the annotations at the right positions.
+  function mouseover() {
+	if(selectMode){
+		focus.style("opacity", 1)
+		focusText.style("opacity",1)
+	);
+  }
 
-function displayData(){
-	//console.log(this.id);
-}
+  function mousemove() {
+    // recover coordinate we need
+    var x0 = x.invert(d3.mouse(this)[0]);
+    var i = bisect(data, x0, 1);
+    selectedData = data[i]
+    focus
+      .attr("cx", x(selectedData.x))
+      .attr("cy", y(selectedData.y))
+    focusText
+      .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
+      .attr("x", x(selectedData.x)+15)
+      .attr("y", y(selectedData.y))
+    }
+  function mouseout() {
+    focus.style("opacity", 0)
+    focusText.style("opacity", 0)
+  }
