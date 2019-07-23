@@ -114,6 +114,9 @@ var yScale = d3.scaleLinear()
 	
 var focus;
 var focusText;
+	
+// This allows to find the closest X index of the mouse:
+var bisect = d3.bisector(function(d) { return d.x; }).left;
 
 function LoadTACGraph(objectsAll, loc){
 	console.log("enter");
@@ -126,9 +129,6 @@ function LoadTACGraph(objectsAll, loc){
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-		
-	// This allows to find the closest X index of the mouse:
-	var bisect = d3.bisector(function(d) { return d.x; }).left;
 
 	// Create the circle that travels along the curve of chart
 	focus = svgTAC
