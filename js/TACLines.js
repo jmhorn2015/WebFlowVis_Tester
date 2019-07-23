@@ -232,17 +232,19 @@ function selectLine(){
 
   function mousemove() {
     // recover coordinate we need
-    var x0 = xScale.invert(d3.mouse(this)[0]);
-    var i = bisect(data, x0, 1);
-    selectedData = data[i]
-    focus
-      .attr("cx", xScale(selectedData.x))
-      .attr("cy", yScale(selectedData.y))
-    focusText
-      .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
-      .attr("x", x(selectedData.x)+15)
-      .attr("y", y(selectedData.y))
-    }
+	if(selectMode{
+		var x0 = xScale.invert(d3.mouse(this)[0]);
+		var i = bisect(clicked.datum, x0, 1);
+		selectedData = clicked.datum[i]
+		focus
+		.attr("cx", xScale(selectedData.x))
+		.attr("cy", yScale(selectedData.y))
+		focusText
+		.html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
+		.attr("x", x(selectedData.x)+15)
+		.attr("y", y(selectedData.y))
+	}
+}
   function mouseout() {
     focus.style("opacity", 0)
     focusText.style("opacity", 0)
