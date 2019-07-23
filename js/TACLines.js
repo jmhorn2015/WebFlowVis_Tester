@@ -185,7 +185,7 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
 				.attr("origColor", "#" + objectsAll[a].mat.color.getHexString())
-				.attr("data", dataset)
+				.attr("data", objectsAll[a].dataOne)
 				.on("click", selectLine); 
 		}
 	}
@@ -238,12 +238,12 @@ function selectLine(){
 		//var i = bisect(clicked.data, x0, 1);
 		selectedData = clicked.data[x0]
 		focus
-		.attr("cx", xScale(selectedData.x))
-		.attr("cy", yScale(selectedData.y))
+		.attr("cx", xScale(x0))
+		.attr("cy", yScale(selectedData))
 		focusText
-		.html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
-		.attr("x", xScale(selectedData.x)+15)
-		.attr("y", yScale(selectedData.y))
+		.html("x:" + x0 + "  -  " + "y:" + selectedData)
+		.attr("x", xScale(x0)+15)
+		.attr("y", yScale(selectedData))
 	}
 }
   function mouseout() {
