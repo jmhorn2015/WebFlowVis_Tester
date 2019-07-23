@@ -236,7 +236,7 @@ function selectLine(){
 	if(selectMode){
 		var x0 = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		//var i = bisect(clicked.data, x0, 1);
-		selectedData = clicked.data('yValue');
+		selectedData = currObject.dataOne;
 		focus
 		.attr("cx", xScale(x0))
 		.attr("cy", yScale(selectedData[x0]))
