@@ -219,7 +219,7 @@ function selectLine(){
 			}
 		}
 	}
-}
+//}
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
 	if(selectMode){
