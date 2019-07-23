@@ -234,7 +234,7 @@ function selectLine(){
   function mousemove() {
     // recover coordinate we need
 	if(selectMode){
-		var x0 = xScale.invert(d3.mouse(this)[0]);
+		var x0 = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		//var i = bisect(clicked.data, x0, 1);
 		selectedData = clicked.data[x0]
 		focus
