@@ -144,14 +144,12 @@ function LoadTACGraph(objectsAll, loc){
     .append('g')
     .append('text')
       .style("opacity", 0)
-	  .style("z-index", "5")
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
 	  // Create a rect on top of the svg area: this rectangle recovers mouse position
 	svgTAC.append('rect')
 		.style("fill", "none")
 		.style("pointer-events", "all")
-		.style("z-index", "5")
 		.attr('width', width)
 		.attr('height', height)
 		.on('mouseover', mouseover)
@@ -242,10 +240,12 @@ function selectLine(){
 		focus
 		.attr("cx", xScale(x0))
 		.attr("cy", yScale(selectedData[x0]))
+		.moveToFront()
 		focusText
 		.html("x:" + x0 + "  -  " + "y:" + selectedData[x0])
 		.attr("x", xScale(x0)+15)
 		.attr("y", yScale(selectedData[x0]))
+		.moveToFront()
 	}
 }
   function mouseout() {
