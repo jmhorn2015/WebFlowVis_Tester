@@ -185,6 +185,7 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
 				.attr("origColor", "#" + objectsAll[a].mat.color.getHexString())
+				.attr("data", dataset);
 				.on("click", selectLine); 
 		}
 	}
@@ -234,8 +235,8 @@ function selectLine(){
     // recover coordinate we need
 	if(selectMode){
 		var x0 = xScale.invert(d3.mouse(this)[0]);
-		var i = bisect(clicked.d, x0, 1);
-		selectedData = clicked.d[i]
+		var i = bisect(clicked.data, x0, 1);
+		selectedData = clicked.data[i]
 		focus
 		.attr("cx", xScale(selectedData.x))
 		.attr("cy", yScale(selectedData.y))
