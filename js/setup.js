@@ -185,6 +185,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					currObject = null;
 				}
 				if(!(INTERSECTED instanceof SRSeedingCurve)){
+					selectMode = false;
 					d3.selectAll("path").classed("line", function() {
 						d3.select(this)
 						.attr('stroke', null)
@@ -198,6 +199,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					if(INTERSECTED.name == volumeObjects[b].object.name){
 						currObject = volumeObjects[b];
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
+						selectMode = true;
 						break;
 					}
 					if(b+1 == objects.length){
@@ -210,6 +212,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 			INTERSECTED = null;
 			currObject.removeMenu();
 			currObject = null;
+			selectMode = false;
 		}
 	}
 
