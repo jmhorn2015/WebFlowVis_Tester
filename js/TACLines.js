@@ -185,7 +185,7 @@ function LoadTACGraph(objectsAll, loc){
 				.attr("stroke-width", "3")
 				.attr("stroke", "#" + objectsAll[a].mat.color.getHexString())
 				.attr("origColor", "#" + objectsAll[a].mat.color.getHexString())
-				.attr("data", objectsAll[a].dataOne)
+				.attr("data-yValue", objectsAll[a].dataOne)
 				.on("click", selectLine); 
 		}
 	}
@@ -236,14 +236,14 @@ function selectLine(){
 	if(selectMode){
 		var x0 = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		//var i = bisect(clicked.data, x0, 1);
-		selectedData = clicked.data[x0]
+		selectedData = clicked.data('yValue');
 		focus
 		.attr("cx", xScale(x0))
-		.attr("cy", yScale(selectedData))
+		.attr("cy", yScale(selectedData[x0]))
 		focusText
-		.html("x:" + x0 + "  -  " + "y:" + selectedData)
+		.html("x:" + x0 + "  -  " + "y:" + selectedData[x0])
 		.attr("x", xScale(x0)+15)
-		.attr("y", yScale(selectedData))
+		.attr("y", yScale(selectedData[x0]))
 	}
 }
   function mouseout() {
