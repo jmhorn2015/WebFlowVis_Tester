@@ -12,7 +12,8 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 
 // Input Function
 function loadLocal(){
-	
+	var filename = $(document.getElementById("input").val().split('\\').slice(-1)[0];
+	console.log(filename);
 }
 
   // Skybox Cube
