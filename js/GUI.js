@@ -12,9 +12,10 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 
 // Input Function
 function loadLocal(){
-	console.log("run");
 	var filename = $(document.getElementById("input")).val().split('\\').slice(-1)[0];
+	var filetype = filename.split('.').slice(-1)[0]
 	console.log(filename);
+	console.log(filetype);
 }
 
   // Skybox Cube
