@@ -12,6 +12,7 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 
 // Input Function
 function loadLocal(){
+	console.log("run");
 	var filename = $(document.getElementById("input")).val().split('\\').slice(-1)[0];
 	console.log(filename);
 }
