@@ -19,13 +19,13 @@ function loadLocal(){
 	else{
 		currScene = sceneH;
 	}
-	var filename = $(document.getElementById("input")).val();
-	var filetype = filename.split('.').slice(-1)[0]
+	var filename = $(document.getElementById("input"));
+	//var filetype = filename.split('.').slice(-1)[0]
 	console.log(filename);
-	console.log(filetype);
+	//console.log(filetype);
 	if(filetype == "txt"){
 		console.log("run surface");
-		GenerateCurves(filename, currScene);
+		//GenerateCurves(filename, currScene);
 	}
 	else if(filetype == "obj"){
 		
