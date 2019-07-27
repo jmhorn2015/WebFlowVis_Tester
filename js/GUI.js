@@ -12,10 +12,32 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 
 // Input Function
 function loadLocal(){
+	var currScene;
+	if(sceneCheck){
+		currScene = scene;
+	}
+	else{
+		currScene = sceneH;
+	}
 	var filename = $(document.getElementById("input")).val();
 	var filetype = filename.split('.').slice(-1)[0]
 	console.log(filename);
 	console.log(filetype);
+	if(filetype == "txt"){
+		console.log("run surface");
+		GenerateCurves(filename, currScene);
+	}
+	else if(filetype == "obj"){
+		
+	}
+	else if(filetype == "nrrd"){
+		
+	}
+	else if(filetype == "vtk"){
+	}
+	else{
+		alert("Error: Bad File Type");
+	};
 }
 
   // Skybox Cube
