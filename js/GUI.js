@@ -20,12 +20,12 @@ function loadLocal(){
 		currScene = sceneH;
 	}
 	var filename = $(document.getElementById("input"));
-	//var filetype = filename.split('.').slice(-1)[0]
+	var filetype = filename.val()split('.').slice(-1)[0]
 	console.log(filename);
-	//console.log(filetype);
+	console.log(filetype);
 	if(filetype == "txt"){
-		console.log("run surface");
-		//GenerateCurves(filename, currScene);
+		console.log("run")
+		GenerateCurves(filename.files[0].webkitRelativePath, currScene);
 	}
 	else if(filetype == "obj"){
 		
