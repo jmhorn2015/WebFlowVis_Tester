@@ -10,13 +10,6 @@ var scene;
 var sceneH;
 var mouse = new THREE.Vector2(), INTERSECTED;
 
-//Input reading
-$('.custom-file-input').on('change', function() { 
-	console.log("load");
-   let fileName = $(this).val().split('\\').pop(); 
-   $(this).next('.custom-file-label').addClass("selected").html(fileName); 
-});
-
   // Skybox Cube
   var path = "data/skybox/";
   var urls = [

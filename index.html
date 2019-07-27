@@ -61,7 +61,7 @@
     <div class="row ">
 
       <div class="col">
-        <h1 class="page-header">Web-based Flow Visualization *test1</h1>
+        <h1 class="page-header">Web-based Flow Visualization *test</h1>
         <hr>
       </div>
 
@@ -132,7 +132,7 @@
               <div class="form-group">
                 <div class="input-group mb-3">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                    <input type="file" class="custom-file-input" id="inputGroupFile02" onchange="$(this).next().after().text($(this).val().split('\\').slice(-1)[0])">
                     <label class="custom-file-label text-truncate" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
                   </div>
                   <div class="input-group-append">
