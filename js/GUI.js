@@ -21,7 +21,7 @@ function loadLocal(){
 	}
 	var filename = $(document.getElementById("input"));
 	var filetype = filename.val().split('.').slice(-1)[0];
-	console.log(filename.0());
+	console.log(filename.getAttribute(0));
 	console.log(filetype);
 	if(filetype == "txt"){
 		console.log("run")
