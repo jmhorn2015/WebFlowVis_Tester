@@ -20,7 +20,7 @@ function loadLocal(){
 		currScene = sceneH;
 	}
 	var filename = $(document.getElementById("input"));
-	var filetype = filename.val()split('.').slice(-1)[0]
+	var filetype = filename.val()split('.').slice(-1)[0];
 	console.log(filename);
 	console.log(filetype);
 	if(filetype == "txt"){
