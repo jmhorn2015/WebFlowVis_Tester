@@ -1,9 +1,9 @@
 var loading = false;
 var sceneCheck = true;
 var allParams = {
-	opacity: 50;
-	reflective: false;
-	recvShadows: false;
+	opacity: 50,
+	reflective: false,
+	recvShadows: false
 };
 var currObject;
 var cameraH;
