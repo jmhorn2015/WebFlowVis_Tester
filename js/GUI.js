@@ -115,8 +115,16 @@ function loadLocal(){
 		for( var a = 0; a < surfaceObjects.length; a++){
 			surfaceObjects[a].recvShadow(allParams.recvShadows);
 			if(surfaceObjects[a] instanceof SRMesh){
-				console.log(surfaceObjects[a].object.name);
 				surfaceObjects[a].objParams.Recieve_Shadows = allParams.recvShadows;
+			}
+		}
+  }
+  function allOpacity(value){
+	  	allParams.opacity = value;
+		for( var a = 0; a < surfaceObjects.length; a++){
+			if(surfaceObjects[a] instanceof SRMesh){
+				surfaceObjects[a].transparency(allParams.opacity);
+				surfaceObjects[a].objParams.Opaccity = allParams.opacity;
 			}
 		}
   }

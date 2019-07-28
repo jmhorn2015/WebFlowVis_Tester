@@ -60,7 +60,6 @@ class SRObject{
 	* @param {bool} onoff - On = true, Off = false
 	*/
 	recvShadow(onoff){
-		console.log("recieve")
 		this.object.receiveShadow = onoff;
 	}
 	 /**
