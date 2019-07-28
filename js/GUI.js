@@ -1,5 +1,10 @@
 var loading = false;
 var sceneCheck = true;
+var allParams = {
+	opacity: 50;
+	reflective: false;
+	recvShadows: false;
+};
 var currObject;
 var cameraH;
 var camera;
@@ -104,4 +109,11 @@ function loadLocal(){
 			surfaceObjects[a].hideObject(true);
 		 }		 
 	  }
+  }
+  function allRecvShad(){
+		allParams.recvShadows = !allParams.recvShadows;
+		for( var a = 0; a < surfaceObjects.length; a++){
+			surfaceObjects[a].recvShadows(allParams.recvShadows);
+			surfaceObjects.objParams.Recieve_Shadows = allParams.recvShadows;
+		}
   }
