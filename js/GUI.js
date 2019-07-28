@@ -114,7 +114,7 @@ function loadLocal(){
 		allParams.recvShadows = !allParams.recvShadows;
 		for( var a = 0; a < surfaceObjects.length; a++){
 			surfaceObjects[a].recvShadow(allParams.recvShadows);
-			if(surfaceObjects[a] instance of SRMesh){
+			if(surfaceObjects[a] instanceof SRMesh){
 				surfaceObjects.objParams.Recieve_Shadows = allParams.recvShadows;
 			}
 		}
