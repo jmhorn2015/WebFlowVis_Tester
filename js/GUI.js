@@ -113,7 +113,7 @@ function loadLocal(){
   function allRecvShad(){
 		allParams.recvShadows = !allParams.recvShadows;
 		for( var a = 0; a < surfaceObjects.length; a++){
-			surfaceObjects[a].recvShadows(allParams.recvShadows);
+			surfaceObjects[a].recvShadow(allParams.recvShadows);
 			surfaceObjects.objParams.Recieve_Shadows = allParams.recvShadows;
 		}
   }
