@@ -150,14 +150,10 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					else{
 						surfaceObjects[b].color("#888888");
 					}
-					if(b+1 == objects.length){
-						console.log("not found");
-					}
 				}
 			}
 		}
 		else {
-			if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
 			INTERSECTED = null;
 
 			currObject.removeMenu();
