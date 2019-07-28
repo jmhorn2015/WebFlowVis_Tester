@@ -7,7 +7,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="js/popper.js"></script>
+  <script src="js/popper.js" type="module"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lumen/bootstrap.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -61,7 +61,7 @@
     <div class="row ">
 
       <div class="col">
-        <h1 class="page-header">Web-based Flow Visualization *test</h1>
+        <h1 class="page-header">Web-based Flow Visualization *test1</h1>
         <hr>
       </div>
 
@@ -180,6 +180,14 @@
 			  <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="skySwitch" onchange="skyboxOnOff()">
                 <label class="custom-control-label" for="skySwitch">Load Skybox (Reflective)</label>
+              </div>
+			  <div class="form-group">
+				<label class="form-group-label" for="materialChanger">Change all Materials to:</label>
+                <select class="custom-select" id="materialChanger" onchange = >
+                  <option value="0" selected="">Phong</option>
+                  <option value="1">Basic</option>
+				  <option value="2">Lambert</option>
+                </select>
               </div>
 			  <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="unhideCurveSwitch" onchange="unhideCurves()">
