@@ -274,9 +274,15 @@ class SRMesh extends SRObject{
 	/**
 	* Changes the hue color of the mesh. On a scale of 0-1.
 	* @params {double} hue - value of hue.
+	* @params {string} hue - direct color for object.
 	*/
 	color(hue){
-		this.mat.color.setHSL(hue/100, 1, .5);
+		if (typeof(hue) == 'number){
+			this.mat.color.setHSL(hue/100, 1, .5);
+		}
+		else{
+			this.mat.color = hue;
+		};
 	}
 	/**
 	* Changes the material of the Mesh object.

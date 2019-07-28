@@ -112,10 +112,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 		var intersects = raycaster.intersectObjects(objects, true);
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
-				if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
 				INTERSECTED = intersects[0].object;
-				INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-				INTERSECTED.material.emissive.setHex(0xff0000);
 				if(currObject != null){
 					currObject.removeMenu();
 					currObject = null;
@@ -148,7 +145,10 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						.attr('stroke-width', "6")
 						.attr('stroke', null)
 						.attr('stroke', clicked.getAttribute('origColor'));
-						break;
+						currObject.color(clicked.getAttribute('origColor'));
+					}
+					else{
+						surfaceObjects[b].color("#888888");
 					}
 					if(b+1 == objects.length){
 						console.log("not found");
