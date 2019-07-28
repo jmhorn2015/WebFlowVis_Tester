@@ -128,3 +128,20 @@ function loadLocal(){
 			}
 		}
   }
+  function allMaterial(value){
+		for( var a = 0; a < surfaceObjects.length; a++){
+			if(surfaceObjects[a] instanceof SRMesh){
+				surfaceObjects[a].material(value);
+			}
+		}
+  }
+  function allReflective(){
+	  	allParams.reflective = !allParams.reflective;
+		for( var a = 0; a < surfaceObjects.length; a++){
+			if(surfaceObjects[a] instanceof SRMesh){
+				surfaceObjects[a].reflective(allParams.reflective);
+				surfaceObjects[a].objParams.Reflective = allParams.reflective;
+			}
+		}
+  }
+  
