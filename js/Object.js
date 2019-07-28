@@ -133,7 +133,6 @@ class SRObject{
 	*/
 	generate2DNode() {
 		//nodes.push({ id: this.object.name, reflexive: false });
-		console.log("node function");
 	}
 	/**
 	* Hides the object from the scene

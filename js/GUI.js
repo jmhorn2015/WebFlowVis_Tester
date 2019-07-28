@@ -124,7 +124,7 @@ function loadLocal(){
 		for( var a = 0; a < surfaceObjects.length; a++){
 			if(surfaceObjects[a] instanceof SRMesh){
 				surfaceObjects[a].transparency(allParams.opacity);
-				surfaceObjects[a].objParams.Opaccity = allParams.opacity;
+				surfaceObjects[a].objParams.Opacity = allParams.opacity;
 			}
 		}
   }

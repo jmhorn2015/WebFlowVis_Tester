@@ -41,7 +41,6 @@ import {
 import { NRRDLoader } from './NRRDLoader.js';
 import { VolumeRenderShader1 } from './VolumeShader.js';		
 export function AddVolume(name, textureName,  sceneName){
-	console.log("enter");
 	new NRRDLoader().load( name, function ( volume ) {
 		console.log("start");
 		var texture = new THREE.DataTexture3D( volume.data, volume.xLength, volume.yLength, volume.zLength );
@@ -73,9 +72,7 @@ export function AddVolume(name, textureName,  sceneName){
 		meshtemp.name = name;
 		var volumeTemp = new SRVolume(sceneName);
 		volumeTemp.updateMesh(meshtemp, sceneName);
-		console.log("done");
 	}, function(value){ 
-	console.log(value);
 	},	function ( error ) {
 		alert( 'An error happened in Add Volume' );
 		console.log(error);
