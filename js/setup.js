@@ -110,7 +110,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 	if(sceneCheck){
 		raycaster.setFromCamera(mouse, camera);
 		var intersects = raycaster.intersectObjects(objects, true);
-		console.log(intersects.length);
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
 				if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
