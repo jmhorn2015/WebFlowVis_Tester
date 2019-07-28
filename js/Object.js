@@ -281,7 +281,7 @@ class SRMesh extends SRObject{
 			this.mat.color.setHSL(hue/100, 1, .5);
 		}
 		else{
-			this.mat.color = hue;
+			this.mat.color.setHex(hue);
 		};
 	}
 	/**
