@@ -61,7 +61,7 @@
     <div class="row ">
 
       <div class="col">
-        <h1 class="page-header">Web-based Flow Visualization *test1</h1>
+        <h1 class="page-header">Web-based Flow Visualization *test</h1>
         <hr>
       </div>
 
@@ -181,6 +181,10 @@
                 <input type="checkbox" class="custom-control-input" id="skySwitch" onchange="skyboxOnOff()">
                 <label class="custom-control-label" for="skySwitch">Load Skybox (Reflective)</label>
               </div>
+			  <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="skySwitch" onchange="skyboxOnOff()">
+                <label class="custom-control-label" for="skySwitch">Make all objects Reflective</label>
+              </div>
 			  <div class="form-group">
 				<label class="form-group-label" for="materialChanger">Change all Materials to:</label>
                 <select class="custom-select" id="materialChanger" onchange = >
@@ -188,6 +192,12 @@
                   <option value="1">Basic</option>
 				  <option value="2">Lambert</option>
                 </select>
+              </div>
+			  <label for="opacityChanger">Opacity for all</label>
+			  <input type="range" class="custom-range" min="0" max="100" id="opacityChanger">
+			  <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="skySwitch" onchange="skyboxOnOff()">
+                <label class="custom-control-label" for="skySwitch">Make all objects Reflective</label>
               </div>
 			  <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="unhideCurveSwitch" onchange="unhideCurves()">
