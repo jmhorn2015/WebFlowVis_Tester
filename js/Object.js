@@ -277,7 +277,7 @@ class SRMesh extends SRObject{
 	* @params {string} hue - direct color for object.
 	*/
 	color(hue){
-		if (typeof(hue) == 'number){
+		if (typeof(hue) == 'number'){
 			this.mat.color.setHSL(hue/100, 1, .5);
 		}
 		else{
