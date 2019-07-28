@@ -129,6 +129,7 @@ function loadLocal(){
 		}
   }
   function allMaterial(value){
+	  console.log(value);
 		for( var a = 0; a < surfaceObjects.length; a++){
 			if(surfaceObjects[a] instanceof SRMesh){
 				surfaceObjects[a].material(value);
