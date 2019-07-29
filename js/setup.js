@@ -148,7 +148,9 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						currObject.color(clicked.getAttribute('origColor'));
 					}
 					else{
-						surfaceObjects[b].color("#888888");
+						if(surfaceObjects[b] instanceof SRMesh){
+							surfaceObjects[b].color("#888888");
+						}
 					}
 				}
 			}
