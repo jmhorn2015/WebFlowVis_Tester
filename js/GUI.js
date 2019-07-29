@@ -53,8 +53,8 @@ function loadLocal(){
 		path + "py.jpg", path + "ny.jpg",
 		path + "pz.jpg", path + "nz.jpg"
 	  ];
-	var textureCube = new THREE.CubeTextureLoader().load( urls );
-	textureCube.format = THREE.RGBFormat;  
+var textureCube = new THREE.CubeTextureLoader().load( urls );
+textureCube.format = THREE.RGBFormat;  
 
   //Main Screen GUI Functions
   function shadowsOnOff(){
@@ -149,7 +149,7 @@ function loadLocal(){
 	  	allParams.reflective = !allParams.reflective;
 		for( var a = 0; a < surfaceObjects.length; a++){
 			if(surfaceObjects[a] instanceof SRMesh){
-				surfaceObjects[a].reflective(allParams.reflective);
+				surfaceObjects[a].reflective(allParams.reflective, textureCube);
 				surfaceObjects[a].objParams.Reflective = allParams.reflective;
 			}
 		}
