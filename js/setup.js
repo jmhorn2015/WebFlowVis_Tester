@@ -157,7 +157,12 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 		}
 		else {
 			INTERSECTED = null;
-
+			for( var b = 0; b < objects.length; b++){
+				if(surfaceObjects[b] instanceof SRMesh){
+					tempObj = d3.select(surfaceObjects[b].name)
+					surfaceObjects[b].color(tempObj.getAttribute('origColor'));
+				}
+			}
 			currObject.removeMenu();
 			currObject = null;
 			d3.selectAll("path").classed("line", function() {
