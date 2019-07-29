@@ -159,7 +159,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 			INTERSECTED = null;
 			for( var b = 0; b < objects.length; b++){
 				if(surfaceObjects[b] instanceof SRMesh){
-					tempObj = d3.select(surfaceObjects[b].name)
+					var tempObj = d3.select(surfaceObjects[b].name)
 					surfaceObjects[b].color(tempObj.getAttribute('origColor'));
 				}
 			}
