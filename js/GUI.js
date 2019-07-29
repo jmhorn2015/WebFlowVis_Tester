@@ -96,19 +96,19 @@ textureCube.format = THREE.RGBFormat;
 		rendererH.domElement.style.display = "none";
 	  }
   }
-  function unhideCurves(value){
+  function unhideCurves(){
 	  for(var a = 0; a < surfaceObjects.length; a++){
 		 if(surfaceObjects[a] instanceof SRSeedingCurve){
-			surfaceObjects[a].hideObject(value);
-			surfaceObjects[a].objParams.Hide = value;
+			surfaceObjects[a].hideObject(true);
+			surfaceObjects[a].objParams.Hide = true;
 		 }		 
 	  }
   }
-   function unhideSurface(value){
+   function unhideSurface(){
 	  for(var a = 0; a < surfaceObjects.length; a++){
 		 if(surfaceObjects[a] instanceof SRSurface){
-			surfaceObjects[a].hideObject(value);
-			surfaceObjects[a].objParams.Hide = value;
+			surfaceObjects[a].hideObject(true);
+			surfaceObjects[a].objParams.Hide = true;
 		 }		 
 	  }
   }
