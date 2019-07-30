@@ -32,7 +32,7 @@ function AddObject(name2, sceneName){
 	//$("#loading").removeClass('spinner-border');
 };
 
-function AddVolumeVTK(name3, sceneName){
+function AddVTKVolume(name3, sceneName){
 	var loader = new VTKLoader();
 	loader.load( name3, function ( geometry ) {
 		geometry.center();
