@@ -33,7 +33,7 @@ function AddObject(name2, sceneName){
 };
 
 function AddVTKVolume(name3, sceneName){
-	var loader = new VTKLoader();
+	var loader = new THREE.VTKLoader();
 	loader.load( name3, function ( geometry ) {
 		geometry.center();
 		geometry.computeVertexNormals();
