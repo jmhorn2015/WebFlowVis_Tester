@@ -301,7 +301,7 @@ class SRMesh extends SRObject{
 				this.mat = new THREE.MeshLambertMaterial( { color: 0x808080, dithering: true } );
 				break;
 		}
-		this.mat.side = THREE.BackSide;
+		this.mat.side = oldMat.side;
         this.mat.color = new THREE.Color(oldMat.color);
 		this.mat.transparent = true;
 		this.mat.opacity = oldMat.opacity;
