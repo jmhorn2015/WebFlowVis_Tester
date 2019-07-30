@@ -32,6 +32,17 @@ function AddObject(name2, sceneName){
 	//$("#loading").removeClass('spinner-border');
 };
 
+function AddVolumeVTK(name3, sceneName){
+	var loader = new VTKLoader();
+	loader.load( name3, function ( geometry ) {
+		geometry.center();
+		geometry.computeVertexNormals();
+		var meshTemp= new THREE.Mesh( geometry, material );
+		var SStemp = new SRSurface(sceneName);
+		SStemp.updateMesh(meshTemp, sceneName);
+		} );
+}
+
 import {
 	DefaultLoadingManager,
 	FileLoader,
