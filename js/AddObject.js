@@ -34,6 +34,7 @@ function AddObject(name2, sceneName){
 
 function AddVTKVolume(name3, sceneName){
 	var loader = new THREE.VTKLoader();
+	var material = new THREE.MeshPhongMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
 	loader.load( name3, function ( geometry ) {
 		geometry.center();
 		geometry.computeVertexNormals();
