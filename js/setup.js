@@ -85,9 +85,10 @@ light4.position(0,-10,10);
 GenerateCurves("data/seeding_curve_2.txt", scene);*/
 //AddObject("data/surface1_1.obj", sceneH);
 /*AddObject("data/surface1_2.obj", scene);
-AddObject("data/surface2_1.obj", scene);*/
-AddObject("data/surface2_2.obj", scene);
+AddObject("data/surface2_1.obj", scene);
+AddObject("data/surface2_2.obj", scene);*/
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
+AddVTKVolume("data/bunny.vtk", scene);
 
 import {AddVolume} from "./AddNRRDVolume.js";
 AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
