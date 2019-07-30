@@ -89,7 +89,7 @@ AddObject("data/surface2_1.obj", scene);*/
 AddObject("data/surface2_2.obj", scene);
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
 
-import {AddVolume} from "./AddObject.js";
+import {AddVolume} from "./AddNRRDVolume.js";
 AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 
 //shadow plane
