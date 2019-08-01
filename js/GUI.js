@@ -30,7 +30,7 @@ function readLocal(){
 	else{
 		currScene = sceneH;
 	}
-	var filetype = document.getElementById("input").val().split('.').slice(-1)[0];
+	var filetype = $(document.getElementById("input")).val().split('.').slice(-1)[0];
 	
 	var reader = new FileReader();
     reader.onload = (function(theFile) {
