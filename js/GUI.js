@@ -19,7 +19,8 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 var fileStorage;
 function loadLocal(evt){
 	fileStorage = evt.target.files;
-	this.next().after().text($(this).val().split('\\').slice(-1)[0]);
+	console.log(fileStorage[0]);
+	document.getElementById("inputName").innerHTML = fileStorage[0].name;
 }
 function readLocal(){
 	var currScene;
@@ -29,7 +30,7 @@ function readLocal(){
 	else{
 		currScene = sceneH;
 	}
-	var filetype = $(document.getElementById("input")).val().split('.').slice(-1)[0];
+	var filetype = document.getElementById("input").val().split('.').slice(-1)[0];
 	
 	var reader = new FileReader();
     reader.onload = (function(theFile) {
