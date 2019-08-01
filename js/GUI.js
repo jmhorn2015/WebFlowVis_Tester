@@ -19,7 +19,7 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 var fileStorage;
 function loadLocal(evt){
 	fileStorage = evt.target.files;
-	$(document.getElementById("input")).next().after().text($(this).val().split('\\').slice(-1)[0]);
+	evt.target.next().after().text($(this).val().split('\\').slice(-1)[0]);
 }
 function readLocal(){
 	var currScene;
@@ -30,15 +30,13 @@ function readLocal(){
 		currScene = sceneH;
 	}
 	var filetype = $(document.getElementById("input")).val().split('.').slice(-1)[0];
-	console.log(fileStorage);
 	
 	var reader = new FileReader();
     reader.onload = (function(theFile) {
         return function(e) {
 			console.log(theFile);
 			if(filetype == "txt"){
-			console.log("run")
-			//GenerateCurves(filename.files[0].webkitRelativePath, currScene);
+			GenerateCurves(theFile, currScene);
 			}
 			else if(filetype == "obj"){
 		
