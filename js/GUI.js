@@ -27,8 +27,7 @@ function loadLocal(){
 	var filename = $(document.getElementById("input"));
 	var filetype = filename.val().split('.').slice(-1)[0];
 	console.log(filename);
-	console.log(filename);
-	console.log(filetype);
+	console.log(filename.files);
 	if(filetype == "txt"){
 		console.log("run")
 		//GenerateCurves(filename.files[0].webkitRelativePath, currScene);
