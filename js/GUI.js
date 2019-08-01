@@ -17,7 +17,7 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 
 // Input Function
 var fileStorage;
-function loadlocal(evt){
+function loadLocal(evt){
 	fileStorage = evt.target.files;
 	$(this).next().after().text($(this).val().split('\\').slice(-1)[0]);
 }
@@ -29,9 +29,7 @@ function readLocal(){
 	else{
 		currScene = sceneH;
 	}
-	var filename = $(document.getElementById("input"));
-	var filetype = filename.val().split('.').slice(-1)[0];
-	console.log(filename);
+	var filetype = $(document.getElementById("input")).val().split('.').slice(-1)[0];
 	console.log(fileStorage);
 	if(filetype == "txt"){
 		console.log("run")
