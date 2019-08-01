@@ -11,7 +11,7 @@ var extrudeSettings;
 var bigData = [];
 var texts;
 
-function GenerateCurves(name, scene, isFile){
+function GenerateCurves(name, sceneName, isFile){
 	if(isFile){
 		texts = name.split(" ");
 		return sub();
@@ -71,7 +71,7 @@ function GenerateCurves(name, scene, isFile){
 				//meshtemp.name = name;
 				//mesh.updateMesh(meshtemp);
 				meshtemp.name = name + lineCounter;
-				var SCtemp = new SRSeedingCurve(scene);
+				var SCtemp = new SRSeedingCurve(sceneName);
 				SCtemp.updateMesh(meshtemp, sceneName);
 				lineData = [];
 				counter = 0;
