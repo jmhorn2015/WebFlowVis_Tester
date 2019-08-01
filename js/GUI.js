@@ -16,7 +16,12 @@ var sceneH;
 var mouse = new THREE.Vector2(), INTERSECTED;
 
 // Input Function
-function loadLocal(){
+var fileStorage;
+function loadlocal(evt){
+	fileStorage = evt.target.files;
+	$(this).next().after().text($(this).val().split('\\').slice(-1)[0]);
+}
+function readLocal(){
 	var currScene;
 	if(sceneCheck){
 		currScene = scene;
@@ -27,7 +32,7 @@ function loadLocal(){
 	var filename = $(document.getElementById("input"));
 	var filetype = filename.val().split('.').slice(-1)[0];
 	console.log(filename);
-	console.log(filename.files);
+	console.log(fileStorage);
 	if(filetype == "txt"){
 		console.log("run")
 		//GenerateCurves(filename.files[0].webkitRelativePath, currScene);
