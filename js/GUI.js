@@ -35,7 +35,6 @@ function readLocal(){
 	var reader = new FileReader();
     reader.onload = (function(theFile) {
         return function(e) {
-			console.log(e.target.result);
 			if(filetype == "txt"){
 				GenerateCurves(e.target.result, currScene, true);
 			}
