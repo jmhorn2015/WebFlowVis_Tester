@@ -17,8 +17,6 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 
 // Input Function
 var fileStorage;
-document.getElementById("input").addEventListener('change', loadLocal, false);
-
 function loadLocal(evt){
 	fileStorage = evt.target.files;
 	$(this).next().after().text($(this).val().split('\\').slice(-1)[0]);
@@ -48,6 +46,7 @@ function readLocal(){
 	else{
 		alert("Error: Bad File Type");
 	};
+	document.getElementById("input").addEventListener('change', loadLocal, false);
 }
 
   // Skybox Cube
