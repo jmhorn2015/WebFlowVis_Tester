@@ -1,4 +1,4 @@
-function AddObject(name2, sceneName){
+function AddObject(name2, sceneName, isFile){
 	var loader = new THREE.OBJLoader();
 	loader.load(name2, function ( object ) {
     	object.traverse( function ( child ) {
@@ -8,7 +8,12 @@ function AddObject(name2, sceneName){
 				child.material.transparent = true;
 				child.material.opacity = .5;
 				child.recieveShadow = false;
-				child.name = name2;
+				if(isFile){
+					child.name = document.getElementById("inputName").innerHTML;
+				}
+				else{
+					child.name = name2;
+				}
 				var SStemp = new SRSurface(sceneName);
 				SStemp.updateMesh(child, sceneName);
         	}
@@ -32,14 +37,19 @@ function AddObject(name2, sceneName){
 	//$("#loading").removeClass('spinner-border');
 };
 
-function AddVTKVolume(name3, sceneName){
+function AddVTKVolume(name3, sceneName, isFile){
 	var loader = new THREE.VTKLoader();
 	var material = new THREE.MeshPhongMaterial( { color: 0x888888, side: THREE.DoubleSide } );
 	loader.load( name3, function ( geometry ) {
 		geometry.center();
 		geometry.computeVertexNormals();
 		var meshTemp= new THREE.Mesh( geometry, material );
-		meshTemp.name = name3;
+		if(isFile){
+			meshTemp.name = document.getElementById("inputName").innerHTML;
+		}
+		else{
+			meshTemp.name = name3;
+		}
 		var SStemp = new SRSurface(sceneName);
 		SStemp.updateMesh(meshTemp, sceneName);
 		} );

@@ -39,12 +39,13 @@ function readLocal(){
 				GenerateCurves(e.target.result, currScene, true);
 			}
 			else if(filetype == "obj"){
-				AddObject(e.target.result, currScene);
+				AddObject(e.target.result, currScene, true);
 			}
 			else if(filetype == "nrrd"){
 				
 			}
 			else if(filetype == "vtk"){
+				AddVTKVolume(e.target.result, currScene, true);
 			}
 			else{
 				alert("Error: Bad File Type");
