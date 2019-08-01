@@ -14,7 +14,7 @@ var texts;
 function GenerateCurves(name, sceneName, isFile){
 	if(isFile){
 		texts = name.split(" ");
-		return sub();
+		return sub(isFile);
 	}
 	else{
 	$.get(name,	function(data) {
@@ -25,7 +25,7 @@ function GenerateCurves(name, sceneName, isFile){
 			alert( "error" );	
 		});
 	}
-	function sub(){
+	function sub(isFile){
 		var newSRObjects = [];
 		//
 		var lineData = [];
@@ -70,7 +70,12 @@ function GenerateCurves(name, sceneName, isFile){
 				var meshtemp = new THREE.Mesh( geo, mat );
 				//meshtemp.name = name;
 				//mesh.updateMesh(meshtemp);
-				meshtemp.name = name + lineCounter;
+				if(isFile){
+					meshtemp.name = document.getElementById("inputName").innerHTML + lineCounter;
+				}
+				else{
+					meshtemp.name = name + lineCounter;
+				}
 				var SCtemp = new SRSeedingCurve(sceneName);
 				SCtemp.updateMesh(meshtemp, sceneName);
 				lineData = [];
