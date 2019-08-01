@@ -18,10 +18,8 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 // Input Function
 var fileStorage;
 function loadLocal(evt){
-	console.log(evt.target);
-	console.log(evt.target.files);
 	fileStorage = evt.target.files;
-	evt.target.next().after().text($(this).val().split('\\').slice(-1)[0]);
+	$(document.getElementById("input")).next().after().text($(this).val().split('\\').slice(-1)[0]);
 }
 function readLocal(){
 	var currScene;
@@ -33,21 +31,29 @@ function readLocal(){
 	}
 	var filetype = $(document.getElementById("input")).val().split('.').slice(-1)[0];
 	console.log(fileStorage);
-	if(filetype == "txt"){
-		console.log("run")
-		//GenerateCurves(filename.files[0].webkitRelativePath, currScene);
-	}
-	else if(filetype == "obj"){
+	
+	var reader = new FileReader();
+    reader.onload = (function(theFile) {
+        return function(e) {
+			console.log(theFile);
+			if(filetype == "txt"){
+			console.log("run")
+			//GenerateCurves(filename.files[0].webkitRelativePath, currScene);
+			}
+			else if(filetype == "obj"){
 		
-	}
-	else if(filetype == "nrrd"){
-		
-	}
-	else if(filetype == "vtk"){
-	}
-	else{
-		alert("Error: Bad File Type");
-	};
+			}
+			else if(filetype == "nrrd"){
+				
+			}
+			else if(filetype == "vtk"){
+			}
+			else{
+				alert("Error: Bad File Type");
+			};	
+        };
+      })(fileStorage[0]);
+      reader.readAsDataURL(fileStorage[0]);
 }
 
   // Skybox Cube
