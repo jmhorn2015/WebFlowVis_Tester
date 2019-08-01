@@ -36,7 +36,7 @@ function readLocal(){
         return function(e) {
 			console.log(theFile);
 			if(filetype == "txt"){
-			GenerateCurves(theFile, currScene);
+				GenerateCurves(theFile, currScene, true);
 			}
 			else if(filetype == "obj"){
 		
@@ -51,7 +51,12 @@ function readLocal(){
 			};	
         };
       })(fileStorage[0]);
-      reader.readAsDataURL(fileStorage[0]);
+	  if(filetype == "txt"){
+		reader.readAsText(fileStorage[0]);
+	  }
+	  else{
+		reader.readAsDataURL(fileStorage[0]);
+	  }
 }
 
   // Skybox Cube

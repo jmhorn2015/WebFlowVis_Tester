@@ -11,7 +11,12 @@ var extrudeSettings;
 var bigData = [];
 var texts;
 
-function GenerateCurves(name, scene){
+function GenerateCurves(name, scene, isFile){
+	if(isFile){
+		texts = name.split(" ");
+		return sub();
+	}
+	else{
 	$.get(name,	function(data) {
 		 texts = data.split(" ");
 		 return sub();
@@ -19,7 +24,7 @@ function GenerateCurves(name, scene){
 		.fail(function() {
 			alert( "error" );	
 		});
-
+	}
 	function sub(){
 		var newSRObjects = [];
 		//
