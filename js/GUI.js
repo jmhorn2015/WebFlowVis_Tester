@@ -40,7 +40,7 @@ function readLocal(){
 				GenerateCurves(e.target.result, currScene, true);
 			}
 			else if(filetype == "obj"){
-		
+				AddObject(e.target.result, currScene);
 			}
 			else if(filetype == "nrrd"){
 				
