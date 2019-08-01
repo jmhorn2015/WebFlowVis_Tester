@@ -17,7 +17,7 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 
 // Input Function
 var fileStorage;
-$(document.getElementById("input")).addEventListener('change', loadLocal, false);
+document.getElementById("input").addEventListener('change', loadLocal, false);
 
 function loadLocal(evt){
 	fileStorage = evt.target.files;
