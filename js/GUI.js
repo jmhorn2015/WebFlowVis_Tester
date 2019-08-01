@@ -18,8 +18,10 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 // Input Function
 var fileStorage;
 function loadLocal(evt){
+	console.log(evt.target);
+	console.log(evt.target.files);
 	fileStorage = evt.target.files;
-	$(this).next().after().text($(this).val().split('\\').slice(-1)[0]);
+	evt.target.next().after().text($(this).val().split('\\').slice(-1)[0]);
 }
 function readLocal(){
 	var currScene;
