@@ -48,7 +48,6 @@ function readLocal(){
 	else{
 		alert("Error: Bad File Type");
 	};
-	document.getElementById("input").addEventListener('change', loadLocal, false);
 }
 
   // Skybox Cube
