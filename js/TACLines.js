@@ -162,7 +162,7 @@ function LoadTACGraph(objectsAll, loc){
 			//console.log(objectsAll[a].object.name);
 			svgTAC.append("path")
 				.datum(dataset) 
-				.attr('position', "absolute")
+				.style('position', "absolute")
 				.attr("d", lineGen)
 				.attr("id", objectsAll[a].dataOne[200])
 				.attr("fill", "none")
@@ -177,6 +177,7 @@ function LoadTACGraph(objectsAll, loc){
 	focus = svgTAC
 	.append('g')
     .append('circle')
+	  .style('position', "absolute")
       .style("fill", "none")
       .attr("stroke", "black")
       .attr('r', 8.5)
@@ -187,6 +188,7 @@ function LoadTACGraph(objectsAll, loc){
 	focusText = svgTAC
     .append('g')
     .append('text')
+	  .style('position', "absolute")
       .style("opacity", 0)
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
