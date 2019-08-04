@@ -162,6 +162,7 @@ function LoadTACGraph(objectsAll, loc){
 			//console.log(objectsAll[a].object.name);
 			svgTAC.append("path")
 				.datum(dataset) 
+				.attr('position', "absolute")
 				.attr("d", lineGen)
 				.attr("id", objectsAll[a].dataOne[200])
 				.attr("fill", "none")

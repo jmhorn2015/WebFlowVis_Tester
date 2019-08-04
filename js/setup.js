@@ -133,7 +133,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						currObject = surfaceObjects[b];
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
 						d3.select(clicked)
-						.attr('position', "absolute")
 						.attr('stroke-width', null)
 						.attr('stroke-width', "3");
 						d3.selectAll("path").classed("line", function() {
