@@ -217,13 +217,14 @@ function selectLine(){
 			currObject = surfaceObjects[b];
 			$('#localGUI').append(currObject.getGUIMenu().domElement);
 			break;
-			}
-			if(b+1 == objects.length){
-				console.log("not found");
-			}
+		}
+		if(b+1 == objects.length){
+			console.log("not found");
 		}
 	}
-//}
+}
+// 3D point Visualization
+  var pointTracker = new SRMesh(scene, "Sphere");
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
 	if(selectMode){

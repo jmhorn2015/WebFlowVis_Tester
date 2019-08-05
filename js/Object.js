@@ -266,7 +266,13 @@ class SRMesh extends SRObject{
 		this.mat.opacity = 1;
 		this.object = new THREE.Mesh( this.geo, this.mat);
 		this.object.position.set(0, 0, -1);
-		this.object.name = newName;		
+		this.object.name = newName;	
+		if(shape != null){
+			sceneName.add(this.object);
+			objects.push(this.object);
+			surfaceObjects.push(this);
+			this.generate2DNode();
+		}
 	}
 	add(newobject){
 		
