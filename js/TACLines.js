@@ -162,8 +162,6 @@ function LoadTACGraph(objectsAll, loc){
 			//console.log(objectsAll[a].object.name);
 			svgTAC.append("path")
 				.datum(dataset) 
-				.style('position', "relative")
-				.style("z-index", -1)
 				.attr("d", lineGen)
 				.attr("id", objectsAll[a].dataOne[200])
 				.attr("fill", "none")
@@ -188,6 +186,7 @@ function LoadTACGraph(objectsAll, loc){
     .append('g')
     .append('text')
       .style("opacity", 0)
+	  .style("fill", "white")
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
 }
@@ -227,8 +226,8 @@ function selectLine(){
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
 	if(selectMode){
-		focus.style("opacity", 1)
-		focusText.style("opacity",1)
+		focus.style("opacity", 0.999)
+		focusText.style("opacity",0.999)
 	}
   }
 
