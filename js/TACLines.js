@@ -230,6 +230,7 @@ function selectLine(){
 	if(selectMode){
 		focus.style("opacity", 1)
 		focusText.style("opacity",1)
+		console.log(pointTracker);
 		pointTracker.hideObject(false);
 	}
   }
