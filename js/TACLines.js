@@ -179,7 +179,6 @@ function LoadTACGraph(objectsAll, loc){
 	.append('g')
     .append('circle')
 	  .style('position', "absolute")
-	  .style('z-index', )
       .style("fill", "none")
       .attr("stroke", "black")
       .attr('r', 8.5)
