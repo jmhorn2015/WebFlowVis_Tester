@@ -186,7 +186,7 @@ function LoadTACGraph(objectsAll, loc){
     .append('g')
     .append('text')
       .style("opacity", 0)
-	  .style("fill", none)
+	  .style("fill", "none")
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
 }
@@ -226,8 +226,8 @@ function selectLine(){
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
 	if(selectMode){
-		focus.style("opacity", 0.999)
-		focusText.style("opacity",0.999)
+		focus.style("opacity", 1)
+		focusText.style("opacity", 1)
 	}
   }
 
