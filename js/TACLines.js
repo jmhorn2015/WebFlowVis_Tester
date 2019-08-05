@@ -5,6 +5,8 @@ var pointTracker;
 
 function GenerateTACLines(name, dataFile, sceneName, tempPoint){
 	pointTracker = tempPoint;
+	pointTracker.color("#FFFFFF");
+	pointTracker.position(5,0,0);
 	var newSRObjects = [];
 	var loadData = [];
 	$.get(name,	function(data) {
@@ -230,7 +232,6 @@ function selectLine(){
 	if(selectMode){
 		focus.style("opacity", 1)
 		focusText.style("opacity",1)
-		console.log(pointTracker);
 		pointTracker.hideObject(false);
 	}
   }
