@@ -162,8 +162,8 @@ function LoadTACGraph(objectsAll, loc){
 			//console.log(objectsAll[a].object.name);
 			svgTAC.append("path")
 				.datum(dataset) 
-				.style('position', "absolute")
-				.style("z-index", 0)
+				.style('position', "relative")
+				.style("z-index", -1)
 				.attr("d", lineGen)
 				.attr("id", objectsAll[a].dataOne[200])
 				.attr("fill", "none")
@@ -178,22 +178,18 @@ function LoadTACGraph(objectsAll, loc){
 	focus = svgTAC
 	.append('g')
     .append('circle')
-	  .style('position', "absolute")
       .style("fill", "none")
       .attr("stroke", "black")
       .attr('r', 8.5)
       .style("opacity", 0)
-	  .style("z-index", 100)
 
 	// Create the text that travels along the curve of chart
 	focusText = svgTAC
     .append('g')
     .append('text')
-	  .style('position', "absolute")
       .style("opacity", 0)
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
-	  .style("z-index", 100)
 }
 function selectLine(){
 	if(currObject != null){
