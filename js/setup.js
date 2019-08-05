@@ -80,9 +80,11 @@ var light4 = new SRLight(sceneH);
 light4.type("Point", sceneH);
 light4.position(0,-10,10);
 
+// 3D point Visualization
+ var pointTracker = new SRMesh(scene, "Sphere");
+ 
 //objects
-
-GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
+GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, pointTracker);
 
 import {AddVolume} from "./AddNRRDVolume.js";
 AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
@@ -90,6 +92,7 @@ AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 //shadow plane
 var shadowPlane = new SRMesh(scene);
 shadowPlane.updateMesh(shadowPlane.object, scene);
+
 
 //Raycaster
 renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);

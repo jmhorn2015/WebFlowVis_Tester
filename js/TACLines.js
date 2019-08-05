@@ -2,7 +2,7 @@ var clicked;
 var label;
 var selectMode = false;
 
-function GenerateTACLines(name, dataFile, sceneName){
+function GenerateTACLines(name, dataFile, sceneName, pointer){
 	var newSRObjects = [];
 	var loadData = [];
 	$.get(name,	function(data) {
@@ -40,7 +40,7 @@ function GenerateTACLines(name, dataFile, sceneName){
 				TACData = [];
 			}
 		}
-		LoadTACGraph(surfaceObjects, "#d3-test2");
+		LoadTACGraph(surfaceObjects, "#d3-test2", pointer);
 	}
 	function sub(){
 		var lineData = [];
@@ -118,7 +118,7 @@ var focusText;
 // This allows to find the closest X index of the mouse:
 var bisect = d3.bisector(function(d) { return d.x; }).left;
 
-function LoadTACGraph(objectsAll, loc){
+function LoadTACGraph(objectsAll, loc, pointer){
 	console.log("enter");
 	//var dataset = d3.range(dataSize).map(function(d) { 
 	//return {"y": d3.randomUniform(1)() } 
@@ -135,9 +135,9 @@ function LoadTACGraph(objectsAll, loc){
 		.style("pointer-events", "all")
 		.attr('width', width)
 		.attr('height', height)
-		.on('mouseover', mouseover)
-		.on('mousemove', mousemove)
-		.on('mouseout', mouseout);
+		.on('mouseover', mouseover(pointer))
+		.on('mousemove', mousemove(pointer))
+		.on('mouseout', mouseout(pointer));
 	// 3. Call the x axis in a group tag
 	svgTAC.append("g")
 		.attr("class", "x axis")
@@ -223,17 +223,16 @@ function selectLine(){
 		}
 	}
 }
-// 3D point Visualization
-  var pointTracker = new SRMesh(scene, "Sphere");
   // What happens when the mouse move -> show the annotations at the right positions.
-  function mouseover() {
+  function mouseover(pointer) {
 	if(selectMode){
 		focus.style("opacity", 1)
 		focusText.style("opacity",1)
+		pointer.hideObject(false);
 	}
   }
 
-  function mousemove() {
+  function mousemove(pointer) {
     // recover coordinate we need
 	if(selectMode){
 		var x0 = Math.floor(xScale.invert(d3.mouse(this)[0]));
@@ -248,7 +247,8 @@ function selectLine(){
 		.attr("y", yScale(selectedData[x0]))
 	}
 }
-  function mouseout() {
+  function mouseout(pointer) {
     focus.style("opacity", 0)
     focusText.style("opacity", 0)
+	pointer.hideObject(false);
   }
