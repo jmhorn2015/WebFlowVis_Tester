@@ -79,12 +79,9 @@ var light3 = new SRLight(sceneH);
 var light4 = new SRLight(sceneH);
 light4.type("Point", sceneH);
 light4.position(0,-10,10);
-
-// 3D point Visualization
- var pointTracker = new SRMesh(scene, "Sphere");
  
 //objects
-GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
+GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, new SRMesh(scene, "Sphere"));
 
 import {AddVolume} from "./AddNRRDVolume.js";
 AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);

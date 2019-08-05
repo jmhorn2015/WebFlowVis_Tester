@@ -1,8 +1,10 @@
 var clicked;
 var label;
 var selectMode = false;
+var pointTracker;
 
-function GenerateTACLines(name, dataFile, sceneName){
+function GenerateTACLines(name, dataFile, sceneName, tempPoint){
+	pointTracker = tempPoint;
 	var newSRObjects = [];
 	var loadData = [];
 	$.get(name,	function(data) {
@@ -224,10 +226,11 @@ function selectLine(){
 	}
 }
   // What happens when the mouse move -> show the annotations at the right positions.
-  function mouseover(pointer) {
+  function mouseover() {
 	if(selectMode){
 		focus.style("opacity", 1)
 		focusText.style("opacity",1)
+		pointTracker.hideObject(false);
 	}
   }
 
@@ -249,4 +252,5 @@ function selectLine(){
   function mouseout() {
     focus.style("opacity", 0)
     focusText.style("opacity", 0)
+	pointTracker.hideObject(true);
   }
