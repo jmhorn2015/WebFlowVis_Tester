@@ -137,7 +137,7 @@ function LoadTACGraph(objectsAll, loc, pointer){
 		.attr('height', height)
 		.on('mouseover', mouseover(pointer))
 		.on('mousemove', mousemove(pointer))
-		.on('mouseout', mouseout(pointer));
+		.on('mouseout', mouseout());
 	// 3. Call the x axis in a group tag
 	svgTAC.append("g")
 		.attr("class", "x axis")
@@ -247,7 +247,7 @@ function selectLine(){
 		.attr("y", yScale(selectedData[x0]))
 	}
 }
-  function mouseout(pointer) {
+  function mouseout() {
     focus.style("opacity", 0)
     focusText.style("opacity", 0)
 	//pointer.hideObject(true)
