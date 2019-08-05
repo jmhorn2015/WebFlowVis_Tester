@@ -226,9 +226,9 @@ function selectLine(){
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover(pointer) {
 	if(selectMode){
-		focus.style("opacity", 1);
-		focusText.style("opacity",1);
-		pointer.hideObject(false);
+		focus.style("opacity", 1)
+		focusText.style("opacity",1)
+		pointer.hideObject(false)
 	}
   }
 
@@ -248,7 +248,7 @@ function selectLine(){
 	}
 }
   function mouseout(pointer) {
-    focus.style("opacity", 0);
-    focusText.style("opacity", 0);
-	pointer.hideObject(false);
+    focus.style("opacity", 0)
+    focusText.style("opacity", 0)
+	pointer.hideObject(true)
   }
