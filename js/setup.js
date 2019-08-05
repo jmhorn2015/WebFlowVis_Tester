@@ -84,7 +84,7 @@ light4.position(0,-10,10);
  var pointTracker = new SRMesh(scene, "Sphere");
  
 //objects
-GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, pointTracker);
+GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene);
 
 import {AddVolume} from "./AddNRRDVolume.js";
 AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
