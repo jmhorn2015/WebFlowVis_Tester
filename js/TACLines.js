@@ -180,15 +180,16 @@ function LoadTACGraph(objectsAll, loc){
       .attr("stroke", "black")
       .attr('r', 8.5)
       .style("opacity", 0)
+	  .style("z-index", 100)
 
 	// Create the text that travels along the curve of chart
 	focusText = svgTAC
     .append('g')
     .append('text')
       .style("opacity", 0)
-	  .style("fill", "none")
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
+	  .style("z-index", 100)
 }
 function selectLine(){
 	if(currObject != null){
@@ -227,7 +228,7 @@ function selectLine(){
   function mouseover() {
 	if(selectMode){
 		focus.style("opacity", 1)
-		focusText.style("opacity", 1)
+		focusText.style("opacity",1)
 	}
   }
 
