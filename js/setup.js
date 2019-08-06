@@ -113,6 +113,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					currObject = null;
 				}
 				if(!(INTERSECTED instanceof SRSeedingCurve)){
+					selectMode = true;
 					d3.selectAll("path").classed("line", function() {
 						d3.select(this)
 						.attr('stroke', null)
@@ -121,6 +122,9 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					d3.select(clicked)
 					.attr('stroke-width', null)
 					.attr('stroke-width', "3");
+				}
+				else{
+					selectMode = false;
 				}
 				for( var b = 0; b < objects.length; b++){
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
