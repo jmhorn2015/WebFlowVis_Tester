@@ -189,6 +189,7 @@ function LoadTACGraph(objectsAll, loc){
       .attr('r', 8.5)
       .style("opacity", 0)
 
+
 	// Create the text that travels along the curve of chart
 	focusText = svgTAC
     .append('g')
