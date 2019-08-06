@@ -142,7 +142,7 @@ class SRObject{
 	hideObject(onOff) {
 		this.object.traverse ( function (child) {
 			if (child instanceof THREE.Mesh) {
-				child.visible = onOff;
+				child.visible = !onOff;
 			}
 		});
 	}

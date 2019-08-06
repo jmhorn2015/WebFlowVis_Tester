@@ -8,6 +8,7 @@ function GenerateTACLines(name, dataFile, sceneName, tempPoint){
 	pointTracker.color("#000000");
 	pointTracker.position(1,0,0);
 	pointTracker.hideObject(true);
+	console.log(pointTracker.object.visible);
 	objects.pop();
 	surfaceObjects.pop();
 	var newSRObjects = [];
@@ -261,4 +262,5 @@ function selectLine(){
     focus.style("opacity", 0)
     focusText.style("opacity", 0)
 	pointTracker.hideObject(true);
+	console.log(pointTracker.object.visible);
   }
