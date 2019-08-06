@@ -249,8 +249,8 @@ function selectLine(){
 		.attr("x", xScale(x0)+15)
 		.attr("y", yScale(selectedData[x0]))
 		//var tempPoint = currObject.geo.options.extrudePath.points[x0];
-		console.log(currObject.geo.options);
-		pointTracker.position(tempPoint.x, tempPoint.y, tempPoint.z);
+		console.log(currObject.geo);
+		//pointTracker.position(tempPoint.x, tempPoint.y, tempPoint.z);
 	}
 }
   function mouseout() {
