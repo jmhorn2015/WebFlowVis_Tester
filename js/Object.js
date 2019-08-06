@@ -361,11 +361,11 @@ class SRMesh extends SRObject{
 	*/
 	flipNormals(onoff){
 			if(onoff){
-				this.mat.side = THREE.FrontSide();
+				this.mat.side = THREE.FrontSide;
 				this.mat.needsUpdate = true;
 			}
 			else{
-				this.mat.side = THREE.BackSide();
+				this.mat.side = THREE.BackSide;
 				this.mat.needsUpdate = true;
 			}
 	}
