@@ -246,6 +246,7 @@ class SRMesh extends SRObject{
 			Recieve_Shadows: false,
 			Textured: false,
 			Reflective: false,
+			Flip_Normals: false,
 			Hide: false
 		};
 		var newName;
@@ -355,6 +356,20 @@ class SRMesh extends SRObject{
 			}
 	}
 	/**
+	* Flips the normals of the surface display.
+	* @params {bool} onoff - On = true, Off = false
+	*/
+	flipNormals(onoff){
+			if(onoff){
+				this.mat.side = THREE.FrontSide();
+				this.mat.needsUpdate = true;
+			}
+			else{
+				this.mat.side = THREE.BackSide();
+				this.mat.needsUpdate = true;
+			}
+	}
+	/**
 	* Changes the transparency of the object. On a scale of 0-1.
 	* @params {double} x - value of transparency.
 	*/
@@ -427,6 +442,10 @@ class SRMesh extends SRObject{
 			textureCube = new THREE.CubeTextureLoader().load( urls );
 			textureCube.format = THREE.RGBFormat;
 			objEditor.reflective(value, textureCube);
+		});
+		var normCntrlr = objMenu.add(this.objParams, 'Flip_Normals');
+		normCntrlr.onChange(function(value) {
+			objEditor.flipNormals(value);
 		});
 		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
 		hideCntrlr.onChange(function(value) {
