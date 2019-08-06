@@ -254,8 +254,8 @@ function selectLine(){
 		.html("x:" + x0 + "  -  " + "y:" + selectedData[x0])
 		.attr("x", xScale(x0)+15)
 		.attr("y", yScale(selectedData[x0]))
-		focus.moveToFront();
-		focusText.moveToFront();
+		d3.select(focus).moveToFront();
+		d3.select(focusText).moveToFront();
 		var tempPoint = currObject.geo.parameters.options.extrudePath.points[x0];
 		pointTracker.position(tempPoint.x, tempPoint.y, tempPoint.z);
 	}
