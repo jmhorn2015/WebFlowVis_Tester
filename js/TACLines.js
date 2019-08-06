@@ -259,7 +259,9 @@ function selectLine(){
 	}
 }
   function mouseout() {
-    focus.style("opacity", 0)
-    focusText.style("opacity", 0)
-	pointTracker.hideObject(true);
+	if(selectMode){
+		focus.style("opacity", 0)
+		focusText.style("opacity", 0)
+		pointTracker.hideObject(true);
+	}
   }
