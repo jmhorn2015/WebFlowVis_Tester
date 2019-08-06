@@ -181,6 +181,23 @@ function LoadTACGraph(objectsAll, loc){
 		}
 	}
 }
+	// Create the circle that travels along the curve of chart
+	focus = svgTAC
+	.append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+	// Create the text that travels along the curve of chart
+	focusText = svgTAC
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+
 function selectLine(){
 	if(currObject != null){
 		currObject.removeMenu();
