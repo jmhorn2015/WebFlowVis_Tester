@@ -220,6 +220,7 @@ function selectLine(){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
 			$('#localGUI').append(currObject.getGUIMenu().domElement);
+			currObject.color(clicked.getAttribute('origColor'));
 		}
 		else{
 			if(surfaceObjects[b] instanceof SRMesh){
