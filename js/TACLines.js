@@ -7,6 +7,9 @@ function GenerateTACLines(name, dataFile, sceneName, tempPoint){
 	pointTracker = tempPoint;
 	pointTracker.color("#000000");
 	pointTracker.position(1,0,0);
+	pointTracker.hideObject(true);
+	objects.pop();
+	surfaceObjects.pop();
 	var newSRObjects = [];
 	var loadData = [];
 	$.get(name,	function(data) {
