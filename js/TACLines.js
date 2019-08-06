@@ -180,7 +180,6 @@ function LoadTACGraph(objectsAll, loc){
 				.on("click", selectLine); 
 		}
 	}
-}
 	// Create the circle that travels along the curve of chart
 	focus = svgTAC
 	.append('g')
@@ -197,7 +196,7 @@ function LoadTACGraph(objectsAll, loc){
       .style("opacity", 0)
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
-
+}
 function selectLine(){
 	if(currObject != null){
 		currObject.removeMenu();
@@ -205,8 +204,6 @@ function selectLine(){
 		d3.select(clicked)
 		.attr('stroke-width', null)
 		.attr('stroke-width', "3");
-		focus.remove();
-		focusText.remove();
 	}
 	clicked = this;
 	selectMode = true;
@@ -221,22 +218,6 @@ function selectLine(){
 	.attr('stroke-width', "6")
 	.attr('stroke', null)
 	.attr('stroke', clicked.getAttribute('origColor'));
-	// Create the circle that travels along the curve of chart
-	focus = svgTAC
-	.append('g')
-    .append('circle')
-      .style("fill", "none")
-      .attr("stroke", "black")
-      .attr('r', 8.5)
-      .style("opacity", 0)
-
-	// Create the text that travels along the curve of chart
-	focusText = svgTAC
-    .append('g')
-    .append('text')
-      .style("opacity", 0)
-      .attr("text-anchor", "left")
-      .attr("alignment-baseline", "middle")
 	for( var b = 0; b < objects.length; b++){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
@@ -276,9 +257,7 @@ function selectLine(){
 	}
 }
   function mouseout() {
-	if(selectMode){
-		focus.style("opacity", 0)
-		focusText.style("opacity", 0)
-		pointTracker.hideObject(true);
-	}
+    focus.style("opacity", 0)
+    focusText.style("opacity", 0)
+	pointTracker.hideObject(true);
   }
