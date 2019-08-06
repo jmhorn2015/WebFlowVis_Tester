@@ -252,7 +252,7 @@ class SRMesh extends SRObject{
 		this.geo = new THREE.PlaneGeometry(9,9,32);
 		this.mat = new THREE.MeshPhongMaterial( { color: 0x888888, dithering: true } );
 		if(shape == "Sphere"){
-			this.geo = new THREE.SphereGeometry(.1,2,2);
+			this.geo = new THREE.SphereGeometry(.05,4,4);
 			newName = "Sphere";
 		}
 		else if(shape == "Box"){

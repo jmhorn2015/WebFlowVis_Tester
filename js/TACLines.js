@@ -240,7 +240,6 @@ function selectLine(){
     // recover coordinate we need
 	if(selectMode){
 		var x0 = Math.floor(xScale.invert(d3.mouse(this)[0]));
-		//var i = bisect(clicked.data, x0, 1);
 		selectedData = currObject.dataOne;
 		focus
 		.attr("cx", xScale(x0))
@@ -249,6 +248,8 @@ function selectLine(){
 		.html("x:" + x0 + "  -  " + "y:" + selectedData[x0])
 		.attr("x", xScale(x0)+15)
 		.attr("y", yScale(selectedData[x0]))
+		var tempPoint = currObject.geo.options.extrudePath.points[x0];
+		pointTracker.position(tempPoint.x, tempPoint.y, tempPoint.z);
 	}
 }
   function mouseout() {
