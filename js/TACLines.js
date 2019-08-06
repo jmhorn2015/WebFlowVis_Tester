@@ -248,9 +248,11 @@ function selectLine(){
 		var x0 = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		selectedData = currObject.dataOne;
 		focus
+		.moveToFront()
 		.attr("cx", xScale(x0))
 		.attr("cy", yScale(selectedData[x0]))
 		focusText
+		.moveToFront()
 		.html("x:" + x0 + "  -  " + "y:" + selectedData[x0])
 		.attr("x", xScale(x0)+15)
 		.attr("y", yScale(selectedData[x0]))
