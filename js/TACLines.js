@@ -220,11 +220,12 @@ function selectLine(){
 		if(clicked.id == surfaceObjects[b].object.name){
 			currObject = surfaceObjects[b];
 			$('#localGUI').append(currObject.getGUIMenu().domElement);
-			break;
 		}
-		if(b+1 == objects.length){
-			console.log("not found");
-		}
+		else{
+			if(surfaceObjects[b] instanceof SRMesh){
+				surfaceObjects[b].color("#888888");
+				}
+			}
 	}
 }
   // What happens when the mouse move -> show the annotations at the right positions.
