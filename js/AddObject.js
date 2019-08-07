@@ -41,6 +41,7 @@ function AddVTKVolume(name3, sceneName, isFile){
 	var loader = new THREE.VTKLoader();
 	var material = new THREE.MeshPhongMaterial( { color: 0x888888, side: THREE.DoubleSide } );
 	loader.load( name3, function ( geometry ) {
+		console.log(
 		geometry.center();
 		geometry.computeVertexNormals();
 		var meshTemp= new THREE.Mesh( geometry, material );

@@ -296,6 +296,7 @@ class SRMesh extends SRObject{
 	* @params {double} x - 0 = Phong, 1 = Basic, 2 = Lambert.
 	*/
 	material(x){
+		console.log(this.object.name);
 		var oldMat = this.mat;
         switch(x){
 			case 0:
