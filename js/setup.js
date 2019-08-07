@@ -158,10 +158,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 			INTERSECTED = null;
 			for( var b = 0; b < objects.length; b++){
 				if(surfaceObjects[b] instanceof SRMesh){
-					var tempObj = document.getElementById(surfaceObjects[b].object.name)
-					if(tempObj != null){
-						surfaceObjects[b].color(tempObj.getAttribute('origColor'));
-					}
+					surfaceObjects[b].color(surfaceObjects[b].origColor);
 				}
 			}
 			currObject.removeMenu();
