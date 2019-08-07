@@ -231,6 +231,7 @@ class SRMesh extends SRObject{
 	geo;
 	mat;
 	objParams;
+	origColor;
 	/**
 	* Adds an "x" object to your scene. Currently supports "Sphere" and "Box".
 	* @constructor
@@ -302,7 +303,6 @@ class SRMesh extends SRObject{
 				this.mat = new THREE.MeshPhongMaterial( { color: 0x808080, dithering: true } );
 				break;
 			case 1:
-				console.log(x);
 				this.mat = new THREE.MeshBasicMaterial( { color: 0x808080, dithering: true } );
 				break;
 			case 2:
@@ -389,6 +389,7 @@ class SRMesh extends SRObject{
 		this.object = new THREE.Mesh( this.geo, this.mat);
 		this.object.receiveShadow = mesh.receiveShadow;
 		this.object.name = mesh.name;
+		this.origColor = mesh.material.color.getHexString();
 		sceneName.add(this.object);
 		objects.push(this.object);
 		surfaceObjects.push(this);
@@ -399,7 +400,6 @@ class SRMesh extends SRObject{
 	* @params {domElement} mesh - new mesh information to adapt to object.
 	*/
 	getGUIMenu() {
-		console.log(this.mat);
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
 		var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
@@ -409,7 +409,7 @@ class SRMesh extends SRObject{
 		var colorCntrlr = objMenu.add(this.objParams, 'Color', 0 , 100);
 		colorCntrlr.onChange(function(value) {
 			objEditor.color(value);
-			document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString())
+			objEditor.origColor = objEditor.color.getHexString();
 			document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString());
 			
 		});

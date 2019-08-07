@@ -144,7 +144,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						.attr('stroke-width', "6")
 						.attr('stroke', null)
 						.attr('stroke', clicked.getAttribute('origColor'));
-						currObject.color(clicked.getAttribute('origColor'));
+						currObject.color(currObject.origColor);
 					}
 					else{
 						if(surfaceObjects[b] instanceof SRMesh){
