@@ -296,13 +296,13 @@ class SRMesh extends SRObject{
 	* @params {double} x - 0 = Phong, 1 = Basic, 2 = Lambert.
 	*/
 	material(x){
-		console.log(x);
 		var oldMat = this.mat;
-        switch(x){
+        switch(parseInt(x)){
 			case 0:
 				this.mat = new THREE.MeshPhongMaterial( { color: 0x808080, dithering: true } );
 				break;
 			case 1:
+				console.log(x);
 				this.mat = new THREE.MeshBasicMaterial( { color: 0x808080, dithering: true } );
 				break;
 			case 2:
