@@ -409,7 +409,7 @@ class SRMesh extends SRObject{
 		var colorCntrlr = objMenu.add(this.objParams, 'Color', 0 , 100);
 		colorCntrlr.onChange(function(value) {
 			objEditor.color(value);
-			objEditor.origColor = objEditor.color.getHexString();
+			objEditor.origColor = objEditor.mat.color.getHexString();
 			document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString());
 			
 		});
