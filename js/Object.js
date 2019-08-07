@@ -296,7 +296,6 @@ class SRMesh extends SRObject{
 	* @params {double} x - 0 = Phong, 1 = Basic, 2 = Lambert.
 	*/
 	material(x){
-		console.log(this.object.name);
 		var oldMat = this.mat;
         switch(x){
 			case 0:
@@ -399,6 +398,7 @@ class SRMesh extends SRObject{
 	* @params {domElement} mesh - new mesh information to adapt to object.
 	*/
 	getGUIMenu() {
+		console.log(this.mat);
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
 		var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
