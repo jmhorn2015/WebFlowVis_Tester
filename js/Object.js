@@ -389,7 +389,7 @@ class SRMesh extends SRObject{
 		this.object = new THREE.Mesh( this.geo, this.mat);
 		this.object.receiveShadow = mesh.receiveShadow;
 		this.object.name = mesh.name;
-		this.origColor = mesh.material.color.getHexString();
+		this.origColor = "#" + mesh.material.color.getHexString();
 		sceneName.add(this.object);
 		objects.push(this.object);
 		surfaceObjects.push(this);
