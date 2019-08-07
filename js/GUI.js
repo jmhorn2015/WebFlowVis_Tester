@@ -126,6 +126,22 @@ textureCube.format = THREE.RGBFormat;
 		 }		 
 	  }
   }
+    function hideCurves(){
+	  for(var a = 0; a < surfaceObjects.length; a++){
+		 if(surfaceObjects[a] instanceof SRSeedingCurve){
+			surfaceObjects[a].hideObject(true);
+			surfaceObjects[a].objParams.Hide = true;
+		 }		 
+	  }
+  }
+   function hideSurface(){
+	  for(var a = 0; a < surfaceObjects.length; a++){
+		 if(surfaceObjects[a] instanceof SRSurface){
+			surfaceObjects[a].hideObject(true);
+			surfaceObjects[a].objParams.Hide = true;
+		 }		 
+	  }
+  }
   function allRecvShad(){
 		allParams.recvShadows = !allParams.recvShadows;
 		for( var a = 0; a < surfaceObjects.length; a++){
@@ -148,6 +164,15 @@ textureCube.format = THREE.RGBFormat;
 		for( var a = 0; a < surfaceObjects.length; a++){
 			if(surfaceObjects[a] instanceof SRMesh){
 				surfaceObjects[a].material(value);
+				if(value == 0){
+					surfaceObjects[a].objParams.Material = 'Phong';
+				}
+				else if(value == 1){
+					surfaceObjects[a].objParams.Material = 'Basic';
+				}
+				else{
+					surfaceObjects[a].objParams.Material = 'Lambert';
+				}
 			}
 		}
   }
