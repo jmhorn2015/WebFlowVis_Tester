@@ -9,7 +9,7 @@ import { NRRDLoader } from './NRRDLoader.js';
 import { VolumeRenderShader1 } from './VolumeShader.js';		
 export function AddVolume(name, textureName,  sceneName){
 	new NRRDLoader().load( name, function ( volume ) {
-		console.log("start");
+		console.log(volume);
 		var texture = new THREE.DataTexture3D( volume.data, volume.xLength, volume.yLength, volume.zLength );
 		texture.format = THREE.RedFormat;
 		texture.type = THREE.FloatType;
