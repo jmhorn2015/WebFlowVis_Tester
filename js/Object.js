@@ -410,7 +410,9 @@ class SRMesh extends SRObject{
 		colorCntrlr.onChange(function(value) {
 			objEditor.color(value);
 			objEditor.origColor = "#" + objEditor.mat.color.getHexString();
-			document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString());
+			if(document.getElementById(objEditor.object.name) != null){
+				document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString());
+			}
 			
 		});
 		var matCntrlr = objMenu.add(this.objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
