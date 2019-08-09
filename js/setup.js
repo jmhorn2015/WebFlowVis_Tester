@@ -129,6 +129,7 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 				for( var b = 0; b < objects.length; b++){
 					if(INTERSECTED.name == surfaceObjects[b].object.name){
 						currObject = surfaceObjects[b];
+						currObject.color(currObject.origColor);
 						$('#localGUI').append(currObject.getGUIMenu().domElement);
 						d3.select(clicked)
 						.attr('stroke-width', null)
@@ -144,7 +145,6 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 						.attr('stroke-width', "6")
 						.attr('stroke', null)
 						.attr('stroke', clicked.getAttribute('origColor'));
-						currObject.color(currObject.origColor);
 					}
 					else{
 						if(surfaceObjects[b] instanceof SRMesh){
