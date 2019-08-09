@@ -244,7 +244,7 @@ function selectLine(){
 
   function mousemove() {
     // recover coordinate we need
-	console.log(this);
+	
 	if(selectMode){
 		var x0 = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		selectedData = currObject.dataOne;
