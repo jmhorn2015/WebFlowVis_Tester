@@ -186,7 +186,7 @@ textureCube.format = THREE.RGBFormat;
 		}
   }
   function hiddenObjectList(){
-	  console.log($("dropdownMenuHiddenObj").attr("aria-expanded"));
+	  console.log($("dropdownMenuHiddenObj"));
 	  if($("dropdownMenuHiddenObj").attr("aria-expanded")){
 		var e = $("hiddenObjects");
 		var objPointer;
