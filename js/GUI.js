@@ -228,9 +228,9 @@ textureCube.format = THREE.RGBFormat;
 		objPointer = volumeObjects;
 	}
 	for(var a = 0; a < objPointer.length; a++){
+		console.log(elmnt.innerHTML);
 		if(objPointer[a].object.name == elmnt.innerHTML){
 			objPointer[a].hideObject(false);
-			console.log(elmnt.innerHTML);
 		}
 	}
 	var e = document.getElementById("hiddenObjects");
