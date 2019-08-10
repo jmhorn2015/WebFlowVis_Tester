@@ -199,7 +199,7 @@ textureCube.format = THREE.RGBFormat;
 			if(!objPointer[a].object.visible){
 				var tempDiv = document.createElement( 'a' );
 				tempDiv.classList.add("dropdown-item");
-				tempDiv.onclick = unhideListItem(objPointer[a].object.name);
+				tempDiv.onclick = function(){unhideListItem(objPointer[a].object.name)};
 				tempDiv.innerHTML = objPointer[a].object.name;
 				e.appendChild(tempDiv);
 			}
