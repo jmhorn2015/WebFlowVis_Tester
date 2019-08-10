@@ -199,7 +199,7 @@ textureCube.format = THREE.RGBFormat;
 			if(!objPointer[a].object.visible){
 				var tempDiv = document.createElement( 'a' );
 				tempDiv.classList.add("dropdown-item");
-				tempDiv.onclick = function(){unhideListItem(objPointer[a].object.name)};
+				tempDiv.onclick = unhideListItem(objPointer[a].object.name);
 				tempDiv.innerHTML = objPointer[a].object.name;
 				e.appendChild(tempDiv);
 			}
@@ -219,6 +219,9 @@ textureCube.format = THREE.RGBFormat;
 	  }
   }
   function unhideListItem(elmnt){
+	if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded") == "false"){
+		return;
+	}
 	console.log(elmnt);
 	var objPointer;
 	if(sceneCheck){
