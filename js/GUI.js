@@ -186,8 +186,7 @@ textureCube.format = THREE.RGBFormat;
 		}
   }
   function hiddenObjectList(){
-	  console.log(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded"));
-	  if(!(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded"))){
+	  if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded") == "false"){
 		console.log("start load");
 		var e = document.getElementById("hiddenObjects");
 		var objPointer;
@@ -218,6 +217,10 @@ textureCube.format = THREE.RGBFormat;
             e.removeChild(child); 
             child = e.lastElementChild; 
         }
+		var tempDiv = document.createElement( 'a' );
+		tempDiv.classList.add("dropdown-item");
+		tempDiv.innerHTML = "None";
+		e.appendChild(tempDiv);
 	  }
   }
   
