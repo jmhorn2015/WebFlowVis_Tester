@@ -186,7 +186,7 @@ textureCube.format = THREE.RGBFormat;
 		}
   }
   function hiddenObjectList(){
-	  console.log("start");
+	  console.log(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded"));
 	  if(!(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded"))){
 		console.log("start load");
 		var e = document.getElementById("hiddenObjects");
@@ -211,6 +211,7 @@ textureCube.format = THREE.RGBFormat;
 		}
 	  }
 	  else{
+		console.log("else");
 		var e = document.getElementById("hiddenObjects");
 		var child = e.lastElementChild;  
         while (child) { 
