@@ -219,7 +219,7 @@ textureCube.format = THREE.RGBFormat;
 	  }
   }
   function unhideListItem(elmnt){
-	if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded") == "false"){
+	if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded") == "true"){
 		return;
 	}
 	console.log(elmnt);
