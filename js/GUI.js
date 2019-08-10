@@ -200,14 +200,13 @@ textureCube.format = THREE.RGBFormat;
 				console.log(objPointer[a].object.name);
 				var tempDiv = document.createElement( 'a' );
 				tempDiv.classList.add("dropdown-item");
-				tempDiv.href = "#";
+				tempDiv.onclick = "unhideListItem(this)";
 				tempDiv.innerHTML = objPointer[a].object.name;
 				e.appendChild(tempDiv);
 			}
 		}
 	  }
 	  else{
-		console.log("else");
 		var e = document.getElementById("hiddenObjects");
 		var child = e.lastElementChild;  
         while (child) {
@@ -220,5 +219,31 @@ textureCube.format = THREE.RGBFormat;
 		tempDiv.innerHTML = "None";
 		e.appendChild(tempDiv);
 	  }
+  }
+  function unhideListItem(elmnt){
+	console.log(elmnt);
+	var objPointer;
+	if(sceneCheck){
+		objPointer = surfaceObjects;
+	}
+	else{
+		objPointer = volumeObjects;
+	}
+	for(var a = 0; a < objPointer.length; a++){
+		if(objPointer[a].object.name == elmnt.innerHTML){
+			objPointer[a].hideObject(false);
+		}
+	}
+	var e = document.getElementById("hiddenObjects");
+	var child = e.lastElementChild;  
+    while (child) {
+		console.log("removed");
+        e.removeChild(child); 
+        child = e.lastElementChild; 
+    }
+	var tempDiv = document.createElement( 'a' );
+	tempDiv.classList.add("dropdown-item");
+	tempDiv.innerHTML = "None";
+	e.appendChild(tempDiv);
   }
   
