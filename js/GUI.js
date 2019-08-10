@@ -197,7 +197,7 @@ textureCube.format = THREE.RGBFormat;
 			objPointer = volumeObjects;
 		}
 		for(var a = 0; a < objPointer.length; a++){
-			if(objPointer[a] instanceof SRMesh && !objPointer[a].object.visable){
+			if(objPointer[a] instanceof SRMesh && objPointer[a].object.visable){
 				var tempDiv = document.createElement( 'a' );
 				tempDiv.classList.add("dropdown-item");
 				tempDiv.href = "#";
