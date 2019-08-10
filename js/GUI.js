@@ -195,6 +195,7 @@ textureCube.format = THREE.RGBFormat;
 		else{
 			objPointer = volumeObjects;
 		}
+		console.log(objPointer.length);
 		for(var a = 0; a < objPointer.length; a++){
 			console.log(objPointer[a].object.name);
 			if(!objPointer[a].object.visible){
