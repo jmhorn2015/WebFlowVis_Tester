@@ -185,6 +185,7 @@ textureCube.format = THREE.RGBFormat;
 			}
 		}
   }
+  var dropdownOn = false;
   function hiddenObjectList(){
 	  if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded") == "false"){
 		var e = document.getElementById("hiddenObjects");
@@ -204,6 +205,7 @@ textureCube.format = THREE.RGBFormat;
 				e.appendChild(tempDiv);
 			}
 		}
+		dropdownOn = true;
 	  }
 	  else{
 		var e = document.getElementById("hiddenObjects");
@@ -216,10 +218,11 @@ textureCube.format = THREE.RGBFormat;
 		tempDiv.classList.add("dropdown-item");
 		tempDiv.innerHTML = "None";
 		e.appendChild(tempDiv);
+		dropdownOn = true;
 	  }
   }
   function unhideListItem(elmnt){
-	if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded") == "true"){
+	if(!dropdownOn){
 		return;
 	}
 	console.log(elmnt);
@@ -246,5 +249,6 @@ textureCube.format = THREE.RGBFormat;
 	tempDiv.classList.add("dropdown-item");
 	tempDiv.innerHTML = "None";
 	e.appendChild(tempDiv);
+	dropdown = false;
   }
   
