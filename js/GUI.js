@@ -187,7 +187,7 @@ textureCube.format = THREE.RGBFormat;
   }
   function hiddenObjectList(){
 	  console.log(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded"));
-	  if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded")){
+	  if(!document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded")){
 		  console.log("hidden");
 		var e = document.getElementById("hiddenObjects");
 		var objPointer;
@@ -198,7 +198,7 @@ textureCube.format = THREE.RGBFormat;
 			objPointer = volumeObjects;
 		}
 		for(var a = 0; a < objPointer.length; a++){
-			if(objPointer[a] instanceof SRMesh && objPointer[a].object.visable){
+			if(!objPointer[a].object.visible){
 				var tempDiv = document.createElement( 'a' );
 				tempDiv.classList.add("dropdown-item");
 				tempDiv.href = "#";
