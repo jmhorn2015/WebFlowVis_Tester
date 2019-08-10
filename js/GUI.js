@@ -186,8 +186,8 @@ textureCube.format = THREE.RGBFormat;
 		}
   }
   function hiddenObjectList(){
-	  console.log("this");
-	  if(true){
+	  console.log(this);
+	  if(this.getAttribute("aria-expanded")){
 		var e = $("hiddenObjects");
 		var objPointer;
 		if(sceneCheck){
