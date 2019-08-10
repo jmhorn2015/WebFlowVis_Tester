@@ -188,7 +188,7 @@ textureCube.format = THREE.RGBFormat;
   function hiddenObjectList(){
 	  if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded")){
 		  console.log("hidden");
-		var e = $("hiddenObjects");
+		var e = document.getElementById("hiddenObjects");
 		var objPointer;
 		if(sceneCheck){
 			objPointer = surfaceObjects;
