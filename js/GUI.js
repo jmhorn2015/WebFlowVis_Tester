@@ -185,4 +185,34 @@ textureCube.format = THREE.RGBFormat;
 			}
 		}
   }
+  function hiddenObjectList(val){
+	  console.log("test hidden");
+	  if(val){
+		var e = $("hiddenObjects");
+		var objPointer;
+		if(sceneCheck){
+			objPointer = surfaceObjects;
+		}
+		else{
+			objPointer = volumeObjects;
+		}
+		for(var a = 0; a < objPointer.length; a++){
+			if(objPointer[a] instanceof SRMesh && !objPointer[a].object.visable){
+				var tempDiv = document.createElement( 'a' );
+				tempDiv.class = "dropdown-item";
+				tempDiv.href = "#";
+				tempDiv.innerHTML = objPointer[a].object.name;
+				e.appendChild(tempDiv);
+			}
+		}
+	  }
+	  else{
+		var e = $("hiddenObjects");
+		var child = e.lastElementChild;  
+        while (child) { 
+            e.removeChild(child); 
+            child = e.lastElementChild; 
+        }
+	  }
+  }
   
