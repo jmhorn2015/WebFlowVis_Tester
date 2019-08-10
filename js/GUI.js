@@ -199,7 +199,7 @@ textureCube.format = THREE.RGBFormat;
 			if(!objPointer[a].object.visible){
 				var tempDiv = document.createElement( 'a' );
 				tempDiv.classList.add("dropdown-item");
-				tempDiv.onclick = unhideListItem(this);
+				tempDiv.onclick = unhideListItem(objPointer[a].object.name);
 				tempDiv.innerHTML = objPointer[a].object.name;
 				e.appendChild(tempDiv);
 			}
@@ -228,8 +228,8 @@ textureCube.format = THREE.RGBFormat;
 		objPointer = volumeObjects;
 	}
 	for(var a = 0; a < objPointer.length; a++){
-		console.log(elmnt.innerHTML);
-		if(objPointer[a].object.name == elmnt.innerHTML){
+		console.log(elmnt);
+		if(objPointer[a].object.name == elmnt){
 			objPointer[a].hideObject(false);
 		}
 	}
