@@ -186,7 +186,7 @@ textureCube.format = THREE.RGBFormat;
 		}
   }
   function hiddenObjectList(){
-	  if($("dropdownMenuHiddenObj").getAttribute("aria-expanded")){
+	  if($("dropdownMenuHiddenObj").attr("aria-expanded")){
 		var e = $("hiddenObjects");
 		var objPointer;
 		if(sceneCheck){
