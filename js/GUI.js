@@ -185,9 +185,9 @@ textureCube.format = THREE.RGBFormat;
 			}
 		}
   }
-  function hiddenObjectList(val){
-	  console.log("test hidden");
-	  if(val){
+  function hiddenObjectList(){
+	  console.log("this");
+	  if(true){
 		var e = $("hiddenObjects");
 		var objPointer;
 		if(sceneCheck){
