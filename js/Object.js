@@ -453,7 +453,7 @@ class SRMesh extends SRObject{
 		});
 		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
 		hideCntrlr.onChange(function(value) {
-			objEditor.hideObject(!value);
+			objEditor.hideObject(value);
 		});
 		if (!(this instanceof SRVolume)){
 			return this.surfaceLocalMenu;
