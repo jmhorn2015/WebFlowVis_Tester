@@ -186,6 +186,7 @@ textureCube.format = THREE.RGBFormat;
 		}
   }
   function hiddenObjectList(){
+	  console.log(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded"));
 	  if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded")){
 		  console.log("hidden");
 		var e = document.getElementById("hiddenObjects");
