@@ -609,7 +609,6 @@ class SRVolume extends SRMesh{
 		return this.surfaceLocalMenu;
 	}
 	remove(sceneLoc){
-		super(sceneLoc);
 		for(b=0; b < vObjects.length; b++){
 			if(this.object.name == vObjects[b].name){
 				vObjects.splice(b,1);
