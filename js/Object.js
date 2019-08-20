@@ -158,6 +158,7 @@ class SRObject{
 	* 
 	*/
 	remove(sceneLoc){
+		this.removeMenu();
 		for(a=0; a < sceneLoc.children.length; a++){
 			if(this.object.name == sceneLoc.children[a].name){
 				scene.remove(this.object);
@@ -609,6 +610,7 @@ class SRVolume extends SRMesh{
 		return this.surfaceLocalMenu;
 	}
 	remove(sceneLoc){
+		super.remove(sceneLoc);
 		for(b=0; b < vObjects.length; b++){
 			if(this.object.name == vObjects[b].name){
 				vObjects.splice(b,1);
