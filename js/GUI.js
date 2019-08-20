@@ -253,6 +253,7 @@ textureCube.format = THREE.RGBFormat;
   }
   function invertBackground(){
 	  var tempScene = scene;
+	  console.log(scene.background);
 	  if(!sceneCheck){
 		  tempScene = sceneH;
 	  }
