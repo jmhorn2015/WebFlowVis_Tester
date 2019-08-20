@@ -251,4 +251,15 @@ textureCube.format = THREE.RGBFormat;
 	e.appendChild(tempDiv);
 	dropdown = false;
   }
-  
+  function invertBackground(){
+	  var tempScene = scene;
+	  if(!sceneCheck){
+		  tempScene = sceneH;
+	  }
+	  if(tempScene.background == THREE.Color('white')){
+		  tempScene.background = new THREE.Color('black');
+	  }
+	  else{
+		  tempScene.background = new THREE.Color('white');
+	  }
+  }
