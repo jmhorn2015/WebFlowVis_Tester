@@ -256,7 +256,7 @@ textureCube.format = THREE.RGBFormat;
 	  if(!sceneCheck){
 		  tempScene = sceneH;
 	  }
-	  if(tempScene.background == THREE.Color('white')){
+	  if(tempScene.background == new THREE.Color('white')){
 		  tempScene.background = new THREE.Color('black');
 	  }
 	  else{
