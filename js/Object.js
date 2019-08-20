@@ -152,7 +152,26 @@ class SRObject{
 	get Rotation(){
 		return this.object.rotation;
 	}
-	loadSettings(){
+	/**
+	* Removes the object from the scene and destroys it
+	* @param {THREE.Scene} sceneLoc - The current scene in the view
+	* 
+	*/
+	remove(sceneLoc){
+		for(a=0; a < sceneLoc.children.length; a++){
+			if(this.object.name == sceneLoc.children[a].name){
+				scene.remove(this.object);
+				break;
+			}
+		}
+		if(!(this instanceof SRVolume)){
+			for(b=0; b < objects.length; b++){
+				if(this.object.name == objects[b].name){
+					objects.splice(b,1);
+					surfaceObjects.splice(b,1);
+				}
+			}
+		}
 	}
 }
 /**
@@ -588,5 +607,14 @@ class SRVolume extends SRMesh{
 			volObject.mat.uniforms[ "u_clim" ].value.set( volObject.volConfig.clim1 , value);
 		});
 		return this.surfaceLocalMenu;
+	}
+	remove(sceneLoc){
+		super(sceneLoc);
+		for(b=0; b < vObjects.length; b++){
+			if(this.object.name == vObjects[b].name){
+				vObjects.splice(b,1);
+				volumeObjects.splice(b,1);
+			}
+		}
 	}
 }

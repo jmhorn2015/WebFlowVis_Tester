@@ -52,7 +52,6 @@ function AddVTKVolume(name3, sceneName, isFile){
 		}
 		var SStemp = new SRSurface(sceneName);
 		SStemp.updateMesh(meshTemp, sceneName);
-		SStemp.getGUIMenu();
 		console.log(meshTemp.name + " loaded");
 	});
 }
