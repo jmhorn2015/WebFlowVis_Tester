@@ -263,3 +263,12 @@ textureCube.format = THREE.RGBFormat;
 		  tempScene.background = new THREE.Color('white');
 	  }
   }
+  function deleteButton(){
+	  if(sceneCheck){
+		currObject.remove(scene);
+	  }
+	  else{
+		currObject.remove(sceneH);
+	  }
+	  currObject = null;
+  }
