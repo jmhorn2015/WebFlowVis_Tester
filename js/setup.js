@@ -101,10 +101,10 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 
     mouse.x = ((event.clientX - canvasBounds.left) / (canvasBounds.right - canvasBounds.left)) * 2 - 1;
     mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
-
+	
 	if(sceneCheck){
 		raycaster.setFromCamera(mouse, camera);
-		var intersects = raycaster.intersectObjects(objects, true);
+		intersects = raycaster.intersectObjects(objects, true);
 		if (intersects.length > 0) {
 			if (INTERSECTED != intersects[0].object) {
 				INTERSECTED = intersects[0].object;
@@ -215,7 +215,12 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 			selectMode = false;
 		}
 	}
-
+	if(currObject == null){
+		$("deleter").style.display = "none";
+	}
+	else{
+		$("deleter").style.display = "block";
+	}
   }
 
 function animate() {
