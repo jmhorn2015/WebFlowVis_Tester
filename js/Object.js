@@ -159,14 +159,14 @@ class SRObject{
 	*/
 	remove(sceneLoc){
 		this.removeMenu();
-		for(a=0; a < sceneLoc.children.length; a++){
+		for(var a=0; a < sceneLoc.children.length; a++){
 			if(this.object.name == sceneLoc.children[a].name){
 				scene.remove(this.object);
 				break;
 			}
 		}
 		if(!(this instanceof SRVolume)){
-			for(b=0; b < objects.length; b++){
+			for(var b=0; b < objects.length; b++){
 				if(this.object.name == objects[b].name){
 					objects.splice(b,1);
 					surfaceObjects.splice(b,1);
@@ -612,7 +612,7 @@ class SRVolume extends SRMesh{
 	}
 	remove(sceneLoc){
 		super.remove(sceneLoc);
-		for(b=0; b < vObjects.length; b++){
+		for(var b=0; b < vObjects.length; b++){
 			if(this.object.name == vObjects[b].name){
 				vObjects.splice(b,1);
 				volumeObjects.splice(b,1);
