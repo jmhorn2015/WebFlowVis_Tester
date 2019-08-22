@@ -305,12 +305,7 @@ class SRMesh extends SRObject{
 	* @params {string} hue - direct color for object.
 	*/
 	color(hue){
-		if (typeof(hue) == 'number'){
-			this.mat.color.setHSL(hue/100, 1, .5);
-		}
-		else{
-			this.mat.color.setStyle(hue);
-		};
+		this.mat.color.setStyle(hue);
 	}
 	/**
 	* Changes the material of the Mesh object.
@@ -410,6 +405,7 @@ class SRMesh extends SRObject{
 		this.object.receiveShadow = mesh.receiveShadow;
 		this.object.name = mesh.name;
 		this.origColor = "#" + mesh.material.color.getHexString();
+		this.objParams.Color = "#" + mesh.material.color.getHexString();
 		sceneName.add(this.object);
 		objects.push(this.object);
 		surfaceObjects.push(this);
@@ -428,6 +424,7 @@ class SRMesh extends SRObject{
 		});
 		var colorCntrlr = objMenu.addColor(this.objParams, 'Color');
 		colorCntrlr.onChange(function(value) {
+			console.log(value);
 			objEditor.color(value);
 			objEditor.origColor = "#" + objEditor.mat.color.getHexString();
 			if(document.getElementById(objEditor.object.name) != null){
