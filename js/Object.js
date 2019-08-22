@@ -267,7 +267,7 @@ class SRMesh extends SRObject{
 			Recieve_Shadows: false,
 			Textured: false,
 			Reflective: false,
-			Flip_Normals: false,
+			Surface_Render_Side: 'BackSide',
 			Hide: false
 		};
 		var newName;
@@ -372,16 +372,20 @@ class SRMesh extends SRObject{
 			}
 	}
 	/**
-	* Flips the normals of the surface display.
-	* @params {bool} onoff - On = true, Off = false
+	* Changes which side of a surface is displayed.
+	* @params {string} side - Name of new side to be rendered to.
 	*/
-	flipNormals(onoff){
-			if(onoff){
+	surfaceRenderSide(side){
+			if(side == "FrontSide"){
 				this.mat.side = THREE.FrontSide;
 				this.mat.needsUpdate = true;
 			}
-			else{
+			else if(side == "BackSide"){
 				this.mat.side = THREE.BackSide;
+				this.mat.needsUpdate = true;
+			}
+			else{
+				this.mat.side = THREE.DoubleSide;
 				this.mat.needsUpdate = true;
 			}
 	}
@@ -464,9 +468,9 @@ class SRMesh extends SRObject{
 			textureCube.format = THREE.RGBFormat;
 			objEditor.reflective(value, textureCube);
 		});
-		var normCntrlr = objMenu.add(this.objParams, 'Flip_Normals');
+		var normCntrlr = objMenu.add(this.objParams, 'Surface_Render_Side', ['FrontSide','BackSide','DoubleSide']);
 		normCntrlr.onChange(function(value) {
-			objEditor.flipNormals(value);
+			objEditor.surfaceRenderSide(value);
 		});
 		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
 		hideCntrlr.onChange(function(value) {
