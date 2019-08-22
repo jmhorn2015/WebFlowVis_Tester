@@ -216,10 +216,10 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 		}
 	}
 	if(currObject == null){
-		$("deleter").style.display = "none";
+		$("#deleter").style.display = "none";
 	}
 	else{
-		$("deleter").style.display = "block";
+		$("#deleter").style.display = "block";
 	}
   }
 
