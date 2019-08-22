@@ -271,4 +271,5 @@ textureCube.format = THREE.RGBFormat;
 		currObject.remove(sceneH);
 	  }
 	  currObject = null;
+	  document.getElementById("deleter").style.display = "none";
   }
