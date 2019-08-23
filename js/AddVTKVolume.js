@@ -13,7 +13,7 @@ export function AddVTKVolume(name, sceneName){
     //load a text file and output the result to the console
     loader.load(
     // resource URL
-    'models/vtk/volume.vtk',
+    name,
 
     // onLoad callback
     function ( data ) {
