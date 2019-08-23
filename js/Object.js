@@ -542,8 +542,6 @@ class SRSeedingCurve extends SRMesh{
 	* @constructor
 	* @params {THREE.Scene} scene - Scene you would like to add an object to.
 	*/
-	dataOne;
-	dataTwo;
 	constructor(filename, sceneName){
 		super(sceneName);
 		this.dataOne = [];
@@ -567,6 +565,8 @@ class SRSeedingCurve extends SRMesh{
 			this.dataTwo.push(data[a]);
 		}
 	};
+	dataOne;
+	dataTwo;
 }
 /**
 * SRVolume is used to load in .nrrd files into your scene.
