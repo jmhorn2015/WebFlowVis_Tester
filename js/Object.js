@@ -610,12 +610,15 @@ class SRVolume extends SRMesh{
 	colorMap(value){
 		if(value == 'Viridis'){
 			this.mat.uniforms["u_cmdata"] = cmtextures.Viridis;
+			console.log("v");
 		}
 		else if (value == 'ColdHot'){
 			this.mat.uniforms["u_cmdata"] = cmtextures.ColdHot;
+			console.log("c");
 		}
 		else{
 			this.mat.uniforms["u_cmdata"] = cmtextures.BlueWhiteRed;
+			console.log("b");
 		}
 		this.mat.needsUpdate = true;
 	};
