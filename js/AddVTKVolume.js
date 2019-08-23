@@ -54,7 +54,7 @@ export function AddVTKVolume(name, sceneName){
             uniforms[ "u_size" ].value.set( xLength, yLength, zLength );
             uniforms[ "u_clim" ].value.set( 0 , 1 );
             uniforms[ "u_renderstyle" ].value = 0;
-            uniforms[ "u_cmdata" ].value = cmtextures[0];
+            uniforms[ "u_cmdata" ].value = cmtextures.Viridis;
 
             var materialtemp = new THREE.ShaderMaterial( {
                 uniforms: uniforms,
@@ -70,8 +70,6 @@ export function AddVTKVolume(name, sceneName){
 			meshtemp.name = name;
 			var volumeTemp = new SRVolume(sceneName);
 			volumeTemp.updateMesh(meshtemp, sceneName);
-
-            render();
 		},
 
         // onProgress callback
