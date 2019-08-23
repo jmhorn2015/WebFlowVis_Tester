@@ -1,3 +1,4 @@
+//Function that loads .NNRD files into SRVolume Objects and visualizes them
 
 import {
 	DefaultLoadingManager,

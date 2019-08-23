@@ -1,3 +1,5 @@
+//This function generates lines from point data into SRSeedingCurve objects. It splits the lines based on when there is a comma in the text file. 
+
 //base shape
 var circleRadius = .01;
 var circleShape = new THREE.Shape();

@@ -1,5 +1,7 @@
-import {AddVTKVolume} from "./AddVTKVolume.js";
+//This function is used for the importing of local files into the Visualizer
+// LoadLocal() finds the name of the file to upload, while readLocal() pulls the data into the current scene
 
+import {AddVTKVolume} from "./AddVTKVolume.js";
 // Input Function
 export function loadLocal(evt){
 	fileStorage = evt.target.files;
@@ -24,9 +26,6 @@ export function readLocal(){
 			}
 			else if(filetype == "obj"){
 				AddObject(e.target.result, currScene, true);
-			}
-			else if(filetype == "nrrd"){
-				
 			}
 			else if(filetype == "vtk"){
 				AddVTKVolume(e.target.result, currScene, true);

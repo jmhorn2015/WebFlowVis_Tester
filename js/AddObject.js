@@ -1,3 +1,5 @@
+// Function that loads in .OBJ files as SRSurface objects
+
 function AddObject(name2, sceneName, isFile){
 	var loader = new THREE.OBJLoader();
 	loader.load(name2, function ( object ) {

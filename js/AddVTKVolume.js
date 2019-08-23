@@ -1,11 +1,10 @@
-
+//This funcion is used to load a VTK Volume object into a scene. It generates an SRVolume Object to be used in your scene.
 import {
 	DefaultLoadingManager,
 	FileLoader,
 	Matrix4,
 	Vector3
 } from "./modules/three.module.js";
-//import { NRRDLoader } from './NRRDLoader.js';
 import { VolumeRenderShader1 } from './VolumeShader.js';		
 export function AddVTKVolume(name, sceneName){
 	 // Load the vtk data

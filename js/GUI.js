@@ -1,10 +1,12 @@
-var loading = false;
-var sceneCheck = true;
-var allParams = {
+var loading = false; //boolean for loading icon to appear or not
+var sceneCheck = true;  //boolean to tell whether current scene is surface rendering or volume rendering
+var allParams = { //GUI parameters for the "Change all object settings" options in the Filters tab
 	opacity: 50,
 	reflective: false,
 	recvShadows: false
 };
+
+//Instanciated variables for this script and setup.js
 var currObject;
 var cameraH;
 var camera;
@@ -17,7 +19,7 @@ var mouse = new THREE.Vector2(), INTERSECTED;
 
 var fileStorage;
 
-function loadLocal(evt){
+/*function loadLocal(evt){
 	fileStorage = evt.target.files;
 	console.log(fileStorage[0]);
 	document.getElementById("inputName").innerHTML = fileStorage[0].name;
@@ -41,9 +43,6 @@ function readLocal(){
 			else if(filetype == "obj"){
 				AddObject(e.target.result, currScene, true);
 			}
-			else if(filetype == "nrrd"){
-				
-			}
 			else if(filetype == "vtk"){
 				AddVTKVolume(e.target.result, currScene, true);
 			}
@@ -58,7 +57,7 @@ function readLocal(){
 	  else{
 		reader.readAsDataURL(fileStorage[0]);
 	  }
-}
+}*/
 
   // Skybox Cube
   var path = "data/skybox/";
@@ -185,6 +184,19 @@ textureCube.format = THREE.RGBFormat;
 			}
 		}
   }
+  function invertBackground(){
+	  var tempScene = scene;
+	  if(!sceneCheck){
+		  tempScene = sceneH;
+	  }
+	  if(tempScene.background.r == 1){
+		  tempScene.background = new THREE.Color('black');
+	  }
+	  else{
+		  tempScene.background = new THREE.Color('white');
+	  }
+  }
+  //List of Hidden Objects in Scene GUI
   var dropdownOn = false;
   function hiddenObjectList(){
 	  if(document.getElementById("dropdownMenuHiddenObj").getAttribute("aria-expanded") == "false"){
@@ -251,18 +263,7 @@ textureCube.format = THREE.RGBFormat;
 	e.appendChild(tempDiv);
 	dropdown = false;
   }
-  function invertBackground(){
-	  var tempScene = scene;
-	  if(!sceneCheck){
-		  tempScene = sceneH;
-	  }
-	  if(tempScene.background.r == 1){
-		  tempScene.background = new THREE.Color('black');
-	  }
-	  else{
-		  tempScene.background = new THREE.Color('white');
-	  }
-  }
+  //Deletes an object from the visualizer
   function deleteButton(){
 	  if(sceneCheck){
 		currObject.remove(scene);

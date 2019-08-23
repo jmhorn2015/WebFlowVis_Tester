@@ -303,9 +303,6 @@ class SRMesh extends SRObject{
 			this.generate2DNode();
 		}
 	}
-	add(newobject){
-		
-	}
 	/**
 	* Changes the hue color of the mesh. On a scale of 0-1.
 	* @params {double} hue - value of hue.
@@ -622,6 +619,10 @@ class SRVolume extends SRMesh{
 		}
 		this.mat.needsUpdate = true;
 	};
+	/**
+	* Allows a local menu to show on the screen when the object is clicked on
+	* @params {domElement} mesh - new mesh information to adapt to object.
+	*/
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
 		var volObject = this;
@@ -639,6 +640,11 @@ class SRVolume extends SRMesh{
 		});
 		return this.surfaceLocalMenu;
 	}
+	/**
+	* Removes the object from the scene and destroys it
+	* @param {THREE.Scene} sceneLoc - The current scene in the view
+	* 
+	*/
 	remove(sceneLoc){
 		super.remove(sceneLoc);
 		for(var b=0; b < vObjects.length; b++){

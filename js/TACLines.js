@@ -1,3 +1,5 @@
+//Function for generating lines with data attached to them for 2D graph display
+
 var clicked;
 var label;
 var selectMode = false;
