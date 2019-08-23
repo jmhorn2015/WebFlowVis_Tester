@@ -630,7 +630,7 @@ class SRVolume extends SRMesh{
 			volObject.mat.uniforms[ "u_clim" ].value.set( volObject.volConfig.clim1 , value);
 		});
 		var cmCntrlr = objMenu.add(this.volConfig, 'color_map', ['Viridis','ColdHot','BlueWhiteRed']);
-		normCntrlr.onChange(function(value) {
+		cmCntrlr.onChange(function(value) {
 			objEditor.colorMap(value);
 		});
 		return this.surfaceLocalMenu;
