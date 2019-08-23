@@ -168,7 +168,7 @@ class SRObject{
 		console.log(sceneLoc.children.length);
 		for(var a=0; a < sceneLoc.children.length; a++){
 			if(this.object.name == sceneLoc.children[a].name){
-				scene.remove(this.object);
+				sceneLoc.remove(this.object);
 				break;
 			}
 		}

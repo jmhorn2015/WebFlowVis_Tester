@@ -15,6 +15,8 @@ var scene;
 var sceneH;
 var mouse = new THREE.Vector2(), INTERSECTED;
 
+import {AddVTKVolume} from "./AddVTKVolume.js";
+
 // Input Function
 var fileStorage;
 function loadLocal(evt){
