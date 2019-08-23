@@ -1,13 +1,12 @@
 import {AddVTKVolume} from "./AddVTKVolume.js";
 
 // Input Function
-var fileStorage;
-function loadLocal(evt){
+export function loadLocal(evt){
 	fileStorage = evt.target.files;
 	console.log(fileStorage[0]);
 	document.getElementById("inputName").innerHTML = fileStorage[0].name;
 }
-function readLocal(){
+export function readLocal(){
 	var currScene;
 	if(sceneCheck){
 		currScene = scene;

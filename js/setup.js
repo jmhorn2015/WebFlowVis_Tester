@@ -84,6 +84,8 @@ light4.position(0,-10,10);
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, new SRMesh(scene, "Sphere"));
 
 import {AddVolume} from "./AddNRRDVolume.js";
+import {loadLocal} from "./LocalImport.js";
+import {readLocal} from "./LocalImport.js";
 AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 
 //shadow plane

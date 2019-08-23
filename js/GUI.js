@@ -15,6 +15,8 @@ var scene;
 var sceneH;
 var mouse = new THREE.Vector2(), INTERSECTED;
 
+var fileStorage;
+
   // Skybox Cube
   var path = "data/skybox/";
   var urls = [
