@@ -36,22 +36,3 @@ function AddObject(name2, sceneName, isFile){
 	);
 	//$("#loading").removeClass('spinner-border');
 };
-
-function AddVTKVolume(name3, sceneName, isFile){
-	var loader = new THREE.VTKLoader();
-	var material = new THREE.MeshPhongMaterial( { color: 0xFFFFFF, side: THREE.DoubleSide } );
-	loader.load( name3, function ( geometry ) {
-		geometry.center();
-		geometry.computeVertexNormals();
-		var meshTemp= new THREE.Mesh( geometry, material );
-		if(isFile){
-			meshTemp.name = document.getElementById("inputName").innerHTML;
-		}
-		else{
-			meshTemp.name = name3;
-		}
-		var SStemp = new SRSurface(sceneName);
-		SStemp.updateMesh(meshTemp, sceneName);
-		console.log(meshTemp.name + " loaded");
-	});
-}

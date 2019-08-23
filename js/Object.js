@@ -6,6 +6,12 @@ var surfaceObjects = [];
 var vObjects = [];
 //Holds the current SRObjects in the Surface volume scene
 var volumeObjects = [];
+// Colormap textures
+var cmtextures = {
+    Viridis: new THREE.TextureLoader().load( 'data/cm_viridis.png', render ),
+    ColdHot: new THREE.TextureLoader().load( 'data/cm_ColdHot.png', render ),
+	BlueWhiteRed: new THREE.TextureLoader().load( 'data/cm_BWR.png', render ),
+};
 /** 
 * @class SRObject
 * @classdesc This is the type in which all scene objects fall under other than the scene and the camera. This is a base class, so you will not need to construct an object as an SRObject. Instead, utilize the constructors with the children classes. 
