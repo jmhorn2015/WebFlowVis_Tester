@@ -617,6 +617,7 @@ class SRVolume extends SRMesh{
 		else{
 			this.mat.uniforms["u_cmdata"] = cmtextures.BlueWhiteRed;
 		}
+		this.mat.needsUpdate = true;
 	};
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
