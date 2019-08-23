@@ -429,62 +429,66 @@ class SRMesh extends SRObject{
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
+		var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
+		opacityCntrlr.onChange(function(value) {
+			objEditor.transparency(value);
+		});
+		var colorCntrlr = objMenu.addColor(this.objParams, 'Color');
+		colorCntrlr.onChange(function(value) {
+			console.log(value);
+			objEditor.color(value);
+			objEditor.origColor = "#" + objEditor.mat.color.getHexString();
+			if(document.getElementById(objEditor.object.name) != null){
+				document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString());
+			}
+			
+		});
+		var matCntrlr = objMenu.add(this.objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
+		matCntrlr.onChange(function(value) {
+			if(value == 'Phong'){
+				objEditor.material(0);
+			}
+			else if(value == 'Basic'){
+				objEditor.material(1);
+			}
+			else{
+				objEditor.material(2);
+			}
+		});
+		var shadCntrlr = objMenu.add(this.objParams, 'Recieve_Shadows');
+		shadCntrlr.onChange(function(value) {
+			objEditor.recvShadow(value);
+		});
+		var textCntrlr = objMenu.add(this.objParams, 'Textured');
+		textCntrlr.onChange(function(value) {
+			objEditor.texture(value);
+		});
+		var reflectCntrlr = objMenu.add(this.objParams, 'Reflective');
+		reflectCntrlr.onChange(function(value) {
+			var path = "data/skybox/";
+			var urls = [
+				path + "px.jpg", path + "nx.jpg",
+				path + "py.jpg", path + "ny.jpg",
+				path + "pz.jpg", path + "nz.jpg"
+			];
+			textureCube = new THREE.CubeTextureLoader().load( urls );
+			textureCube.format = THREE.RGBFormat;
+			objEditor.reflective(value, textureCube);
+		});
+		var normCntrlr = objMenu.add(this.objParams, 'Surface_Render_Side', ['FrontSide','BackSide','DoubleSide']);
+		normCntrlr.onChange(function(value) {
+			objEditor.surfaceRenderSide(value);
+		});
 		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
 		hideCntrlr.onChange(function(value) {
 			objEditor.hideObject(value);
 		});
 		if (!(this instanceof SRVolume)){
-			var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
-			opacityCntrlr.onChange(function(value) {
-				objEditor.transparency(value);
-			});
-			var colorCntrlr = objMenu.addColor(this.objParams, 'Color');
-			colorCntrlr.onChange(function(value) {
-				objEditor.color(value);
-				objEditor.origColor = "#" + objEditor.mat.color.getHexString();
-				if(document.getElementById(objEditor.object.name) != null){
-					document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString());
-				}
-				
-			});
-			var matCntrlr = objMenu.add(this.objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
-			matCntrlr.onChange(function(value) {
-				if(value == 'Phong'){
-					objEditor.material(0);
-				}
-				else if(value == 'Basic'){
-					objEditor.material(1);
-				}
-				else{
-					objEditor.material(2);
-				}
-			});
-			var shadCntrlr = objMenu.add(this.objParams, 'Recieve_Shadows');
-			shadCntrlr.onChange(function(value) {
-				objEditor.recvShadow(value);
-			});
-			var textCntrlr = objMenu.add(this.objParams, 'Textured');
-			textCntrlr.onChange(function(value) {
-				objEditor.texture(value);
-			});
-			var reflectCntrlr = objMenu.add(this.objParams, 'Reflective');
-			reflectCntrlr.onChange(function(value) {
-				var path = "data/skybox/";
-				var urls = [
-					path + "px.jpg", path + "nx.jpg",
-					path + "py.jpg", path + "ny.jpg",
-					path + "pz.jpg", path + "nz.jpg"
-				];
-				textureCube = new THREE.CubeTextureLoader().load( urls );
-				textureCube.format = THREE.RGBFormat;
-				objEditor.reflective(value, textureCube);
-			});
-			var normCntrlr = objMenu.add(this.objParams, 'Surface_Render_Side', ['FrontSide','BackSide','DoubleSide']);
-			normCntrlr.onChange(function(value) {
-				objEditor.surfaceRenderSide(value);
-			});
+			return this.surfaceLocalMenu;
 		}
-		return objMenu;
+		else{
+			return objMenu;
+		}
 	}
 	getColor(){
 		
@@ -580,7 +584,7 @@ class SRVolume extends SRMesh{
 	volConfig;
 	constructor(sceneName){
 		super(sceneName);
-		this.volConfig = { clim1: 0, clim2: 1, color: "Viridis" };
+		this.volConfig = { clim1: 0, clim2: 1, color_map: "Viridis" };
 	}
 		/**
 	* Updates the geometry of the object. Used with the sub classes to load in the data properly.
@@ -599,7 +603,21 @@ class SRVolume extends SRMesh{
 		volumeObjects.push(this);
 		this.generate2DNode();
 	};
-	
+	/**
+	* Used to change the color mapping of the object.
+	* @params {String} value - name of new color map.
+	*/
+	colorMap(value){
+		if(value == 'Viridis'){
+			this.mat.uniforms.["u_cmdata"] = cmtextures.Viridis;
+		}
+		else if (value == 'ColdHot'){
+			this.mat.uniforms.["u_cmdata"] = cmtextures.ColdHot;
+		}
+		else{
+			this.mat.uniforms.["u_cmdata"] = cmtextures.BlueWhiteRed;
+		}
+	};
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
 		var volObject = this;
@@ -610,6 +628,10 @@ class SRVolume extends SRMesh{
 		var c2Control = objMenu.add( this.volConfig, 'clim2', 0, 1, 0.01 )
 		c2Control.onChange( function(value){
 			volObject.mat.uniforms[ "u_clim" ].value.set( volObject.volConfig.clim1 , value);
+		});
+		var cmCntrlr = objMenu.add(this.volConfig, 'color_map', ['Viridis','ColdHot','BlueWhiteRed']);
+		normCntrlr.onChange(function(value) {
+			objEditor.colorMap(value);
 		});
 		return this.surfaceLocalMenu;
 	}
