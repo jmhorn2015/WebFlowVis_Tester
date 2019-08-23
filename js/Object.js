@@ -631,7 +631,7 @@ class SRVolume extends SRMesh{
 		});
 		var cmCntrlr = objMenu.add(this.volConfig, 'color_map', ['Viridis','ColdHot','BlueWhiteRed']);
 		cmCntrlr.onChange(function(value) {
-			objEditor.colorMap(value);
+			volObject.colorMap(value);
 		});
 		return this.surfaceLocalMenu;
 	}
