@@ -68,6 +68,7 @@ export function AddVTKVolume(name, sceneName){
             geometrytemp.translate( xLength / 2 - 0.5, yLength / 2 - 0.5, zLength / 2 - 0.5 );
 			var meshtemp = new THREE.Mesh( geometrytemp, materialtemp );
 			meshtemp.name = name;
+			meshtemp.scale = new Vector3(.01,.01,.01);
 			var volumeTemp = new SRVolume(sceneName);
 			volumeTemp.updateMesh(meshtemp, sceneName);
 		},
