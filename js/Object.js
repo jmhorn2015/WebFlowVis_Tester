@@ -429,66 +429,62 @@ class SRMesh extends SRObject{
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
-		var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
-		opacityCntrlr.onChange(function(value) {
-			objEditor.transparency(value);
-		});
-		var colorCntrlr = objMenu.addColor(this.objParams, 'Color');
-		colorCntrlr.onChange(function(value) {
-			console.log(value);
-			objEditor.color(value);
-			objEditor.origColor = "#" + objEditor.mat.color.getHexString();
-			if(document.getElementById(objEditor.object.name) != null){
-				document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString());
-			}
-			
-		});
-		var matCntrlr = objMenu.add(this.objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
-		matCntrlr.onChange(function(value) {
-			if(value == 'Phong'){
-				objEditor.material(0);
-			}
-			else if(value == 'Basic'){
-				objEditor.material(1);
-			}
-			else{
-				objEditor.material(2);
-			}
-		});
-		var shadCntrlr = objMenu.add(this.objParams, 'Recieve_Shadows');
-		shadCntrlr.onChange(function(value) {
-			objEditor.recvShadow(value);
-		});
-		var textCntrlr = objMenu.add(this.objParams, 'Textured');
-		textCntrlr.onChange(function(value) {
-			objEditor.texture(value);
-		});
-		var reflectCntrlr = objMenu.add(this.objParams, 'Reflective');
-		reflectCntrlr.onChange(function(value) {
-			var path = "data/skybox/";
-			var urls = [
-				path + "px.jpg", path + "nx.jpg",
-				path + "py.jpg", path + "ny.jpg",
-				path + "pz.jpg", path + "nz.jpg"
-			];
-			textureCube = new THREE.CubeTextureLoader().load( urls );
-			textureCube.format = THREE.RGBFormat;
-			objEditor.reflective(value, textureCube);
-		});
-		var normCntrlr = objMenu.add(this.objParams, 'Surface_Render_Side', ['FrontSide','BackSide','DoubleSide']);
-		normCntrlr.onChange(function(value) {
-			objEditor.surfaceRenderSide(value);
-		});
 		var hideCntrlr = objMenu.add(this.objParams, 'Hide');
 		hideCntrlr.onChange(function(value) {
 			objEditor.hideObject(value);
 		});
 		if (!(this instanceof SRVolume)){
-			return this.surfaceLocalMenu;
+			var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
+			opacityCntrlr.onChange(function(value) {
+				objEditor.transparency(value);
+			});
+			var colorCntrlr = objMenu.addColor(this.objParams, 'Color');
+			colorCntrlr.onChange(function(value) {
+				objEditor.color(value);
+				objEditor.origColor = "#" + objEditor.mat.color.getHexString();
+				if(document.getElementById(objEditor.object.name) != null){
+					document.getElementById(objEditor.object.name).setAttribute("stroke", "#" + objEditor.mat.color.getHexString());
+				}
+				
+			});
+			var matCntrlr = objMenu.add(this.objParams, 'Material', ['Phong', 'Basic', 'Lambert']);
+			matCntrlr.onChange(function(value) {
+				if(value == 'Phong'){
+					objEditor.material(0);
+				}
+				else if(value == 'Basic'){
+					objEditor.material(1);
+				}
+				else{
+					objEditor.material(2);
+				}
+			});
+			var shadCntrlr = objMenu.add(this.objParams, 'Recieve_Shadows');
+			shadCntrlr.onChange(function(value) {
+				objEditor.recvShadow(value);
+			});
+			var textCntrlr = objMenu.add(this.objParams, 'Textured');
+			textCntrlr.onChange(function(value) {
+				objEditor.texture(value);
+			});
+			var reflectCntrlr = objMenu.add(this.objParams, 'Reflective');
+			reflectCntrlr.onChange(function(value) {
+				var path = "data/skybox/";
+				var urls = [
+					path + "px.jpg", path + "nx.jpg",
+					path + "py.jpg", path + "ny.jpg",
+					path + "pz.jpg", path + "nz.jpg"
+				];
+				textureCube = new THREE.CubeTextureLoader().load( urls );
+				textureCube.format = THREE.RGBFormat;
+				objEditor.reflective(value, textureCube);
+			});
+			var normCntrlr = objMenu.add(this.objParams, 'Surface_Render_Side', ['FrontSide','BackSide','DoubleSide']);
+			normCntrlr.onChange(function(value) {
+				objEditor.surfaceRenderSide(value);
+			});
 		}
-		else{
-			return objMenu;
-		}
+		return objMenu;
 	}
 	getColor(){
 		
@@ -584,7 +580,7 @@ class SRVolume extends SRMesh{
 	volConfig;
 	constructor(sceneName){
 		super(sceneName);
-		this.volConfig = { clim1: 0, clim2: 1 };
+		this.volConfig = { clim1: 0, clim2: 1, color: "Viridis" };
 	}
 		/**
 	* Updates the geometry of the object. Used with the sub classes to load in the data properly.
