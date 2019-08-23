@@ -52,9 +52,8 @@ export function AddVTKVolume(name, sceneName){
 
             uniforms[ "u_data" ].value = texture;
             uniforms[ "u_size" ].value.set( xLength, yLength, zLength );
-            uniforms[ "u_clim" ].value.set( volconfig.clim1, volconfig.clim2 );
-            uniforms[ "u_renderstyle" ].value = ( 0 , 1 );
-            uniforms[ "u_renderthreshold" ].value = 0;
+            uniforms[ "u_clim" ].value.set( 0 , 1 );
+            uniforms[ "u_renderstyle" ].value = 0;
             uniforms[ "u_cmdata" ].value = cmtextures[0];
 
             var materialtemp = new THREE.ShaderMaterial( {
