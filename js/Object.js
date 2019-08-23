@@ -165,6 +165,7 @@ class SRObject{
 	*/
 	remove(sceneLoc){
 		this.removeMenu();
+		console.log(sceneLoc.children.length);
 		for(var a=0; a < sceneLoc.children.length; a++){
 			if(this.object.name == sceneLoc.children[a].name){
 				scene.remove(this.object);
