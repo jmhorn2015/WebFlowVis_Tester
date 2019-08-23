@@ -89,6 +89,7 @@ import {loadLocal} from "./LocalImport.js";
 import {readLocal} from "./LocalImport.js";
 //AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 AddVTKVolume('data/volume.vtk', sceneH);
+AddObject('data/surface.obj', sceneH);
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
