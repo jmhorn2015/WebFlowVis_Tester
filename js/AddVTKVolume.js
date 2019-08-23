@@ -14,7 +14,6 @@ export function AddVTKVolume(name, sceneName){
     loader.load(
     // resource URL
     name,
-
     // onLoad callback
     function ( data ) {
     // output the text to the console
