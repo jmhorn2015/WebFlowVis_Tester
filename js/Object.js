@@ -609,13 +609,13 @@ class SRVolume extends SRMesh{
 	*/
 	colorMap(value){
 		if(value == 'Viridis'){
-			this.mat.uniforms.["u_cmdata"] = cmtextures.Viridis;
+			this.mat.uniforms["u_cmdata"] = cmtextures.Viridis;
 		}
 		else if (value == 'ColdHot'){
-			this.mat.uniforms.["u_cmdata"] = cmtextures.ColdHot;
+			this.mat.uniforms["u_cmdata"] = cmtextures.ColdHot;
 		}
 		else{
-			this.mat.uniforms.["u_cmdata"] = cmtextures.BlueWhiteRed;
+			this.mat.uniforms["u_cmdata"] = cmtextures.BlueWhiteRed;
 		}
 	};
 	getGUIMenu() {
