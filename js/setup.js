@@ -1,11 +1,11 @@
 import {AddVolume} from "./AddNRRDVolume.js";
 import {AddVTKVolume} from "./AddVTKVolume.js";
-import {loadLocal} from "./LocalImport.js";
-import {readLocal} from "./LocalImport.js";
 
 //Load file setup
 $("#input").change(loadLocal(event));
 $("#inputGroupFi").click(readLocal());
+import {loadLocal} from "./LocalImport.js";
+import {readLocal} from "./LocalImport.js";
 
 //-----Three.js Setup-----//
 var container = document.createElement( 'div' );
