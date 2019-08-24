@@ -316,7 +316,7 @@ class SRMesh extends SRObject{
 	* @params {string} val - new scale size.
 	*/
 	scale(val){
-		this.mat.scale(val,val,val);
+		this.geo.scale(val,val,val);
 	}
 	/**
 	* Changes the material of the Mesh object.
