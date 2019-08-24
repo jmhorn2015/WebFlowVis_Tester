@@ -4,8 +4,11 @@ import {loadLocal} from "./LocalImport.js";
 import {readLocal} from "./LocalImport.js";
 
 //Load file setup
-$(document.getElementById("input")).attr("onchange", loadLocal(event));
-$(document.getElementById("inputGroupFi")).attr("onclick", readLocal());
+var tempDiv = $("#input");
+console.log(tempDiv);
+tempDiv.attr("onchange", loadLocal(event));
+tempDiv = $("#inputGroupFi");
+tempDiv.attr("onclick", readLocal());
 
 //-----Three.js Setup-----//
 var container = document.createElement( 'div' );
