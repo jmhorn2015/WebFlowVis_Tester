@@ -12,6 +12,7 @@ export function loadLocal(evt){
 	}
 }
 export function readLocal(){
+	console.log("click");
 	if(fileStorage != null){
 		var currScene;
 		if(sceneCheck){
