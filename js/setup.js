@@ -51,7 +51,7 @@ rendererH.domElement.style.display = "none";
 var frusth = 512;
 var aspect = w / h;
 cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 0.1, 1000 )
-cameraH.position.set( 0, 0, 10);
+cameraH.position.set( 0, 0, 2);
 //cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 1, 1000 );
 //cameraH.position.set( 0, 0, 128 );
 //cameraH.up.set( 0, 0, 1 );
