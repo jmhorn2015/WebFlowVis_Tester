@@ -4,6 +4,7 @@
 import {AddVTKVolume} from "./AddVTKVolume.js";
 // Input Function
 export function loadLocal(evt){
+	console.log(evt);
 	if(evt != null){
 		fileStorage = evt.target.files;
 		console.log(fileStorage[0]);

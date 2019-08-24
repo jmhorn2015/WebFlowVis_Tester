@@ -4,11 +4,8 @@ import {loadLocal} from "./LocalImport.js";
 import {readLocal} from "./LocalImport.js";
 
 //Load file setup
-var tempDiv = $("#input");
-console.log(tempDiv);
-tempDiv.attr("onchange", loadLocal(event));
-tempDiv = $("#inputGroupFi");
-tempDiv.attr("onclick", readLocal());
+$("#input").attr("onchange", loadLocal(event));
+$("#inputGroupFi").attr("onclick", readLocal());
 
 //-----Three.js Setup-----//
 var container = document.createElement( 'div' );
