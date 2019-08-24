@@ -2,7 +2,7 @@ import {AddVolume} from "./AddNRRDVolume.js";
 import {AddVTKVolume} from "./AddVTKVolume.js";
 
 //Load file setup
-$("#input").change(loadLocal(event));
+$("#input").change(loadLocal);
 $("#inputGroupFi").click(function(){console.log("click")});
 import {loadLocal} from "./LocalImport.js";
 import {readLocal} from "./LocalImport.js";
