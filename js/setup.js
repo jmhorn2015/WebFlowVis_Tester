@@ -1,3 +1,11 @@
+import {AddVolume} from "./AddNRRDVolume.js";
+import {AddVTKVolume} from "./AddVTKVolume.js";
+import {loadLocal} from "./LocalImport.js";
+import {readLocal} from "./LocalImport.js";
+
+//Load file setup
+$("#input").attr("onchange") = loadLocal(event);
+$("#inputGroupFi").attr("onclick") = readLocal();
 
 //-----Three.js Setup-----//
 var container = document.createElement( 'div' );
@@ -83,10 +91,6 @@ light4.position(0,-10,10);
 //objects
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, new SRMesh(scene, "Sphere"));
 
-import {AddVolume} from "./AddNRRDVolume.js";
-import {AddVTKVolume} from "./AddVTKVolume.js";
-import {loadLocal} from "./LocalImport.js";
-import {readLocal} from "./LocalImport.js";
 //AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 AddVTKVolume('data/volume.vtk', sceneH);
 AddObject('data/surface.obj', sceneH);
