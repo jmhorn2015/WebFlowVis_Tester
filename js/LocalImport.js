@@ -4,9 +4,11 @@
 import {AddVTKVolume} from "./AddVTKVolume.js";
 // Input Function
 export function loadLocal(evt){
-	fileStorage = evt.target.files;
-	console.log(fileStorage[0]);
-	document.getElementById("inputName").innerHTML = fileStorage[0].name;
+	if(evt != null){
+		fileStorage = evt.target.files;
+		console.log(fileStorage[0]);
+		document.getElementById("inputName").innerHTML = fileStorage[0].name;
+	}
 }
 export function readLocal(){
 	var currScene;
