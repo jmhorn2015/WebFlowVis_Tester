@@ -50,7 +50,7 @@ container.appendChild( rendererH.domElement );
 rendererH.domElement.style.display = "none";
 var frusth = 8;
 var aspect = w / h;
-cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 0.1, 1000 )
+cameraH = new THREE.PerspectiveCamera( 75, w/h, 0.1, 1000 );
 cameraH.position.set( 0, 0, 2);
 //cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 1, 1000 );
 //cameraH.position.set( 0, 0, 128 );
