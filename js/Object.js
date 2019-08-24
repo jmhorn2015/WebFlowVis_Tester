@@ -268,6 +268,7 @@ class SRMesh extends SRObject{
 	constructor(sceneName, shape){
 		super(sceneName);
 		this.objParams = {
+			Scale: 1;
 			Opacity: 50,
 			Color: 0,
 			Material: 'Phong',
@@ -305,11 +306,17 @@ class SRMesh extends SRObject{
 	}
 	/**
 	* Changes the hue color of the mesh. On a scale of 0-1.
-	* @params {double} hue - value of hue.
 	* @params {string} hue - direct color for object.
 	*/
 	color(hue){
 		this.mat.color.setStyle(hue);
+	}
+/**
+	* Changes the size of the mesh. On a scale of 1-100 times original size.
+	* @params {string} val - new scale size.
+	*/
+	scale(val){
+		this.mat.scale(val,val,val);
 	}
 	/**
 	* Changes the material of the Mesh object.
@@ -426,6 +433,10 @@ class SRMesh extends SRObject{
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
+		var scaleCntrlr = objMenu.add(this.objParams, 'Scale', 1 , 100);
+		scaleCntrlr.onChange(function(value) {
+			objEditor.scale(value);
+		});
 		var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
 		opacityCntrlr.onChange(function(value) {
 			objEditor.transparency(value);
