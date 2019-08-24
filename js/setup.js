@@ -51,7 +51,7 @@ rendererH.domElement.style.display = "none";
 var frusth = 10;
 var aspect = w / h;
 cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 0.1, 1000 )
-cameraH.position.set( 0, 0, 5);
+cameraH.position.set( 0, 0, 2);
 //cameraH = new THREE.OrthographicCamera( - frusth * aspect / 2, frusth * aspect / 2, frusth / 2, - frusth / 2, 1, 1000 );
 //cameraH.position.set( 0, 0, 128 );
 //cameraH.up.set( 0, 0, 1 );
@@ -172,8 +172,10 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 					surfaceObjects[b].color(surfaceObjects[b].origColor);
 				}
 			}
-			currObject.removeMenu();
-			currObject = null;
+			if(currObject != null){
+				currObject.removeMenu();
+				currObject = null;
+			}
 			d3.selectAll("path").classed("line", function() {
 				d3.select(this)
 				.attr('stroke', null)
@@ -221,8 +223,10 @@ var canvasBounds = renderer.context.canvas.getBoundingClientRect();
 		}
 		else {
 			INTERSECTED = null;
-			currObject.removeMenu();
-			currObject = null;
+			if(currObject != null){
+				currObject.removeMenu();
+				currObject = null;
+			}
 			selectMode = false;
 		}
 	}
