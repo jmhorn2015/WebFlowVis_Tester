@@ -268,7 +268,7 @@ class SRMesh extends SRObject{
 	constructor(sceneName, shape){
 		super(sceneName);
 		this.objParams = {
-			Scale: 1;
+			Scale: 1,
 			Opacity: 50,
 			Color: 0,
 			Material: 'Phong',
