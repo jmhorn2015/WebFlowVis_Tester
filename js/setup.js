@@ -3,7 +3,7 @@ import {AddVTKVolume} from "./AddVTKVolume.js";
 
 //Load file setup
 $("#input").change(loadLocal);
-$("#inputGroupFi").click(function(){console.log("click")});
+$("#inputGroupFi").click(readLocal);
 import {loadLocal} from "./LocalImport.js";
 import {readLocal} from "./LocalImport.js";
 
