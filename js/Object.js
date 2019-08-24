@@ -433,7 +433,7 @@ class SRMesh extends SRObject{
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
-		var scaleCntrlr = objMenu.add(this.objParams, 'Scale', 1 , 50);
+		var scaleCntrlr = objMenu.add(this.objParams, 'Scale', 1 , 10);
 		scaleCntrlr.onChange(function(value) {
 			objEditor.scale(value);
 		});
