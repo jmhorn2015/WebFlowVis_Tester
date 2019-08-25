@@ -316,6 +316,7 @@ class SRMesh extends SRObject{
 	* @params {string} val - new scale size.
 	*/
 	scale(val){
+		console.log(this.geo.scale(val,val,val));
 		this.geo.scale(val,val,val);
 	}
 	/**
