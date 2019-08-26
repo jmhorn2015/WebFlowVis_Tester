@@ -526,6 +526,11 @@ class SRMesh extends SRObject{
 */
 class SRBoundingBox extends SRMesh{
 	dimension;
+	/**
+	* Adds an bounding box to your scene.
+	* @constructor
+	* @params {THREE.Scene} scene - Scene you would like to add an object to.
+	*/
 	constructor(sceneName){
 		super(sceneName);
 		this.dimension = new THREE.Vector3(10, 5, 10);

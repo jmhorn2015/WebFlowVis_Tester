@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: SRMesh</title>
+    <title>JSDoc: Class: SRBoundingBox</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: SRMesh</h1>
+    <h1 class="page-title">Class: SRBoundingBox</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>SRMesh<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>SRBoundingBox<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">SRMesh objects hold all of your 3D shapes and is the parent class for all of the visible objects in the scene.</div>
+            <div class="class-description">These objects were going to be a wireframe representation to help visually span the area that all of the objects on the scene would take up.</div>
         
     
 </header>
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="SRMesh"><span class="type-signature"></span>new SRMesh<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="SRBoundingBox"><span class="type-signature"></span>new SRBoundingBox<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -53,7 +53,7 @@
 
 
 <div class="description">
-    Adds an "x" object to your scene. Currently supports "Sphere" and "Box".
+    Adds an bounding box to your scene.
 </div>
 
 
@@ -97,7 +97,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line268">line 268</a>
+        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line534">line 534</a>
     </li></ul></dd>
     
 
@@ -306,94 +306,6 @@
     
 
     
-    <h4 class="name" id="color"><span class="type-signature"></span>color<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Changes the hue color of the mesh. On a scale of 0-1.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line310">line 310</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
     <h4 class="name" id="generate2DNode"><span class="type-signature"></span>generate2DNode<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
@@ -487,7 +399,7 @@
     
 
     
-    <h4 class="name" id="getGUIMenu"><span class="type-signature"></span>getGUIMenu<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getGUIMenu"><span class="type-signature"></span>getGUIMenu<span class="signature">()</span><span class="type-signature"> &rarr; {dat.GUI}</span></h4>
     
 
     
@@ -495,7 +407,7 @@
 
 
 <div class="description">
-    Allows a local menu to show on the screen when the object is clicked on
+    Construct a local dat.GUI menu. Made by Duong Ngyuyen.
 </div>
 
 
@@ -544,7 +456,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line440">line 440</a>
+        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line75">line 75</a>
     </li></ul></dd>
     
 
@@ -569,6 +481,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    surface local menu
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">dat.GUI</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -687,94 +621,6 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line148">line 148</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="material"><span class="type-signature"></span>material<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Changes the material of the Mesh object.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line324">line 324</a>
     </li></ul></dd>
     
 
@@ -1140,94 +986,6 @@
     
 
     
-    <h4 class="name" id="reflective"><span class="type-signature"></span>reflective<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Allows the mesh to reflect the scene background onto its surface. The scene is required in the call to load a skybox for best effect.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line374">line 374</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
     <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(sceneLoc)</span><span class="type-signature"></span></h4>
     
 
@@ -1463,6 +1221,94 @@
     
 
     
+    <h4 class="name" id="resize"><span class="type-signature"></span>resize<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Resizes the box as needed
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line558">line 558</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="rotate"><span class="type-signature"></span>rotate<span class="signature">(x, y, z)</span><span class="type-signature"></span></h4>
     
 
@@ -1616,446 +1462,6 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line51">line 51</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="scale"><span class="type-signature"></span>scale<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Changes the size of the mesh. On a scale of 1-100 times original size.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line317">line 317</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="surfaceRenderSide"><span class="type-signature"></span>surfaceRenderSide<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Changes which side of a surface is displayed.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line388">line 388</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="texture"><span class="type-signature"></span>texture<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Allows a texture to be loaded onto the mesh.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line348">line 348</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="transparency"><span class="type-signature"></span>transparency<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Changes the transparency of the object. On a scale of 0-1.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line406">line 406</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="updateMesh"><span class="type-signature"></span>updateMesh<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Updates the geometry of the object. Used with the sub classes to load in the data properly.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Object.js.html">Object.js</a>, <a href="Object.js.html#line413">line 413</a>
     </li></ul></dd>
     
 
