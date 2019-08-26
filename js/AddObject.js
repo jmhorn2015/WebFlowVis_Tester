@@ -24,7 +24,9 @@ function AddObject(name2, sceneName, isFile){
 				if ( child instanceof THREE.LineSegments ) {
 					console.log("found");
 				}
-				//object = new THREE.Mesh( temp, new THREE.MeshPhongMaterial( { color: 0xffffff, dithering: true } ));
+			}
+			if(!sceneCheck){
+				volumeObjects[volumeObjects.length - 1].scale(50);
 			}
     	} );
 		loading = false;

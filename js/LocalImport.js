@@ -31,9 +31,6 @@ export function readLocal(){
 				}
 				else if(filetype == "obj"){
 					AddObject(e.target.result, currScene, true);
-					if(!sceneCheck){
-						volumeObjects[volumeObjects.length - 1].scale(50);
-					}
 				}
 				else if(filetype == "vtk"){
 					AddVTKVolume(e.target.result, currScene, true);
