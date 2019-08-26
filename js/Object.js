@@ -524,12 +524,9 @@ class SRMesh extends SRObject{
 * These objects were going to be a wireframe representation to help visually span the area that all of the objects on the scene would take up. I was not able to implement this object yet.
 * @extends SRObject
 */
-class SRBoundingBox extends SRObject{
+class SRBoundingBox extends SRMesh{
 	constructor(sceneName){
 		super(sceneName);
-	}
-	Resize(){
-		
 	}
 }
 /**
