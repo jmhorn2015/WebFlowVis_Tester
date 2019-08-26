@@ -268,8 +268,6 @@ class SRMesh extends SRObject{
 	constructor(sceneName, shape){
 		super(sceneName);
 		this.objParams = {
-			oldScale: 1,
-			Scale: 1,
 			Opacity: 50,
 			Color: 0,
 			Material: 'Phong',
@@ -317,19 +315,7 @@ class SRMesh extends SRObject{
 	* @params {string} val - new scale size.
 	*/
 	scale(val){
-		var actVal = val - this.objParams.oldScale;
-		if(actVal == 0){
-			console.log("zero");
-		}
-		if(actVal >= 0){
-			console.log("greater");
-			this.geo.scale(actVal,actVal,actVal);
-		}
-		else{
-			console.log(actVal);
-			this.geo.scale(1/-actVal,1/-actVal,1/-actVal);
-		}
-		this.objParams.oldScale = val;
+		this.geo.scale(val,val,val);
 	}
 	/**
 	* Changes the material of the Mesh object.
@@ -446,10 +432,6 @@ class SRMesh extends SRObject{
 	getGUIMenu() {
 		var objMenu = super.getGUIMenu();
 		var objEditor = this;
-		var scaleCntrlr = objMenu.add(this.objParams, 'Scale', 1 , 10);
-		scaleCntrlr.onChange(function(value) {
-			objEditor.scale(value);
-		});
 		var opacityCntrlr = objMenu.add(this.objParams, 'Opacity', 1 , 100);
 		opacityCntrlr.onChange(function(value) {
 			objEditor.transparency(value);
