@@ -319,12 +319,14 @@ class SRMesh extends SRObject{
 	scale(val){
 		var actVal = val - this.objParams.oldScale;
 		if(actVal == 0){
-				console.log("zero");
+			console.log("zero");
 		}
 		if(actVal >= 0){
+			console.log("greater");
 			this.geo.scale(actVal,actVal,actVal);
 		}
 		else{
+			console.log("smaller");
 			this.geo.scale(1/-actVal,1/-actVal,1/-actVal);
 		}
 		this.objParams.oldScale = val;
