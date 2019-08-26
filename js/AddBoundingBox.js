@@ -9,7 +9,7 @@ var loader = new THREE.FileLoader();
             var line = lines[ i ];
             if ( line.indexOf( 0 ) === 'v' ) {
 				var line_values = line.split( ' ' )
-                 linedata.push(new THREE.Vector3(parseInt(line_values[ 1 ]), parseInt(line_values[ 2 ]), parseInt(line_values[ 3 ]));
+                 linedata.push(new THREE.Vector3(parseInt(line_values[ 1 ]), parseInt(line_values[ 2 ]), parseInt(line_values[ 3 ])));
                 }
             }        
 			var draw = new THREE.CatmullRomCurve3( lineData );
