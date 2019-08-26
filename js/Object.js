@@ -318,6 +318,9 @@ class SRMesh extends SRObject{
 	*/
 	scale(val){
 		var actVal = val - this.objParams.oldScale;
+		if(actVal == 0){
+				console.log("zero");
+		}
 		if(actVal >= 0){
 			this.geo.scale(actVal,actVal,actVal);
 		}
