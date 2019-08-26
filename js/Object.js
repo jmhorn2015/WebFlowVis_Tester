@@ -521,7 +521,7 @@ class SRMesh extends SRObject{
 	}
 }
 /**
-* These objects were going to be a wireframe representation to help visually span the area that all of the objects on the scene would take up. I was not able to implement this object yet.
+* These objects were going to be a wireframe representation to help visually span the area that all of the objects on the scene would take up.
 * @extends SRObject
 */
 class SRBoundingBox extends SRMesh{
@@ -548,7 +548,7 @@ class SRBoundingBox extends SRMesh{
 	}
 	/**
 	* Resizes the box as needed
-	* @params {Array} data - array of data to load into the object.
+	* @params {THREE.Vector3} newSize - 3 dimensional space that the new Bounding box will take up.
 	*/
 	resize(newSize){
 		this.dimension = newSize;
