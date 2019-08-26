@@ -90,17 +90,17 @@ class SRObject{
 		
 		//Position folder
 		var posMenu = this.surfaceLocalMenu.addFolder("Position");
-		var posXCntrlr = posMenu.add(this.posParams, 'X', -5 , 5);
+		var posXCntrlr = posMenu.add(this.posParams, 'X', -50 , 50);
 		posXCntrlr.onChange(function(value) {
 			var currPos  = objEditor.Position;
 			objEditor.position(value, currPos.y, currPos.z);
 		});
-		var posYCntrlr = posMenu.add(this.posParams, 'Y', -5 , 5);
+		var posYCntrlr = posMenu.add(this.posParams, 'Y', -50 , 50);
 		posYCntrlr.onChange(function(value) {
 			var currPos  = objEditor.Position;
 			objEditor.position(currPos.x, value, currPos.z);
 		});
-		var posZCntrlr = posMenu.add(this.posParams, 'Z', -5 , 5);
+		var posZCntrlr = posMenu.add(this.posParams, 'Z', -50 , 50);
 		posZCntrlr.onChange(function(value) {
 			var currPos  = objEditor.Position;
 			objEditor.position(currPos.x, currPos.y, value);
