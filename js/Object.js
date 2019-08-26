@@ -525,8 +525,35 @@ class SRMesh extends SRObject{
 * @extends SRObject
 */
 class SRBoundingBox extends SRMesh{
+	dimension;
 	constructor(sceneName){
 		super(sceneName);
+		this.dimension = new THREE.Vector3(10, 5, 10);
+		var tempGeo = new THREE.BoxGeometry( 10, 5, 10);
+		this.geo = new THREE.EdgesGeometry( tempGeo );
+		this.mat = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 2 } );
+		this.object = new THREE.LineSegments( this.geo, this.mat );
+		this.object.name = "BoundingBox";
+		sceneName.add(this.object);
+		if(!sceneCheck){
+			this.scale(32);
+			vObjects.push(this.object);
+			volumeObjects.push(this);
+			this.geo.translate(32.5,32.5,0);
+		}
+		else{
+			objects.push(this.object);
+			surfaceObjects.push(this);
+		}
+	}
+	/**
+	* Resizes the box as needed
+	* @params {Array} data - array of data to load into the object.
+	*/
+	resize(newSize){
+		this.dimension = newSize;
+		var tempGeo = new THREE.BoxGeometry( newSize.x, newSize.y, newSize.z);
+		this.geo = new THREE.EdgesGeometry( tempGeo );
 	}
 }
 /**

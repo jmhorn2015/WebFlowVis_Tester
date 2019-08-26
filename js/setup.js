@@ -70,14 +70,6 @@ camera2.up = camera.up;
 var axesHelper = new THREE.AxesHelper( 5 );
 scene2.add( axesHelper );*/
 
-//box
-var geometry = new THREE.BoxGeometry( 10, 5, 10);
-var edge = new THREE.EdgesGeometry( geometry );
-var mat = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 2 } );
-var wireframe = new THREE.LineSegments( edge, mat );
-wireframe.name = "plane";
-scene.add( wireframe );
-
 //lights
 var light = new SRLight(scene);
 var light2 = new SRLight(scene);
@@ -92,7 +84,7 @@ light4.position(0,-10,10);
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, new SRMesh(scene, "Sphere"));
 
 AddVTKVolume('data/volume.vtk', sceneH);
-AddBoundingBox('data/outerbox.obj', sceneH);
+var BB = new SRBoundingBox(sceneH);
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);

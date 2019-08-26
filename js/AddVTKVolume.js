@@ -70,6 +70,21 @@ export function AddVTKVolume(name, sceneName){
 			var volumeTemp = new SRVolume(sceneName);
 			volumeTemp.position( -xLength / 2 - 0.5, -yLength / 2 - 0.5, -zLength / 2 - 0.5);
 			volumeTemp.updateMesh(meshtemp, sceneName);
+			
+			//bounding box
+			var tempArr;
+			if(sceneCheck){
+				tempArr = surfaceObjects;
+			}
+			else{
+				tempArr = volumeObjects;
+			}
+			for( var a = 0; a < tempArr.length; a++){
+				if(tempArr[a].object.name == "BoundingBox"){
+					tempArr[a].resize(new THREE.Vector3(xLength,yLength,zLength);
+					break;
+				}
+			}
 		},
 
         // onProgress callback
