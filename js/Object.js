@@ -423,7 +423,7 @@ class SRMesh extends SRObject{
 		sceneName.add(this.object);
 		this.generate2DNode();
 		if(!sceneCheck){
-			this.scale(32.5);
+			this.scale(32);
 			vObjects.push(this.object);
 			volumeObjects.push(this);
 			this.geo.translate(32.5,32.5,0);

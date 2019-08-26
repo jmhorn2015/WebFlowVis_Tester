@@ -93,7 +93,6 @@ GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, new SRMesh(scene, 
 
 //AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 AddVTKVolume('data/volume.vtk', sceneH);
-AddObject('data/surface.obj', sceneH);
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
