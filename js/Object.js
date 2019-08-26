@@ -425,7 +425,7 @@ class SRMesh extends SRObject{
 		surfaceObjects.push(this);
 		this.generate2DNode();
 		if(!sceneCheck){
-			this.scale(20);
+			this.scale(35);
 		}
 	};
 	/**
