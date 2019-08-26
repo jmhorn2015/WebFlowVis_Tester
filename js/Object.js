@@ -555,6 +555,7 @@ class SRBoundingBox extends SRMesh{
 		var tempGeo = new THREE.BoxGeometry( newSize.x, newSize.y, newSize.z);
 		this.geo = new THREE.EdgesGeometry( tempGeo );
 		this.object.geometry = this.geo;
+		this.position(newSize.x/2, newSize.y/2, newSize.z/2);
 	}
 }
 /**
