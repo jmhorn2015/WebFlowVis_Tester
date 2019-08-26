@@ -424,6 +424,9 @@ class SRMesh extends SRObject{
 		objects.push(this.object);
 		surfaceObjects.push(this);
 		this.generate2DNode();
+		if(!sceneCheck){
+			volumeObjects[volumeObjects.length - 1].scale(50);
+		}
 	};
 	/**
 	* Allows a local menu to show on the screen when the object is clicked on

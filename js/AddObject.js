@@ -25,9 +25,6 @@ function AddObject(name2, sceneName, isFile){
 					console.log("found");
 				}
 			}
-			if(!sceneCheck){
-				volumeObjects[volumeObjects.length - 1].scale(50);
-			}
     	} );
 		loading = false;
 		},
