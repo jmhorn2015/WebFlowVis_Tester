@@ -421,11 +421,15 @@ class SRMesh extends SRObject{
 		this.origColor = "#" + mesh.material.color.getHexString();
 		this.objParams.Color = "#" + mesh.material.color.getHexString();
 		sceneName.add(this.object);
-		objects.push(this.object);
-		surfaceObjects.push(this);
 		this.generate2DNode();
 		if(!sceneCheck){
 			this.scale(32.5);
+			vObjects.push(this.object);
+			volumeObjects.push(this);
+		}
+		else{
+			objects.push(this.object);
+			surfaceObjects.push(this);
 		}
 	};
 	/**
