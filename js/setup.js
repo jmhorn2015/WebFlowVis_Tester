@@ -91,8 +91,8 @@ light4.position(0,-10,10);
 //objects
 GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, new SRMesh(scene, "Sphere"));
 
-//AddVolume("data/stent.nrrd", "data/cm_viridis.png", sceneH);
 AddVTKVolume('data/volume.vtk', sceneH);
+AddBoundingBox('data/outerbox.obj', sceneH);
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
