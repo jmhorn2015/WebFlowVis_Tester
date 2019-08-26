@@ -81,7 +81,7 @@ export function AddVTKVolume(name, sceneName){
 			}
 			for( var a = 0; a < tempArr.length; a++){
 				if(tempArr[a].object.name == "BoundingBox"){
-					tempArr[a].resize(new THREE.Vector3(xLength,yLength,zLength);
+					tempArr[a].resize(new THREE.Vector3(xLength,yLength,zLength));
 					break;
 				}
 			}
