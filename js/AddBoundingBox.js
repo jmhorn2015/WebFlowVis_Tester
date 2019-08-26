@@ -12,7 +12,7 @@ var loader = new THREE.FileLoader();
                  linedata.push(new THREE.Vector3(parseInt(line_values[ 1 ]), parseInt(line_values[ 2 ]), parseInt(line_values[ 3 ])));
                 }
             }        
-			var draw = new THREE.CatmullRomCurve3( lineData );
+			var draw = new THREE.CatmullRomCurve3( linedata );
 			extrudeSettings = {
 				steps: 40,
 				bevelEnabled: false,
