@@ -268,6 +268,7 @@ class SRMesh extends SRObject{
 	constructor(sceneName, shape){
 		super(sceneName);
 		this.objParams = {
+			oldScale: 1,
 			Scale: 1,
 			Opacity: 50,
 			Color: 0,
@@ -316,8 +317,14 @@ class SRMesh extends SRObject{
 	* @params {string} val - new scale size.
 	*/
 	scale(val){
-		console.log(this.objParams.Scale);
-		this.geo.scale(val,val,val);
+		var actValue = val - this.objParams.oldScale;
+		if(actValue >= 0){
+			this.geo.scale(actVal,actVal,actVal);
+		}
+		else{
+			this.geo.scale(1/-actVal,1/-actVal,1/-actVal);
+		}
+		this.objParams.oldScale = val;
 	}
 	/**
 	* Changes the material of the Mesh object.
