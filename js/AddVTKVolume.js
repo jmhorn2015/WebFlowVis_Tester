@@ -72,13 +72,7 @@ export function AddVTKVolume(name, sceneName){
 			volumeTemp.updateMesh(meshtemp, sceneName);
 			
 			//bounding box
-			var tempArr;
-			if(sceneCheck){
-				tempArr = surfaceObjects;
-			}
-			else{
-				tempArr = volumeObjects;
-			}
+			var tempArr = volumeObjects;
 			for( var a = 0; a < tempArr.length; a++){
 				if(tempArr[a].object.name == "BoundingBox"){
 					tempArr[a].resize(new THREE.Vector3(xLength,yLength,zLength));
