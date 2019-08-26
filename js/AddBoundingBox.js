@@ -36,5 +36,4 @@ var loader = new THREE.FileLoader();
             console.error( 'An error happened' );
         }
     );
-};
 }
