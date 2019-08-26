@@ -7,7 +7,8 @@ var loader = new THREE.FileLoader();
 		var linedata = [];
         for ( var i in lines ) {
             var line = lines[ i ];
-            if ( line.indexOf( 0 ) == 'v' ) {
+			console.log(line);
+            if ( line[0] == 'v' ) {
 				console.log(line);
 				var line_values = line.split( ' ' )
                  linedata.push(new THREE.Vector3(parseInt(line_values[ 1 ]), parseInt(line_values[ 2 ]), parseInt(line_values[ 3 ])));
