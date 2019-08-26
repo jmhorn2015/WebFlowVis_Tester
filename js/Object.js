@@ -426,7 +426,7 @@ class SRMesh extends SRObject{
 			this.scale(32.5);
 			vObjects.push(this.object);
 			volumeObjects.push(this);
-			this.position(32.5,32.5,0);
+			this.geo.translate(32.5,32.5,0);
 		}
 		else{
 			objects.push(this.object);
