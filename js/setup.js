@@ -240,6 +240,9 @@ function animate() {
 		AddObject('data/surface.obj', sceneH);
 		readySwitch = false;
 	}
+	else{
+		console.log(vObjects.length);
+	}
 	requestAnimationFrame( animate );
 	controls.update();
 	/*camera2.position.copy( camera.position );
