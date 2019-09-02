@@ -235,13 +235,10 @@ function animate() {
 	else{
 		$("#loading").removeClass('spinner-border');
 	}
-	if(vObjects.length == 4 & readySwitch){
+	if(vObjects.length == 1 & readySwitch){
 		switchViews();
 		AddObject('data/surface.obj', sceneH);
 		readySwitch = false;
-	}
-	else{
-		console.log(vObjects.length);
 	}
 	requestAnimationFrame( animate );
 	controls.update();
