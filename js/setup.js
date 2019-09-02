@@ -85,6 +85,8 @@ GenerateTACLines("data/pathlines.txt","data/tacs.txt", scene, new SRMesh(scene, 
 
 AddVTKVolume('data/volume.vtk', sceneH);
 var BB = new SRBoundingBox(sceneH);
+switchScenes();
+AddObject('data/surface.obj');
 
 //shadow plane
 var shadowPlane = new SRMesh(scene);
